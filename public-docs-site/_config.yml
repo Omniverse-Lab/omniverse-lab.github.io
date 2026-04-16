@@ -1,0 +1,36 @@
+# Jekyll config for the Omiverse Labs docs site.
+# GitHub Pages auto-builds this on every push to `main`.
+
+title: Omiverse Labs
+description: Privacy, terms, and support for Omiverse Labs apps.
+author: Omiverse Labs
+url: "https://omniverse-lab.github.io"
+# baseurl: ""   # empty -- repo is <username>.github.io
+
+theme: minima
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pretty folder URLs: /apps/mathdeck/privacy/
+permalink: pretty
+
+# Skip template and build artifacts from the published site
+exclude:
+  - README.md
+  - SETUP.md
+  - apps/_template/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .github/
+
+# Top-nav links. The site title/logo already links home, so
+# we don't add index.md here to avoid a duplicate "Omiverse Labs"
+# entry in the nav.
+header_pages:
+  - about.md
+  - contact.md
