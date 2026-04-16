@@ -1,0 +1,47 @@
+# Jekyll config for the Omiverse Labs public docs site.
+# GitHub Pages uses Jekyll by default when deploying from a branch.
+
+title: Omiverse Labs
+description: >-
+  Privacy policies, terms of use, and support pages for all
+  Omiverse Labs apps.
+author: Omiverse Labs
+url: "https://omiverselabs.github.io"   # change to custom domain if used
+# baseurl: "/omiverselabs-docs"         # uncomment if repo is NOT <user>.github.io
+
+# Use the default Pages-supported theme. 'minima' is the safe choice.
+theme: minima
+
+# Markdown and plugins supported by GitHub Pages
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Pretty URLs: /apps/mathdeck/privacy (trailing-slash folder index)
+permalink: pretty
+
+# Exclude template + build artifacts from the published site
+exclude:
+  - README.md
+  - SETUP.md
+  - apps/_template/
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .github/
+
+# Navigation (used by minima header)
+header_pages:
+  - index.md
+  - about.md
+  - contact.md
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
