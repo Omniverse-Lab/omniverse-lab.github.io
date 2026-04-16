@@ -4,143 +4,105 @@ title: TEMPLATE_APP_NAME · Privacy Policy
 permalink: /apps/TEMPLATE_APP_SLUG/privacy/
 ---
 
-**App name:** TEMPLATE_APP_NAME
-**Package / Bundle ID:** `TEMPLATE_PACKAGE`
-**Publisher:** Omiverse Labs
-**Contact:** [support@omiverselabs.com](mailto:support@omiverselabs.com)
 **Effective date:** YYYY-MM-DD
 **Last updated:** YYYY-MM-DD
+**Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 <!--
-Before publishing, go through every section and either keep it
-verbatim (if it applies) or REPLACE the section with honest
-detail. The template assumes a privacy-first, local-only app.
-If your new app collects ANY data (auth, analytics, ads, cloud
-sync, crash reports) you MUST rewrite Sections 1, 2, 3, 7, and
-the Data Safety appendix before publishing.
+Copy apps/_template/ to apps/<your-app-slug>/ and search-replace
+TEMPLATE_APP_NAME and TEMPLATE_APP_SLUG. Review each section
+before publishing. The template assumes an app that does not
+collect personal data. If your new app collects ANY information
+(accounts, analytics, ads, cloud sync, crash reports), rewrite
+the relevant sections to honestly describe what happens.
 -->
 
-## 1. Information We Collect
-
-TEMPLATE_APP_NAME does not collect, transmit, or store any
-personally identifiable information (PII) on any server we
-control. It does not create user accounts, profiles, or
-log-ins.
-
-The only data the app handles is created by you, stays on
-your device, and is used to deliver in-app functionality:
-
-| Category | What | Where | Why |
-|---|---|---|---|
-| _Replace_ | _Replace_ | _Local storage_ | _Replace_ |
-
-You can remove this data via the in-app controls, by clearing
-the app's storage in your device settings, or by uninstalling.
+> **In plain English:** TEMPLATE_APP_NAME does not collect,
+> upload, or sell your personal data. There are no accounts,
+> no ads, and no tracking.
 
 ---
 
-## 2. Information We Do Not Collect
+## What information we collect
 
-- Name, email, phone, address
-- Contacts, calendar, SMS, call logs
-- Photos, videos, media
-- Location (precise or approximate)
-- Microphone, camera
-- Device identifiers (Advertising ID, IMEI, MAC, serial)
-- Account credentials
-- Any analytics, telemetry, or crash-report payload
+**None that we can see.**
 
-No third-party SDKs for analytics, advertising, attribution,
-or crash reporting are bundled.
+TEMPLATE_APP_NAME does not collect your name, email, phone
+number, address, contacts, photos, location, or any other
+personal information. There is no sign-up, no profile, and no
+account.
+
+Anything the app remembers (settings, saved content, etc.)
+stays on your phone. We never receive it, see it, or store it
+anywhere else. You can remove it at any time by clearing the
+app's storage in your phone's settings or by uninstalling.
 
 ---
 
-## 3. Network Access
+## Information we do not collect
+
+- Your name, email, phone number, or address
+- Your contacts, calendar, messages, or call history
+- Your photos, videos, or any media
+- Your location
+- Your microphone or camera input
+- Device identifiers or advertising IDs
+- Account passwords or credentials
+- Any usage analytics, telemetry, or crash reports
+
+There are no advertising, analytics, or tracking tools built
+into the app.
+
+---
+
+## When TEMPLATE_APP_NAME uses the internet
 
 _Replace this section with the truth for your app. If the app
-makes zero network calls, say so. If it hits specific
-endpoints, list each one with purpose and payload._
+never connects to the internet, say so. If it does, describe
+briefly what it does, and confirm that no personal data is
+included in those requests._
 
 ---
 
-## 4. Permissions
+## Permissions
 
-| Permission | Why we request it |
-|---|---|
-| _e.g. `INTERNET`_ | _Reason_ |
-
-No runtime "dangerous" permissions are requested unless listed
-above.
+_List the permissions the app requests and why, in plain
+language. If the app asks for nothing beyond basic internet,
+say so._
 
 ---
 
-## 5. Children's Privacy
+## Children's privacy
 
-TEMPLATE_APP_NAME does not knowingly collect personal
-information from users under 13. We comply with COPPA and
-Google Play's Families policy.
-
----
-
-## 6. Data Security
-
-Data is stored in the application sandbox on your device.
-Network traffic (if any) uses HTTPS (TLS 1.2+). Release builds
-ship with code shrinking and obfuscation; debug logs are
-stripped.
-
-We do not operate a backend for TEMPLATE_APP_NAME and therefore
-do not hold personal data on any server.
+TEMPLATE_APP_NAME is suitable for all ages. Because we do not
+collect personal information from anyone, we do not knowingly
+collect personal information from children under 13.
 
 ---
 
-## 7. Third-Party Services
+## Your choices
 
-| Service | Role | Data shared |
-|---|---|---|
-| _None_ | _N/A_ | _N/A_ |
+Because TEMPLATE_APP_NAME does not collect personal data,
+there is no profile to access, correct, or delete on our end.
+Everything the app remembers is on your phone and you are in
+control of it.
 
-_If you add any SDK or service, update this table before the
-next release and re-submit the Data Safety form on Google Play
-/ equivalent on other stores._
-
----
-
-## 8. Data Retention and Deletion
-
-On-device data persists until you delete it in-app, clear the
-app's storage, or uninstall. There is no server-side retention
-because we do not operate a backend for this app.
+If you live in a region with privacy laws like GDPR or CCPA,
+those rights still apply — but since we hold no personal data
+about you, there is simply nothing to access or delete on our
+side.
 
 ---
 
-## 9. Your Rights
+## Changes to this policy
 
-Because we do not collect personal data, GDPR / CCPA / other
-privacy-law "data subject" rights apply only to on-device data,
-which is already under your direct control through the device
-operating system and the in-app controls.
-
----
-
-## 10. Changes to This Policy
-
-We may update this policy. The "Last updated" date at the top
-of this document reflects the most recent revision. Continued
-use of the app after an update means you accept the revised
-policy.
+If we ever change how the app handles information, we will
+update this policy and update the app version. The "Last
+updated" date above always reflects the most recent revision.
 
 ---
 
-## 11. Contact
+## Contact
 
-- **Email:** [support@omiverselabs.com](mailto:support@omiverselabs.com)
-- **Publisher:** Omiverse Labs
-
----
-
-## Appendix: Google Play Data Safety Summary
-
-- **Does this app collect or share any of the required user data types?** _No_
-- **Is all user data encrypted in transit?** _Yes, HTTPS only_
-- **Do you provide a way for users to request that their data be deleted?** _Yes -- clear storage or uninstall_
+Questions? Email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com).

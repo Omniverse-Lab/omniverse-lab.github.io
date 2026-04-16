@@ -97,4 +97,4 @@ conflict-of-laws rules.
 
 ## 9. Contact
 
-Questions about these Terms: [support@omiverselabs.com](mailto:support@omiverselabs.com)
+Questions about these Terms: [visualtales8@gmail.com](mailto:visualtales8@gmail.com)

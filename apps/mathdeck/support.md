@@ -6,63 +6,54 @@ permalink: /apps/mathdeck/support/
 
 ## Contact
 
-Email us at [support@omiverselabs.com](mailto:support@omiverselabs.com).
+Email [visualtales8@gmail.com](mailto:visualtales8@gmail.com).
 We try to reply within two business days.
 
-Please include:
+When reporting an issue, it helps if you mention:
 
-- Your Android version (Settings > About phone)
-- Your device model
-- MathDeck version (visible on the in-app Settings screen)
-- A clear description of what you saw vs. what you expected
-- Steps to reproduce, if possible
+- Your phone model
+- Your Android version
+- The MathDeck version (shown on the Settings screen)
+- What you saw and what you expected to see
 
 ## Frequently asked questions
 
-### Why does the app need internet permission?
+### Why does MathDeck need internet?
 
-Only to fetch public currency exchange rates when you open the
-**Currency Converter** screen. No user data is sent with that
-request. See the [Privacy Policy](../privacy/) for details.
+Only to update currency exchange rates when you open the
+Currency Converter. See the [Privacy Policy](../privacy/) for
+the full story.
 
-### Where is my history stored? Can it be exported?
+### Where is my calculation history stored?
 
-History is stored locally in a Room database on your device
-only. There is no cloud sync today. Uninstalling the app or
-clearing the app's storage deletes it.
+On your phone only. Nothing is uploaded or synced to the
+cloud. Clearing the app's storage or uninstalling removes it.
 
-### How do I switch calculator sets?
+### How do I change which calculators I see?
 
-Open **Settings > Profile** and pick Pro, Simple, or Custom.
-The Custom profile lets you pick exactly which calculator
-tiles appear on the dashboard.
+Open **Settings → Profile** and pick Pro, Simple, or Custom.
+The Custom option lets you choose exactly which calculators
+appear on the home screen.
 
-### Currency rates seem stale
+### The currency rates look old
 
-Pull to refresh inside the Currency Converter, or make sure
-you have an active internet connection. If the fetch fails,
-MathDeck falls back to the last cached rate set.
+Pull down to refresh inside the Currency Converter and make
+sure you have an internet connection. If the refresh fails,
+the app keeps using the last rates it had.
 
-### Graph Plotter crashes on `tan(x)`
+### Can I suggest a new calculator?
 
-Known: values near asymptotes can produce extreme numbers.
-Adjust the x-range if the plot is unstable on your device.
-Please report any reproducible crash with the info above.
+Yes, please do. Email us with what you'd like and how you'd
+use it.
 
-### I want to request a new calculator
-
-We welcome suggestions. Email us with your use case and, if
-possible, the formulas you want computed.
-
-## Privacy and data
+## Privacy and terms
 
 - [Privacy policy](../privacy/)
 - [Terms of use](../terms/)
 
-## Report a security issue
+## Reporting a security issue
 
-If you believe you have found a security vulnerability in
-MathDeck, please email
-[support@omiverselabs.com](mailto:support@omiverselabs.com)
-instead of opening a public issue. We will acknowledge receipt
-within 5 business days.
+If you believe you have found a security problem, please
+email [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
+instead of posting publicly. We will reply within a few
+business days.

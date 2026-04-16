@@ -7,15 +7,14 @@ permalink: /apps/mathdeck/
 A multi-purpose Android calculator with 16+ specialized modes,
 a retro 7-segment LCD display, and dark/light themes.
 
-- **Platform:** Android 8.0+ (API 26)
-- **Package:** `com.procalc.app`
+- Platform: Android
+- [Google Play listing](https://play.google.com/store/apps/details?id=com.procalc.app)
 
 ## Links
 
 - [Privacy policy](privacy/)
 - [Terms of use](terms/)
 - [Support](support/)
-- [Google Play listing](https://play.google.com/store/apps/details?id=com.procalc.app)
 
 ## What's included
 

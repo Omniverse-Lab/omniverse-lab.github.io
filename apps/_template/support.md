@@ -6,15 +6,15 @@ permalink: /apps/TEMPLATE_APP_SLUG/support/
 
 ## Contact
 
-Email [support@omiverselabs.com](mailto:support@omiverselabs.com).
+Email [visualtales8@gmail.com](mailto:visualtales8@gmail.com).
 We try to reply within two business days.
 
-Please include:
+When reporting an issue, it helps if you mention:
 
-- Your device model and OS version
-- TEMPLATE_APP_NAME version (visible on the in-app Settings screen)
-- A clear description of what you saw vs. what you expected
-- Steps to reproduce, if possible
+- Your phone model
+- Your operating system version
+- The TEMPLATE_APP_NAME version (shown on the Settings screen)
+- What you saw and what you expected to see
 
 ## Frequently asked questions
 
@@ -28,14 +28,14 @@ Answer.
 
 Answer.
 
-## Privacy and data
+## Privacy and terms
 
 - [Privacy policy](../privacy/)
 - [Terms of use](../terms/)
 
-## Report a security issue
+## Reporting a security issue
 
-If you believe you have found a security vulnerability, email
-[support@omiverselabs.com](mailto:support@omiverselabs.com)
-instead of opening a public issue. We will acknowledge receipt
-within 5 business days.
+If you believe you have found a security problem, please email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com)
+instead of posting publicly. We will reply within a few
+business days.

@@ -4,200 +4,116 @@ title: MathDeck · Privacy Policy
 permalink: /apps/mathdeck/privacy/
 ---
 
-**App name:** MathDeck
-**Package name:** `com.procalc.app`
-**Publisher:** Omiverse Labs
-**Contact:** [support@omiverselabs.com](mailto:support@omiverselabs.com)
 **Effective date:** 2026-04-16
 **Last updated:** 2026-04-16
+**Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
-This Privacy Policy describes how the MathDeck Android application
-("MathDeck", "the app", "we", "us", "our") handles information on
-your device. By using MathDeck you agree to the practices described
-here.
-
-> **Plain-English summary:** MathDeck is a calculator. It does not
-> collect, upload, or sell your personal data. The only network
-> request it makes is to a public currency exchange-rate service,
-> and only if you open the Currency Converter screen.
+> **In plain English:** MathDeck is a calculator. It does not
+> collect, upload, or sell your personal data. There are no
+> accounts, no ads, and no tracking. The only time MathDeck
+> goes online is to fetch currency exchange rates when you
+> open the Currency Converter.
 
 ---
 
-## 1. Information We Collect
+## What information we collect
 
-MathDeck does **not** collect, transmit, or store any personally
-identifiable information (PII) on any server controlled by us.
-MathDeck does **not** create user accounts, profiles, or log-ins.
+**None that we can see.**
 
-The only data the app handles is created by you, stays on your
-device, and is used purely to deliver in-app functionality:
+MathDeck does not collect your name, email, phone number,
+address, contacts, photos, location, or any other personal
+information. There is no sign-up, no profile, and no account.
 
-| Category | What | Where it lives | Why |
-|---|---|---|---|
-| Calculation history | Your past calculations (inputs, results, calculator mode, timestamp) | Local Room database | Lets you view, filter, and delete prior calculations in the History screen |
-| App preferences | Theme (light/dark), haptic & sound toggles, selected profile (Pro / Simple / Custom), visible calculator modes | Local DataStore / SharedPreferences | Remembers your settings between launches |
-| Cached currency rates | USD-base exchange rates from the last successful fetch and the fetch timestamp | Local SharedPreferences | Lets Currency Converter work offline after one successful refresh |
+The only data the app uses is the data you create while using
+it — your recent calculations, your settings (theme, sound,
+profile), and cached currency rates. All of this stays on your
+phone. We never receive it, see it, or store it anywhere else.
 
-You can remove all of this data at any time by:
-
-- Deleting individual entries from the in-app **History** screen, or
-- Using Android's **Settings > Apps > MathDeck > Storage > Clear storage / Clear data**, or
-- Uninstalling the app.
+You can remove this information at any time by clearing the
+app's history, clearing the app's storage from your phone's
+settings, or uninstalling MathDeck.
 
 ---
 
-## 2. Information We Do **Not** Collect
+## Information we do not collect
 
-We do not collect, and the app does not send, any of the following:
+We do not collect, receive, or share:
 
-- Name, email address, phone number, postal address
-- Contacts, calendar, call logs, SMS
-- Photos, videos, or any media from your device
-- Precise or approximate location
-- Microphone or camera input
-- Device identifiers (Advertising ID, IMEI, MAC address, serial)
-- Account credentials or passwords
-- Biometrics, health measurements, or fitness data entered into the
-  Health calculator (BMI, body metrics, etc. are computed locally
-  and are **not** transmitted)
-- Financial inputs (EMI, interest, ROI calculations stay on-device)
-- Any form of analytics, telemetry, or crash-report payload
+- Your name, email, phone number, or address
+- Your contacts, calendar, messages, or call history
+- Your photos, videos, or any media
+- Your location
+- Your microphone or camera input
+- Device identifiers or advertising IDs
+- Account passwords or credentials
+- Any health or body measurements entered into the Health
+  calculator — those are calculated on your phone and stay there
+- Any financial inputs (EMI, interest, ROI) — those stay on
+  your phone too
+- Any usage analytics, telemetry, or crash reports
 
-There are no third-party SDKs for analytics, advertising,
-attribution, or crash reporting bundled into MathDeck.
-
----
-
-## 3. Network Access
-
-MathDeck requests the Android `INTERNET` permission for **one
-purpose only**: fetching public currency exchange rates.
-
-| Aspect | Detail |
-|---|---|
-| Endpoint | `https://open.er-api.com/v6/latest/USD` |
-| Provider | Open Exchange Rates Open API (`er-api.com`) -- free, unauthenticated public endpoint |
-| When the call happens | Only when you open the Currency Converter screen and trigger a refresh |
-| What is sent | Nothing from you. No query parameters, cookies, headers, or identifiers are attached. Standard HTTPS TLS connection only. |
-| What is received | A JSON object of USD-based exchange rates |
-| Logging on our side | None -- we operate no backend |
-
-If you never open the Currency Converter, MathDeck makes **zero
-outbound network requests**.
-
-No request from MathDeck contains any user-generated content
-(calculator inputs, history entries, settings, etc.).
+There are no advertising, analytics, or tracking tools built
+into MathDeck.
 
 ---
 
-## 4. Permissions
+## When MathDeck uses the internet
 
-| Permission | Why we request it |
-|---|---|
-| `android.permission.INTERNET` | To fetch public currency exchange rates for the Currency Converter screen |
+MathDeck asks for internet access for one reason only: to
+fetch live currency exchange rates from a public rates service
+when you open the **Currency Converter**. That request is
+anonymous — no personal data, no identifiers, nothing about
+you is attached to it.
 
-MathDeck does **not** request any of the runtime "dangerous"
-permissions (location, camera, microphone, contacts, storage
-scoped outside its sandbox, SMS, phone, calendar, etc.).
-
----
-
-## 5. Children's Privacy
-
-MathDeck is suitable for general audiences, including users
-under 13. Because the app does not collect personal information
-from any user, it also does not knowingly collect personal
-information from children. We comply with the U.S. Children's
-Online Privacy Protection Act (COPPA) and Google Play's
-Families policy.
-
-If a parent or guardian believes their child has somehow
-provided us with personal information, please contact us and
-we will delete any records (noting that, by design, we do not
-hold any).
+If you never open the Currency Converter, MathDeck does not
+make any network requests at all.
 
 ---
 
-## 6. Data Security
+## Permissions
 
-Because MathDeck stores all user data locally on the device, its
-security is governed by Android's application sandbox:
-
-- Per-app private storage is isolated from other apps.
-- Network traffic for the one external endpoint is sent over
-  HTTPS (TLS 1.2+).
-- Release builds are compiled with R8 code shrinking and
-  obfuscation and signed with a production keystore.
-- Release builds have debug logging stripped; no verbose log
-  lines survive into production.
-
-We do not hold any personal data on a server, and therefore
-there is no server-side breach risk attributable to us.
+MathDeck asks for the **Internet** permission so the Currency
+Converter can update exchange rates. That is the only
+permission requested. MathDeck does not ask for access to your
+location, camera, microphone, contacts, or any other sensitive
+permission.
 
 ---
 
-## 7. Third-Party Services
+## Children's privacy
 
-| Service | Role | Data shared |
-|---|---|---|
-| `open.er-api.com` (Open Exchange Rates Open API) | Returns public USD-based exchange rates | None from the user. Only a standard anonymous HTTPS GET. |
-
-We do **not** integrate with advertising networks, analytics
-providers, crash reporters, A/B testing services, attribution
-SDKs, social-login providers, or any similar third-party
-services.
+MathDeck is suitable for users of all ages, including children
+under 13. Because we do not collect personal information from
+anyone, we do not knowingly collect personal information from
+children. If you believe a child has somehow provided us with
+personal information, please contact us and we will confirm
+that none exists.
 
 ---
 
-## 8. Data Retention and Deletion
+## Your choices
 
-- On-device data (history, settings, cached rates) persists
-  until you delete it via the in-app controls, clear the app's
-  storage from Android Settings, or uninstall the app.
-- Uninstalling MathDeck removes all data the app has stored.
-- Because we do not operate a backend, there is no server-side
-  retention or deletion request to make.
+Because MathDeck does not collect personal data, there is no
+profile to access, correct, or delete on our side. Everything
+the app remembers is on your phone, and you are in control of
+it through the app's own controls and your phone's settings.
 
----
-
-## 9. Your Rights
-
-Because MathDeck does not collect personal data, GDPR / CCPA /
-other privacy-law "data subject" rights (access, rectification,
-erasure, portability) apply only to on-device data, which is
-already under your direct control through the Android operating
-system and the in-app **History** and **Settings** screens.
-
-If you have any questions or concerns about your rights, email
-us at [support@omiverselabs.com](mailto:support@omiverselabs.com).
+If you live in a region with privacy laws like GDPR or CCPA,
+those rights still apply — but since we hold no personal data
+about you, there is simply nothing to access or delete on our
+side.
 
 ---
 
-## 10. Changes to This Policy
+## Changes to this policy
 
-We may update this policy from time to time. The "Last updated"
-date at the top of this document reflects the most recent
-revision. If we make material changes (for example, adding a
-new network service or analytics SDK), we will update the
-policy and bump the app's version. Continued use of MathDeck
-after an update means you accept the revised policy.
+If we ever change how the app handles information, we will
+update this policy and update the app version. The "Last
+updated" date above always reflects the most recent revision.
 
 ---
 
-## 11. Contact
+## Contact
 
-For any questions or concerns about this policy:
-
-- **Email:** [support@omiverselabs.com](mailto:support@omiverselabs.com)
-- **Publisher:** Omiverse Labs
-- **App listing:** [Google Play](https://play.google.com/store/apps/details?id=com.procalc.app)
-
----
-
-## Appendix: Google Play Data Safety Summary
-
-This app's Data Safety declaration on Google Play is:
-
-- **Does this app collect or share any of the required user data types?** **No**
-- **Is all user data encrypted in transit?** **Yes** (the only network request is HTTPS-only)
-- **Do you provide a way for users to request that their data be deleted?** **Yes** -- users can clear history in-app or uninstall to remove all data; no server-side data exists
+Questions? Email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com).

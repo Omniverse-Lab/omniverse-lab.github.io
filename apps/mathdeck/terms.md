@@ -57,12 +57,11 @@ independently.
 
 ## 3. Currency Exchange Rates
 
-The Currency Converter fetches public exchange rates from a
-third-party service (`open.er-api.com`). Rates are provided
-for reference only, are not continuous, and may differ from
-the rate your bank or payment processor will apply to any
-real transaction. We do not guarantee the availability,
-accuracy, or timeliness of this data.
+The Currency Converter shows exchange rates from a public
+third-party source. Rates are provided for reference only and
+may differ from the rate your bank or payment processor will
+apply to any real transaction. We do not guarantee that the
+rates will always be available, current, or accurate.
 
 ---
 
@@ -139,4 +138,4 @@ claim in your local courts.
 
 ## 10. Contact
 
-Questions about these Terms: [support@omiverselabs.com](mailto:support@omiverselabs.com)
+Questions about these Terms: [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
