@@ -12,12 +12,12 @@ Two options, pick one:
 
 | Option | Repo name | URL you get |
 |---|---|---|
-| **A. User/Org site** (cleanest) | `omiverselabs.github.io` | `https://omiverselabs.github.io/` |
-| **B. Project site** | `omiverselabs-docs` | `https://omiverselabs.github.io/omiverselabs-docs/` |
+| **A. User/Org site** (cleanest) | `omniverse-lab.github.io` | `https://omniverse-lab.github.io/` |
+| **B. Project site** | any other name, e.g. `docs` | `https://omniverse-lab.github.io/docs/` |
 
-Option A looks better in Play Console. Use it if the GitHub
-account/org name is `omiverselabs`. Option B works fine too;
-just uncomment `baseurl` in `_config.yml` to match the repo name.
+Option A looks better in Play Console and is what this repo
+already uses. Option B works fine too; just uncomment `baseurl`
+in `_config.yml` to match the project repo name.
 
 ---
 
@@ -103,9 +103,7 @@ cd apps/<new-app-slug>
 sed -i '' \
   -e 's/TEMPLATE_APP_NAME/My App/g' \
   -e 's/TEMPLATE_APP_SLUG/myapp/g' \
-  -e 's/TEMPLATE_PACKAGE/com.omiverselabs.myapp/g' \
   -e 's/TEMPLATE_PLATFORM/Android/g' \
-  -e 's/TEMPLATE_MIN_VERSION/Android 8.0+/g' \
   -e 's/TEMPLATE_SUMMARY/A short one-sentence description./g' \
   *.md
 
@@ -125,7 +123,7 @@ git push
 
 ## 7. Optional: custom domain
 
-If you own a domain (e.g. `omiverselabs.com`):
+If you own a domain (e.g. `example.com`):
 
 1. DNS: add a CNAME record (or four A records for apex) per
    [GitHub Pages docs](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).

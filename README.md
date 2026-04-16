@@ -13,8 +13,8 @@ Deployed URL (once GitHub Pages is enabled):
 `https://<github-username-or-org>.github.io/<repo-name>/`
 
 Recommended naming:
-- Repo: `omiverselabs-docs` (or name the repo
-  `<org>.github.io` to get a clean apex URL).
+- Repo: `<username>.github.io` (e.g. `omniverse-lab.github.io`)
+  so the site is served from a clean apex URL.
 - Pages source: **Deploy from a branch** -> `main` / root.
 
 ---
