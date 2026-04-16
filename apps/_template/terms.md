@@ -1,10 +1,8 @@
 ---
 layout: page
-title: TEMPLATE_APP_NAME - Terms of Use
+title: TEMPLATE_APP_NAME · Terms of Use
 permalink: /apps/TEMPLATE_APP_SLUG/terms/
 ---
-
-# Terms of Use -- TEMPLATE_APP_NAME
 
 **Effective date:** YYYY-MM-DD
 **Last updated:** YYYY-MM-DD

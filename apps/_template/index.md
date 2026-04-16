@@ -4,6 +4,8 @@ title: TEMPLATE_APP_NAME
 permalink: /apps/TEMPLATE_APP_SLUG/
 ---
 
+<!-- The layout already renders the title above; do not add a body H1. -->
+
 <!--
 ================================================================
 App template
@@ -22,8 +24,6 @@ the new slug. The _config.yml already uses `permalink: pretty`,
 so the URLs resolve to /apps/<slug>/privacy/ etc. automatically.
 ================================================================
 -->
-
-# TEMPLATE_APP_NAME
 
 TEMPLATE_SUMMARY
 

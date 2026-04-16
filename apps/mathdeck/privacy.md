@@ -1,10 +1,8 @@
 ---
 layout: page
-title: MathDeck - Privacy Policy
+title: MathDeck · Privacy Policy
 permalink: /apps/mathdeck/privacy/
 ---
-
-# Privacy Policy -- MathDeck
 
 **App name:** MathDeck
 **Package name:** `com.procalc.app`

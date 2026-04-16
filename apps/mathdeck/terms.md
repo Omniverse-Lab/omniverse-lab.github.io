@@ -1,10 +1,8 @@
 ---
 layout: page
-title: MathDeck - Terms of Use
+title: MathDeck · Terms of Use
 permalink: /apps/mathdeck/terms/
 ---
-
-# Terms of Use -- MathDeck
 
 **Effective date:** 2026-04-16
 **Last updated:** 2026-04-16

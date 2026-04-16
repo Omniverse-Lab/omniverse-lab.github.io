@@ -1,10 +1,8 @@
 ---
 layout: page
-title: TEMPLATE_APP_NAME - Support
+title: TEMPLATE_APP_NAME · Support
 permalink: /apps/TEMPLATE_APP_SLUG/support/
 ---
-
-# TEMPLATE_APP_NAME Support
 
 ## Contact
 

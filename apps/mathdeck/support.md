@@ -1,10 +1,8 @@
 ---
 layout: page
-title: MathDeck - Support
+title: MathDeck · Support
 permalink: /apps/mathdeck/support/
 ---
-
-# MathDeck Support
 
 ## Contact
 

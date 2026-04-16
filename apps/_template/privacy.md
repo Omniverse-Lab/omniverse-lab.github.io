@@ -1,10 +1,8 @@
 ---
 layout: page
-title: TEMPLATE_APP_NAME - Privacy Policy
+title: TEMPLATE_APP_NAME · Privacy Policy
 permalink: /apps/TEMPLATE_APP_SLUG/privacy/
 ---
-
-# Privacy Policy -- TEMPLATE_APP_NAME
 
 **App name:** TEMPLATE_APP_NAME
 **Package / Bundle ID:** `TEMPLATE_PACKAGE`

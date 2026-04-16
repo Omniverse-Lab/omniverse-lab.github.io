@@ -4,23 +4,20 @@ title: MathDeck
 permalink: /apps/mathdeck/
 ---
 
-# MathDeck
-
 A multi-purpose Android calculator with 16+ specialized modes,
-a retro 7-segment LCD display, and full dark/light themes.
+a retro 7-segment LCD display, and dark/light themes.
 
 - **Platform:** Android 8.0+ (API 26)
 - **Package:** `com.procalc.app`
-- **Publisher:** Omiverse Labs
 
-## Useful links
+## Links
 
 - [Privacy policy](privacy/)
 - [Terms of use](terms/)
 - [Support](support/)
 - [Google Play listing](https://play.google.com/store/apps/details?id=com.procalc.app)
 
-## What MathDeck includes
+## What's included
 
 - **Core:** Basic, Scientific, Date & Time
 - **Domain:** Accounting, Civil, Electrical, Physics, Business
