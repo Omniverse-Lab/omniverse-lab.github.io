@@ -8,7 +8,7 @@ A multi-purpose Android calculator with 16+ specialized modes,
 a retro 7-segment LCD display, and dark/light themes.
 
 - Platform: Android
-- [Google Play listing](https://play.google.com/store/apps/details?id=com.procalc.app)
+- [Google Play listing](https://play.google.com/store/apps/details?id=io.github.omniverse_lab.mathdeck)
 
 ## Links
 
