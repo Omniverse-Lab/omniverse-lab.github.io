@@ -35,6 +35,14 @@ Open **Settings → Profile** and pick Pro, Simple, or Custom.
 The Custom option lets you choose exactly which calculators
 appear on the home screen.
 
+### What is Tasks mode?
+
+MathDeck includes a simple Tasks (to-do) list alongside the
+calculator. Add tasks, check them off, and use the built-in
+per-task stopwatch to track how long each one takes. Switch
+between Calculator and Tasks from the top-right icon, or swipe.
+Your tasks are stored on your phone only — never uploaded.
+
 ### The currency rates look old
 
 Pull down to refresh inside the Currency Converter and make

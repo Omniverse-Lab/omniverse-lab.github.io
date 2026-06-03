@@ -5,11 +5,12 @@ permalink: /apps/mathdeck/privacy/
 ---
 
 **Effective date:** 2026-04-16
-**Last updated:** 2026-04-16
+**Last updated:** 2026-06-03
 **Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
-> **In plain English:** MathDeck is a calculator. It does not
-> collect, upload, or sell your personal data. There are no
+> **In plain English:** MathDeck is a calculator and a simple
+> to-do list. It does not collect, upload, or sell your personal
+> data — your tasks and history stay on your phone. There are no
 > accounts, no ads, and no tracking. The only time MathDeck
 > goes online is to fetch currency exchange rates when you
 > open the Currency Converter.
@@ -25,13 +26,14 @@ address, contacts, photos, location, or any other personal
 information. There is no sign-up, no profile, and no account.
 
 The only data the app uses is the data you create while using
-it — your recent calculations, your settings (theme, sound,
-profile), and cached currency rates. All of this stays on your
-phone. We never receive it, see it, or store it anywhere else.
+it — your recent calculations, your to-do tasks (including each
+task's stopwatch time), your settings (theme, sound, profile),
+and cached currency rates. All of this stays on your phone. We
+never receive it, see it, or store it anywhere else.
 
-You can remove this information at any time by clearing the
-app's history, clearing the app's storage from your phone's
-settings, or uninstalling MathDeck.
+You can remove this information at any time by clearing your
+history and tasks in the app, clearing the app's storage from
+your phone's settings, or uninstalling MathDeck.
 
 ---
 
@@ -50,6 +52,8 @@ We do not collect, receive, or share:
   calculator — those are calculated on your phone and stay there
 - Any financial inputs (EMI, interest, ROI) — those stay on
   your phone too
+- Any to-do tasks you create — those are stored on your phone
+  and stay there
 - Any usage analytics, telemetry, or crash reports
 
 There are no advertising, analytics, or tracking tools built

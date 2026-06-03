@@ -42,6 +42,12 @@ other domain-specific calculators (EMI, interest, Ohm's law,
 BMI, beam bending, etc.) are **not** a substitute for advice
 from a qualified professional.
 
+MathDeck also includes a simple **Tasks** (to-do) list for
+personal organization — a basic checklist with a per-task
+stopwatch. It does not send reminders, alarms, or
+notifications, so do not rely on it for time-critical
+reminders.
+
 Do not rely on MathDeck alone for:
 
 - Medical, nutritional, or fitness decisions
