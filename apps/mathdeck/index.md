@@ -4,10 +4,11 @@ title: MathDeck
 permalink: /apps/mathdeck/
 ---
 
-Two apps in one: a multi-purpose Android calculator with 16+
-specialized modes **plus** a simple Tasks to-do list with
-per-task stopwatches — in a retro 7-segment LCD theme with
-dark/light support and home-screen widgets.
+<section class="page-intro app-intro" aria-labelledby="mathdeck-title">
+	<p class="eyebrow">Android app</p>
+	<h2 id="mathdeck-title">MathDeck</h2>
+	<p>Two apps in one: a multi-purpose Android calculator with 16+ specialized modes plus a simple Tasks to-do list with per-task stopwatches. It uses a retro 7-segment LCD theme with dark/light support and home-screen widgets.</p>
+</section>
 
 - Platform: Android
 - [Google Play listing](https://play.google.com/store/apps/details?id=io.github.omniverse_lab.mathdeck)

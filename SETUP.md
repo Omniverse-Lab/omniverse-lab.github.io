@@ -1,8 +1,8 @@
 # SETUP -- Deploying the Public Docs Site
 
 One-time setup to turn this folder into a live GitHub Pages
-site that hosts privacy policies and support pages for every
-Omiverse Labs app.
+site that hosts the Omiverse Labs homepage, app catalog,
+privacy policies, terms, and support pages for every app.
 
 ---
 
@@ -70,7 +70,8 @@ at the top of that Settings page within 1-3 minutes.
 Open these in an Incognito window (important -- Play Console
 checks from an anonymous crawler, not your logged-in browser):
 
-- `<base-url>/` -- landing page with app list
+- `<base-url>/` -- company homepage
+- `<base-url>/apps/` -- app catalog
 - `<base-url>/apps/mathdeck/` -- MathDeck landing
 - `<base-url>/apps/mathdeck/privacy/` -- privacy policy
 - `<base-url>/apps/mathdeck/terms/` -- terms
@@ -110,7 +111,8 @@ sed -i '' \
 # Fix permalinks in every front-matter (they now point to
 # /apps/myapp/... automatically because we replaced the slug)
 
-# Add a row to the top-level apps table
+# Add the app to the catalog and optionally feature it on home
+$EDITOR ../../apps.md
 $EDITOR ../../index.md
 
 # Commit + push; Pages rebuilds
@@ -141,7 +143,8 @@ If you own a domain (e.g. `example.com`):
 - [ ] Privacy URL resolves (200) in Incognito
 - [ ] `<base-url>` matches `_config.yml > url` (+`baseurl` if project site)
 - [ ] Every app folder has `index.md`, `privacy.md`, `terms.md`, `support.md`
-- [ ] `index.md` at the root lists every app
+- [ ] `index.md` at the root presents the company homepage
+- [ ] `apps.md` lists every app
 - [ ] When adding an SDK / analytics / ads to any app,
       update that app's `privacy.md` BEFORE releasing the build
       and re-submit the Data Safety form

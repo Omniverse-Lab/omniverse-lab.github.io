@@ -1,9 +1,10 @@
 # Omiverse Labs -- Public Docs Site
 
-Public GitHub Pages site that hosts the privacy policies, terms
-of use, and support pages for every Omiverse Labs app. This
-repository is **public** on purpose so the URLs can be linked
-from Google Play Console, the App Store, and app listings.
+Public GitHub Pages site for Omiverse Labs. It hosts the
+company homepage, app catalog, privacy policies, terms of use,
+and support pages for every Omiverse Labs app. This repository
+is **public** on purpose so the URLs can be linked from Google
+Play Console, the App Store, and app listings.
 
 > Source code for each app lives in its own **private** repo
 > (e.g. `MathDeck-Android`). Only the public-facing policy and
@@ -25,7 +26,8 @@ Recommended naming:
 .
 |-- README.md              # this file
 |-- _config.yml            # Jekyll config (theme, nav)
-|-- index.md               # landing page, lists all apps
+|-- index.md               # company homepage
+|-- apps.md                # app catalog
 |-- about.md               # about Omiverse Labs
 |-- contact.md             # contact info
 |-- 404.md                 # custom 404
@@ -43,7 +45,7 @@ Recommended naming:
 |       |-- terms.md
 |       `-- support.md
 |
-|-- assets/                # logos, favicons, og images
+|-- assets/                # site styles, logos, favicons, og images
 `-- .github/
     `-- workflows/
         `-- pages.yml      # optional: build & deploy via Actions
@@ -56,7 +58,8 @@ Recommended naming:
 1. Duplicate `apps/_template/` to `apps/<new-app-slug>/`.
 2. Edit the four Markdown files, replacing the placeholders
    (search for `TEMPLATE_`).
-3. Add a link to the new app in `index.md`.
+3. Add a link to the new app in `apps.md` and the homepage
+   showcase in `index.md` if it should be featured.
 4. Commit & push. GitHub Pages rebuilds automatically on push
    to `main`.
 
