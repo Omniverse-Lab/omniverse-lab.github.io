@@ -5,7 +5,7 @@ permalink: /apps/mathdeck/privacy/
 ---
 
 **Effective date:** 2026-04-16
-**Last updated:** 2026-06-03
+**Last updated:** 2026-06-12
 **Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 > **In plain English:** MathDeck is a calculator and a simple
@@ -30,6 +30,12 @@ it — your recent calculations, your to-do tasks (including each
 task's stopwatch time), your settings (theme, sound, profile),
 and cached currency rates. All of this stays on your phone. We
 never receive it, see it, or store it anywhere else.
+
+If you add MathDeck's optional home-screen widgets (calculator
+shortcuts, or the today's-tasks widget with quick-add), they
+display that same on-device data directly on your home screen.
+Widgets do not send anything anywhere — they are simply another
+window into the data already on your phone.
 
 You can remove this information at any time by clearing your
 history and tasks in the app, clearing the app's storage from
@@ -76,10 +82,18 @@ make any network requests at all.
 
 ## Permissions
 
-MathDeck asks for the **Internet** permission so the Currency
-Converter can update exchange rates. That is the only
-permission requested. MathDeck does not ask for access to your
-location, camera, microphone, contacts, or any other sensitive
+MathDeck asks for two permissions, neither of which involves
+your personal data:
+
+- **Internet** — so the Currency Converter can update exchange
+  rates. Used for nothing else.
+- **Vibration** — so buttons can give a small haptic "click"
+  when you tap them. This happens entirely on your device and
+  involves no data at all. You can turn haptics off in the
+  app's settings.
+
+MathDeck does not ask for access to your location, camera,
+microphone, contacts, storage, or any other sensitive
 permission.
 
 ---

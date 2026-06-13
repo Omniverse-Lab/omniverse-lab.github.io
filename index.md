@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Omiverse Labs
+title: OmniVerse Labs
 permalink: /
 ---
 
@@ -8,7 +8,7 @@ permalink: /
 	<div class="hero-copy">
 		<p class="eyebrow">Independent app studio</p>
 		<h2 id="home-title">Focused apps with clear rules and private-by-default behavior.</h2>
-		<p class="hero-lede">Omiverse Labs builds practical mobile tools for calculation, learning, organization, and everyday productivity. Every app gets public privacy, terms, and support pages before it reaches users.</p>
+		<p class="hero-lede">OmniVerse Labs builds practical mobile tools for calculation, learning, organization, and everyday productivity. Every app gets public privacy, terms, and support pages before it reaches users.</p>
 		<div class="hero-actions">
 			<a class="button button-primary" href="apps/">Explore apps</a>
 			<a class="button button-secondary" href="contact/">Contact us</a>

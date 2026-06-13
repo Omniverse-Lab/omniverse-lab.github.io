@@ -1,7 +1,7 @@
 # SETUP -- Deploying the Public Docs Site
 
 One-time setup to turn this folder into a live GitHub Pages
-site that hosts the Omiverse Labs homepage, app catalog,
+site that hosts the OmniVerse Labs homepage, app catalog,
 privacy policies, terms, and support pages for every app.
 
 ---

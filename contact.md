@@ -7,7 +7,7 @@ permalink: /contact/
 <section class="page-intro" aria-labelledby="contact-page-title">
 	<p class="eyebrow">Contact</p>
 	<h2 id="contact-page-title">Support, privacy, and company inquiries.</h2>
-	<p>For questions, bug reports, privacy inquiries, or app store review requests, email Omiverse Labs directly.</p>
+	<p>For questions, bug reports, privacy inquiries, or app store review requests, email OmniVerse Labs directly.</p>
 </section>
 
 **[visualtales8@gmail.com](mailto:visualtales8@gmail.com)**
@@ -24,7 +24,7 @@ For app-specific help, use the Support link on that app's page when possible. In
 
 ## Privacy requests
 
-For privacy questions, include the app name and the country or region your request relates to. Most current Omiverse Labs apps are designed to avoid collecting personal data, but we will still review each request carefully.
+For privacy questions, include the app name and the country or region your request relates to. Most current OmniVerse Labs apps are designed to avoid collecting personal data, but we will still review each request carefully.
 
 ## App pages
 

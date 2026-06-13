@@ -43,6 +43,14 @@ per-task stopwatch to track how long each one takes. Switch
 between Calculator and Tasks from the top-right icon, or swipe.
 Your tasks are stored on your phone only — never uploaded.
 
+### How do I add the home-screen widgets?
+
+Long-press an empty spot on your home screen, choose
+**Widgets**, and look for **MathDeck**. There are two: a
+calculator shortcut widget and a today's-tasks widget with
+quick-add. Both show only data already on your phone — see the
+[Privacy Policy](../privacy/).
+
 ### The currency rates look old
 
 Pull down to refresh inside the Currency Converter and make

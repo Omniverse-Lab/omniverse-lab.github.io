@@ -1,8 +1,8 @@
-# Omiverse Labs -- Public Docs Site
+# OmniVerse Labs -- Public Docs Site
 
-Public GitHub Pages site for Omiverse Labs. It hosts the
+Public GitHub Pages site for OmniVerse Labs. It hosts the
 company homepage, app catalog, privacy policies, terms of use,
-and support pages for every Omiverse Labs app. This repository
+and support pages for every OmniVerse Labs app. This repository
 is **public** on purpose so the URLs can be linked from Google
 Play Console, the App Store, and app listings.
 
@@ -28,7 +28,7 @@ Recommended naming:
 |-- _config.yml            # Jekyll config (theme, nav)
 |-- index.md               # company homepage
 |-- apps.md                # app catalog
-|-- about.md               # about Omiverse Labs
+|-- about.md               # about OmniVerse Labs
 |-- contact.md             # contact info
 |-- 404.md                 # custom 404
 |

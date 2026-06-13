@@ -9,7 +9,7 @@ permalink: /apps/TEMPLATE_APP_SLUG/terms/
 
 These Terms of Use ("Terms") govern your use of the
 TEMPLATE_APP_NAME application (the "app") published by
-Omiverse Labs. By downloading, installing, or using the app,
+OmniVerse Labs. By downloading, installing, or using the app,
 you agree to these Terms.
 
 ---
@@ -48,7 +48,7 @@ OR NON-INFRINGEMENT.
 
 ## 4. Limitation of Liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OMIVERSE
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OMNIVERSE
 LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
 CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS,
 REVENUES, DATA, OR GOODWILL, ARISING FROM OR RELATED TO YOUR
@@ -90,7 +90,7 @@ Sections 2-4, 8, and 9 survive termination.
 ## 8. Governing Law
 
 These Terms are governed by the laws of the jurisdiction in
-which Omiverse Labs is established, without regard to its
+which OmniVerse Labs is established, without regard to its
 conflict-of-laws rules.
 
 ---

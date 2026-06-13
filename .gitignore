@@ -19,3 +19,6 @@ Thumbs.db
 *.iml
 *.swp
 *~
+
+# Local tooling artifacts
+ruvector.db

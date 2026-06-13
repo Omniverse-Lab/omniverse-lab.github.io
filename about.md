@@ -5,9 +5,9 @@ permalink: /about/
 ---
 
 <section class="page-intro" aria-labelledby="about-title">
-	<p class="eyebrow">About Omiverse Labs</p>
+	<p class="eyebrow">About OmniVerse Labs</p>
 	<h2 id="about-title">A small studio for practical, privacy-conscious apps.</h2>
-	<p>Omiverse Labs builds focused mobile tools for everyday calculation, learning, organization, and productivity. The work is guided by a simple idea: useful software should be understandable, respectful, and easy to trust.</p>
+	<p>OmniVerse Labs builds focused mobile tools for everyday calculation, learning, organization, and productivity. The work is guided by a simple idea: useful software should be understandable, respectful, and easy to trust.</p>
 </section>
 
 <section class="feature-list" aria-labelledby="what-we-make-title">
@@ -32,7 +32,7 @@ permalink: /about/
 <section class="section-band" aria-labelledby="standards-title">
 	<p class="eyebrow">Standards</p>
 	<h2 id="standards-title">Every app should explain itself.</h2>
-	<p>For every release, Omiverse Labs publishes an app overview, privacy policy, terms of use, and support page. If an app needs permissions, network access, ads, analytics, accounts, or cloud features, its documents should say so plainly.</p>
+	<p>For every release, OmniVerse Labs publishes an app overview, privacy policy, terms of use, and support page. If an app needs permissions, network access, ads, analytics, accounts, or cloud features, its documents should say so plainly.</p>
 </section>
 
 Questions are welcome through [Contact](../contact/).

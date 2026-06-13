@@ -6,7 +6,7 @@ permalink: /apps/
 
 <section class="page-intro" aria-labelledby="apps-page-title">
   <p class="eyebrow">App catalog</p>
-  <h2 id="apps-page-title">All Omiverse Labs apps</h2>
+  <h2 id="apps-page-title">All OmniVerse Labs apps</h2>
   <p>Each app has a dedicated landing page plus permanent public URLs for privacy, terms, and support. These links are intended for users, app store listings, and review teams.</p>
 </section>
 

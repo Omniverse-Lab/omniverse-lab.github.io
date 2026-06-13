@@ -5,11 +5,11 @@ permalink: /apps/mathdeck/terms/
 ---
 
 **Effective date:** 2026-04-16
-**Last updated:** 2026-04-16
+**Last updated:** 2026-06-12
 
 These Terms of Use ("Terms") govern your access to and use of
 the MathDeck Android application (the "app") published by
-Omiverse Labs ("we", "us", "our"). By downloading, installing,
+OmniVerse Labs ("we", "us", "our"). By downloading, installing,
 or using MathDeck you agree to these Terms.
 
 ---
@@ -44,7 +44,8 @@ from a qualified professional.
 
 MathDeck also includes a simple **Tasks** (to-do) list for
 personal organization — a basic checklist with a per-task
-stopwatch. It does not send reminders, alarms, or
+stopwatch, and an optional home-screen widget that shows your
+open tasks. It does not send reminders, alarms, or
 notifications, so do not rely on it for time-critical
 reminders.
 
@@ -85,7 +86,7 @@ CASE.
 
 ## 5. Limitation of Liability
 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OMIVERSE
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OMNIVERSE
 LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
 CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS,
 REVENUES, DATA, OR GOODWILL, ARISING FROM OR RELATED TO YOUR
@@ -134,7 +135,7 @@ Sections 2-5, 9, and 10 survive termination.
 ## 9. Governing Law
 
 These Terms are governed by the laws of the jurisdiction in
-which Omiverse Labs is established, without regard to its
+which OmniVerse Labs is established, without regard to its
 conflict-of-laws rules. Disputes shall be resolved in the
 courts of that jurisdiction, except where applicable consumer
 protection law grants you a non-waivable right to bring a
