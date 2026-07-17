@@ -29,6 +29,25 @@ permalink: /apps/
       <a href="mathdeck/support/">Support</a>
     </div>
   </article>
+
+  <article class="app-card">
+    <div>
+      <p class="app-kicker">Android</p>
+      <h2><a href="recall/">ReCall</a></h2>
+      <p>Turns your phone's call log into on-device insights: talk-time stats, most-called people, activity heatmaps, and trends — computed entirely on your phone.</p>
+    </div>
+    <div class="app-meta-list">
+      <span>Fully offline</span>
+      <span>No ads</span>
+      <span>No tracking</span>
+    </div>
+    <div class="app-links" aria-label="ReCall links">
+      <a href="recall/">Overview</a>
+      <a href="recall/privacy/">Privacy</a>
+      <a href="recall/terms/">Terms</a>
+      <a href="recall/support/">Support</a>
+    </div>
+  </article>
 </section>
 
 <section class="section-band compact" aria-labelledby="new-apps-title">
