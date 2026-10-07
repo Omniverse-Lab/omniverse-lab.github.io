@@ -4,7 +4,7 @@ title: ReCall · Terms of Use
 permalink: /apps/recall/terms/
 ---
 
-**Effective date:** 2026-07-16
+**Effective date:** 2026-07-16<br>
 **Last updated:** 2026-10-07
 
 These Terms of Use ("Terms") govern your access to and use of

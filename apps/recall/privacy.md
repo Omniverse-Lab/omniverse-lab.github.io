@@ -4,10 +4,10 @@ title: ReCall · Privacy Policy
 permalink: /apps/recall/privacy/
 ---
 
-**Effective date:** 2026-07-16
-**Last updated:** 2026-10-07
-**Applies to:** ReCall for Android (`io.github.omniverse_lab.recall`)
-**Publisher:** OmniVerse Labs
+**Effective date:** 2026-07-16<br>
+**Last updated:** 2026-10-07<br>
+**Applies to:** ReCall for Android (`io.github.omniverse_lab.recall`)<br>
+**Publisher:** OmniVerse Labs<br>
 **Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 > **The short version:** ReCall is a phone app. It places and
