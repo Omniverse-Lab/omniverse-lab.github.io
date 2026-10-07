@@ -34,10 +34,10 @@ permalink: /apps/
     <div>
       <p class="app-kicker">Android</p>
       <h2><a href="recall/">ReCall</a></h2>
-      <p>Turns your phone's call log into on-device insights: talk-time stats, most-called people, activity heatmaps, and trends — computed entirely on your phone.</p>
+      <p>A private phone app: dial and answer calls, real-time recents, contacts and favorites, with summaries of your own calls kept on your phone.</p>
     </div>
     <div class="app-meta-list">
-      <span>Fully offline</span>
+      <span>Default phone app</span>
       <span>No ads</span>
       <span>No tracking</span>
     </div>
