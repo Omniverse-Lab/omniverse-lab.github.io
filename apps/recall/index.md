@@ -11,7 +11,7 @@ permalink: /apps/recall/
 </section>
 
 - Platform: Android 10 or later, on a phone that can make calls
-- Version: 1.1.0
+- Version: 1.1.0 (coming soon)
 - Store listing: _coming soon_
 
 ## Links
@@ -22,7 +22,7 @@ permalink: /apps/recall/
 
 ## Your phone app
 
-- **Dialing** — a keypad with as-you-type formatting, key tones, suggestions from your contacts and recents, and paste. Long-press 0 for `+` and 1 for voicemail. On a dual-SIM phone, choose the SIM for each call. A phone number tapped in another app opens the keypad with the number filled in; ReCall never calls until you press Call.
+- **Dialing** — a keypad with as-you-type formatting, key tones, suggestions from your contacts and recents, and paste. Long-press 0 for `+` and 1 for voicemail. On a dual-SIM phone with no default SIM for calls, ReCall asks which SIM to use. A phone number tapped in another app opens the keypad with the number filled in; ReCall never calls until you press Call.
 - **Answering** — incoming calls fill the screen, on the lock screen too, or show as a notification while you are using your phone. Answer or decline from either.
 - **In a call** — mute, speaker, the keypad for phone menus, hold, and your choice of audio: the earpiece, the speaker, a wired headset or Bluetooth. The screen turns off when you hold the phone to your ear.
 - **Call waiting** — answer a second call while the first waits on hold, or end the first and answer. Swap between two calls, or add a call.
