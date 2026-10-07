@@ -190,12 +190,15 @@ permission they read your call log and contacts and showed
 statistics about your calls. They worked the same way on privacy,
 entirely on your phone, with no internet permission, no account
 and no advertising or analytics SDK. They also let you export
-your calls as a CSV file or share a statistics image, only when
-you chose to; 1.1.0 removed both. The first time 1.1.0 starts, it
-deletes what earlier versions stored from your calls, including
-notes, favorites and any export or image files left in ReCall's
-storage, because ReCall now keeps nothing from your calls unless
-it is your phone app.
+your calls as a CSV file, or share an image of one contact's
+call statistics with that contact's name and photo, only when
+you chose to; 1.1.0 removed both. The weekly recap image, which
+earlier versions also offered, is now the only image ReCall
+shares. The first time 1.1.0 starts, it deletes what earlier
+versions stored from your calls, including notes, favorites and
+any export or image files left in ReCall's storage, because
+ReCall now keeps nothing from your calls unless it is your phone
+app.
 
 ---
 
