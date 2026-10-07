@@ -5,7 +5,7 @@ permalink: /apps/recall/terms/
 ---
 
 **Effective date:** 2026-07-16
-**Last updated:** 2026-07-16
+**Last updated:** 2026-10-07
 
 These Terms of Use ("Terms") govern your access to and use of
 the ReCall Android application (the "app") published by
@@ -34,41 +34,61 @@ You may not:
 
 ---
 
-## 2. Informational Tool Only
+## 2. Phone App and Call Summaries
 
-ReCall is an informational tool. It reads the call log and
-contacts already stored on your device — with your permission —
-and presents that information as statistics, charts, and
-auto-generated insights. The app only displays information that
-is already present on your device; it does not create, record,
-or modify your call history.
+ReCall is a phone (dialer) app. It works only while it is your
+default phone app, which you choose in Android's own dialog and
+can change at any time in your phone's settings. ReCall places
+and answers calls through Android's calling service and your
+mobile carrier; it does not provide phone service itself. Whether
+a call connects, its quality, and any charges for it depend on
+your phone, your SIM, your carrier and the network.
 
-The accuracy and completeness of the analytics depend entirely
-on your device's call log. If your call log is incomplete,
-has been cleared, or is limited by your device or carrier, the
-statistics will reflect that. Do **not** rely on ReCall as an
-authoritative record of your calls — for billing disputes,
-legal matters, or any other decision where an exact call record
-matters, refer to your carrier's official records. You are
-responsible for verifying any critical figure independently.
+ReCall places emergency calls through Android's calling service,
+like any other call, but we cannot guarantee that any call,
+including an emergency call, will connect. If a call does not go
+through, use your phone's own emergency call option, such as the
+Emergency call button on the lock screen, which is part of
+Android, not ReCall.
+
+Some actions change data outside ReCall and cannot be undone.
+Deleting calls, deleting a number's call history, or using
+**Clear call history** removes those calls from your phone's call
+log for every app, not only from ReCall. Blocking or unblocking a
+number changes Android's own blocked-numbers list. You are
+responsible for the changes you make.
+
+The call summaries (Overview, Insights, Timeline, Top people and
+call details) are informational. They are worked out from the
+call log already stored on your phone, so their accuracy and
+completeness depend entirely on it. If your call log is
+incomplete, has been cleared, or is limited by your device or
+carrier, the summaries will reflect that. Do **not** rely on
+ReCall as an authoritative record of your calls — for billing
+disputes, legal matters, or any other decision where an exact
+call record matters, refer to your carrier's official records.
+You are responsible for verifying any critical figure
+independently.
 
 ---
 
-## 3. Your Data and Exports
+## 3. Your Data and Sharing
 
-ReCall works only after you grant it access to your call log
-and contacts on the onboarding screen, and everything it
-computes stays in a private database on your phone. You can
-revoke these permissions at any time in Android settings (the
-app will then be unable to show analytics), and you can delete
-all app data by clearing the app's storage or uninstalling.
+ReCall reads your call log and contacts only while it is your
+default phone app, and everything it stores stays in its private
+storage on your phone. When you choose another phone app, or turn
+off its Call logs or Contacts permission, ReCall stops reading
+your calls and deletes everything it stored from them, including
+your notes and favorites. You can also delete it at any time with
+**Delete all ReCall data** in **Settings → Data & privacy**, or by
+uninstalling the app.
 
-The app lets you export your statistics as a CSV file or share
-a text summary. These actions are entirely user-initiated: data
-leaves your device only when you choose to export or share it,
-and only to the app or destination you pick. You are
-responsible for what you share and with whom once data leaves
-the app this way.
+ReCall has no export. Data leaves ReCall only when you choose to
+share it, and only to the app you pick: a single number you copy,
+message, call back or save to your contacts, or your weekly recap
+image, which holds only your own totals and, if you set one, your
+own profile name and photo. You are responsible for what you
+share and with whom once data leaves the app this way.
 
 ---
 
@@ -78,9 +98,9 @@ THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT
 WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
 LIMITED TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
 OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE
-UNINTERRUPTED, ERROR-FREE, OR FREE FROM DEFECTS, OR THAT THE
-STATISTICS AND INSIGHTS WILL BE ACCURATE OR COMPLETE FOR YOUR
-SPECIFIC USE CASE.
+UNINTERRUPTED, ERROR-FREE, OR FREE FROM DEFECTS, THAT ANY CALL
+WILL CONNECT, OR THAT THE CALL SUMMARIES WILL BE ACCURATE OR
+COMPLETE FOR YOUR SPECIFIC USE CASE.
 
 ---
 
@@ -105,8 +125,8 @@ liability is limited to the greatest extent permitted by law.
 
 Your use of ReCall is also governed by our
 [Privacy Policy](../privacy/). Because ReCall has no internet
-access and never transmits anything, there is no server-side
-account or profile tied to you.
+access and sends nothing to us, there is no server-side account
+or profile tied to you.
 
 ---
 
