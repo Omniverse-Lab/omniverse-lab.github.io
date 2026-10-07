@@ -5,158 +5,208 @@ permalink: /apps/recall/privacy/
 ---
 
 **Effective date:** 2026-07-16
-**Last updated:** 2026-07-16
+**Last updated:** 2026-10-07
+**Applies to:** ReCall for Android (`io.github.omniverse_lab.recall`)
+**Publisher:** OmniVerse Labs
 **Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
-> **In plain English:** ReCall turns your phone's call log into
-> charts and stats, entirely on your phone. The app has no
-> internet access at all, so it is technically incapable of
-> uploading anything — your call history, contacts, and stats
-> never leave your device unless you yourself choose to export
-> or share them. There are no accounts, no ads, and no
-> tracking.
+> **The short version:** ReCall is a phone app. It places and
+> answers your calls, and shows your recent calls, your contacts
+> and summaries of your own calls. As your default phone app,
+> Android gives ReCall access to your call log, contacts and
+> phone. Everything stays on this device. ReCall has no internet
+> access. If you switch to another phone app, ReCall stops
+> reading your calls and deletes everything it stored from them,
+> including your notes and favorites.
+>
+> ReCall has no account, no ads, no analytics SDK and no export.
+> Nothing leaves your phone unless you choose to share it: a
+> single number you hand to another app, or your weekly recap
+> image.
 
 ---
 
-## What information we collect
+## What ReCall accesses, and why
 
-**None.**
+Android grants the call log, contacts, phone and notification
+permissions when you make ReCall your default phone app, and it
+allows full-screen calls for calling apps unless you turn them
+off. ReCall never asks for any of them before that. If you turn
+one off in Android's settings while ReCall is still your phone
+app, ReCall asks for it again. When you choose another phone app,
+ReCall stops using all of them at once, even any that Android
+leaves granted.
 
-ReCall does not collect, receive, or transmit your name, email,
-phone number, contacts, call history, or any other personal
-information. There is no sign-up, no account, and no server on
-our side — we have nowhere to send your data even if we wanted
-to.
+- **Call log** (`READ_CALL_LOG`) — to show your recent calls,
+  call details, missed calls and the summaries of your own calls
+  (Overview, Insights and Timeline).
+- **Changes to the call log** (`WRITE_CALL_LOG`) — to mark missed
+  calls as seen once you have looked at them, so the missed-call
+  alert clears, and to delete calls when you ask: a row in
+  Recents, a number's history, or your whole call history.
+- **Contacts** (`READ_CONTACTS`) — to show callers' names and
+  photos, your contacts list and search, and your favorites.
+  ReCall never changes your contacts.
+- **Phone** (`CALL_PHONE`, `READ_PHONE_STATE`) — to place calls,
+  choose a SIM, and learn when a call was missed.
+- **Your calls while they happen** — to show who is calling and
+  let you answer, hold, mute and end calls. Android connects only
+  the default phone app to your calls.
+- **Notifications and full-screen calls** (`POST_NOTIFICATIONS`,
+  `USE_FULL_SCREEN_INTENT`) — to show incoming calls (on the lock
+  screen too), the call in progress and missed calls. On a lock
+  screen that hides sensitive notification content, a missed-call
+  alert shows only how many calls you missed.
+- **Android's blocked numbers** — to block and unblock a number
+  when you ask. The list belongs to Android, not to ReCall.
 
-Here is what the app works with, all of it on your phone only:
-
-- **Your call log** — read (with your permission) to compute
-  your stats: call totals, talk time, most-called contacts,
-  time-of-day patterns, and trends.
-- **Your contacts** — read (with your permission) only to show
-  names and photos next to the numbers in your stats.
-- **A private database of call statistics** — stored on your
-  phone so your charts load quickly.
-- **Your settings** — theme and other preferences.
-- **An optional profile** — a name, date of birth, and photo
-  you may fill in under Settings if you want to. It is entirely
-  optional and, like everything else, stays on your phone.
-
-We never receive, see, or store any of this anywhere else.
-
-ReCall's local data is also **excluded from Google cloud
-backups and device-to-device transfers**, so your call
-statistics are never copied to backup servers either.
-
----
-
-## Information we do not collect
-
-We do not collect, receive, or share:
-
-- Your name, email, phone number, or address
-- Your call history or call statistics — those are read and
-  computed on your phone and stay there
-- Your contacts — those are read on your phone and stay there
-- The optional profile (name, date of birth, photo) you may
-  add in Settings — that stays on your phone too
-- Your photos, videos, or any media
-- Your location
-- Your microphone or camera input
-- Device identifiers or advertising IDs
-- Account passwords or credentials
-- Any usage analytics, telemetry, or crash reports
-
-There are no advertising, analytics, or tracking tools built
-into ReCall, and no third-party software that phones home.
+ReCall does not record calls and cannot listen to them: it has no
+microphone permission.
 
 ---
 
-## When ReCall uses the internet
+## On this phone only
 
-**Never.** ReCall does not ask for internet access at all. The
-app has no permission to make network requests, which means it
-is technically incapable of uploading, syncing, or sending
-anything — to us or to anyone else. Every chart and every
-insight is computed locally on your phone.
+ReCall reads, stores and summarizes everything on your phone. It
+has no server and no account. It does not request Android's
+`INTERNET` permission, so it cannot send anything over the
+internet. It contains no advertising, analytics or
+crash-reporting SDK, and it does not use an advertising ID.
+OmniVerse Labs never receives any of your data. There is no
+export.
 
----
-
-## When data leaves your phone
-
-Only when **you** send it. ReCall lets you export your
-statistics as a CSV file or share a text summary. Both actions
-start with a tap from you, and you pick exactly where the data
-goes — an email, a messaging app, a file on your phone,
-wherever you choose. ReCall itself never transmits anything,
-and nothing is shared without you explicitly doing it.
+ReCall's typefaces come from the font service of Google Play
+services on your phone. ReCall asks it for a font by name and
+tells it nothing about you.
 
 ---
 
-## Permissions
+## When something leaves your phone
 
-ReCall asks for two permissions, both on a clear onboarding
-screen before it shows you anything:
+Only when you choose to, and only to the app you pick:
 
-- **Call log** — to read your call history (numbers, call
-  times, durations, and call types) so it can compute your
-  stats. Used for nothing else.
-- **Contacts** — to match phone numbers to the names and
-  photos of people you know, so your stats show "Mom" instead
-  of a raw number. Used for nothing else.
+- **Copy number** (in Recents) puts one phone number on
+  Android's clipboard, where the app you paste it into can read
+  it.
+- **Message** (on a missed-call alert) opens your messaging app
+  with that number filled in.
+- **Call back** (on a missed-call alert) calls that number
+  through Android's phone service, like any call you place.
+- **Create new contact** and **Add to existing contact** open
+  your contacts app with that number filled in. You decide there
+  whether to save it.
+- **Share weekly recap** turns your own weekly totals into an
+  image: your weekly score and its change, your calls this week
+  and your talk time, with the profile name and photo you gave
+  ReCall, if any. It never shows a contact's name, number or
+  photo. ReCall makes the image only when you tap Share weekly
+  recap, and hands it only to the app you pick in Android's share
+  sheet. Apart from the single-number actions above, it is the
+  only thing ReCall shares.
 
-ReCall does not ask for access to your location, camera,
-microphone, or any other sensitive permission — and, again, it
-has no internet access.
-
-You can revoke either permission at any time in your phone's
-settings (Settings → Apps → ReCall → Permissions). Without
-them the app simply cannot show your analytics, and it will
-guide you back to the permission screen.
-
----
-
-## Children's privacy
-
-ReCall is not directed at children under 13. Because we do not
-collect personal information from anyone, we do not knowingly
-collect personal information from children. If you believe a
-child has somehow provided us with personal information,
-please contact us and we will confirm that none exists.
+Once you hand something to another app, that app's own privacy
+policy applies.
 
 ---
 
-## Your choices
+## What ReCall stores on your phone
 
-Because ReCall does not collect personal data, there is no
-profile to access, correct, or delete on our side. Everything
-the app remembers is on your phone, and you are in control of
-it:
+All of it stays in ReCall's private app storage, which other
+apps cannot read:
 
-- **Revoke access** — turn off the Call log or Contacts
-  permission in your phone's settings at any time.
-- **Delete everything** — clear the app's storage from your
-  phone's settings, or uninstall ReCall. Either removes the
-  local database, your settings, and the optional profile.
-- **Read it in the app** — the **Data & privacy** screen in
-  Settings explains all of this on your phone too.
-
-If you live in a region with privacy laws like GDPR or CCPA,
-those rights still apply — but since we hold no personal data
-about you, there is simply nothing to access or delete on our
-side.
+- **A copy of your call log** and of your contacts' names and
+  numbers, so your recents and summaries open quickly. ReCall
+  rebuilds it from your phone whenever it needs to.
+- **Your notes, labels and favorites**, kept by phone number. The
+  numbers come from your call log and your contacts.
+- **An activity journal** of up to 500 of your recent actions in
+  ReCall, such as opening the app or changing a setting. It holds
+  no names and no phone numbers.
+- **Your settings**: the theme, display preferences, and the
+  profile name, date of birth and photo you choose to add. ReCall
+  keeps its own copy of the photo.
+- **Your latest weekly recap image**, in ReCall's cache, once you
+  have shared it. Your next share replaces it.
 
 ---
 
-## Changes to this policy
+## How long ReCall keeps it
 
-If we ever change how the app handles information, we will
-update this policy and update the app version. The "Last
-updated" date above always reflects the most recent revision.
+Everything ReCall stored from your call log and contacts (the
+copies, the activity journal, your notes, labels and favorites,
+and any recap image) is deleted:
+
+- when ReCall stops being your default phone app, or when you
+  turn off its Call logs or Contacts permission. If ReCall is not
+  running at that moment, it deletes the data the next time it
+  starts.
+- when you tap **Delete all ReCall data** in **Settings → Data &
+  privacy**, which also resets your settings and profile. While
+  ReCall is still your phone app, it then reads your call log
+  again to show your recents.
+- when you uninstall ReCall, because Android deletes its storage.
+
+After deleting, ReCall compacts its database, so deleted entries
+do not linger in the file.
+
+**Clear call history**, in **Settings → Data & privacy**, deletes
+every call from your phone's call log, for every app, not only
+from ReCall's copy.
+
+---
+
+## Backups
+
+ReCall's database and settings are excluded from Android's cloud
+backup and from device-to-device transfer, and your profile photo
+is kept where Android never backs it up. Restoring a backup or
+moving to a new phone does not bring ReCall's data back. Once
+ReCall is your phone app there, it reads that phone's call log.
+
+---
+
+## Children
+
+ReCall is not directed at children. It collects no data from
+anyone.
+
+---
+
+## Your choices and rights
+
+ReCall processes everything on your phone and sends nothing to
+us, so OmniVerse Labs holds no personal data about you to
+disclose, correct or delete. You control ReCall's data on your
+phone: delete it with **Delete all ReCall data**, by choosing
+another phone app, or by uninstalling ReCall.
+
+---
+
+## Earlier versions
+
+This policy describes ReCall 1.1.0 and later. Versions before
+1.1.0 were a call-statistics app, not a phone app: with your
+permission they read your call log and contacts and showed
+statistics about your calls. They worked the same way on privacy,
+entirely on your phone, with no internet permission, no account
+and no advertising or analytics SDK. They also let you export
+your calls as a CSV file or share a statistics image, only when
+you chose to; 1.1.0 removed both. The first time 1.1.0 starts, it
+deletes what earlier versions stored from your calls, including
+notes, favorites and any export or image files left in ReCall's
+storage, because ReCall now keeps nothing from your calls unless
+it is your phone app.
+
+---
+
+## Changes
+
+We publish changes to this policy in the app and at the same web
+address, and update the "Last updated" date above.
 
 ---
 
 ## Contact
 
-Questions? Email
-[visualtales8@gmail.com](mailto:visualtales8@gmail.com).
+Questions about this policy:
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com)
