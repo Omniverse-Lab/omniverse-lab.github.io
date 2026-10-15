@@ -45,7 +45,9 @@ Recommended naming:
 |       |-- terms.md
 |       `-- support.md
 |
-|-- assets/                # site styles, logos, favicons, og images
+|-- _layouts/doc.html      # privacy, terms and support page layout
+|-- _sass/omniverse/       # styles for that layout (imported by assets/main.scss)
+|-- assets/                # site styles, docs.js, logos, favicons, og images
 `-- .github/
     `-- workflows/
         `-- pages.yml      # optional: build & deploy via Actions
@@ -57,7 +59,11 @@ Recommended naming:
 
 1. Duplicate `apps/_template/` to `apps/<new-app-slug>/`.
 2. Edit the four Markdown files, replacing the placeholders
-   (search for `TEMPLATE_`).
+   (search for `TEMPLATE_`). The privacy, terms and support pages
+   use `_layouts/doc.html`: their front matter carries the dates,
+   package name and contact shown in the page header, and the
+   privacy page's `facts` list fills the "Privacy at a glance"
+   label. Keep every `facts` row true to the policy text below it.
 3. Add a link to the new app in `apps.md` and the homepage
    showcase in `index.md` if it should be featured.
 4. Commit & push. GitHub Pages rebuilds automatically on push

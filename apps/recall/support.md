@@ -1,7 +1,12 @@
 ---
-layout: page
+layout: doc
 title: ReCall · Support
 permalink: /apps/recall/support/
+app: ReCall
+app_slug: recall
+doc: support
+contact: visualtales8@gmail.com
+search_hint: bluetooth
 ---
 
 ## Contact

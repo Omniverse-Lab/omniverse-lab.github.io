@@ -1,14 +1,40 @@
 ---
-layout: page
+layout: doc
 title: ReCall · Privacy Policy
 permalink: /apps/recall/privacy/
+app: ReCall
+app_slug: recall
+doc: privacy
+effective: 2026-07-16
+updated: 2026-10-07
+applies_to: ReCall for Android
+package: io.github.omniverse_lab.recall
+publisher: OmniVerse Labs
+contact: visualtales8@gmail.com
+facts_scope: ReCall 1.1.0 and later
+facts:
+  - label: Data sent to OmniVerse Labs
+    value: None
+    note: No server and no account. We never receive any of your data.
+  - label: Access to your calls and contacts
+    value: Only as your default phone app
+    note: Android grants it when you choose ReCall. Switch apps and ReCall deletes what it stored from your calls and contacts.
+  - label: Internet access
+    value: None
+    note: ReCall does not request Android's INTERNET permission.
+  - label: Ads, analytics, crash reporting
+    value: None
+    note: No SDK for any of them, and no advertising ID.
+  - label: Where your data is kept
+    value: On your phone
+    note: In ReCall's private storage, excluded from Android's cloud backup.
+  - label: What leaves your phone
+    value: Only what you choose to share
+    note: A single number you hand to another app, or your weekly recap image.
+  - label: Deleting your data
+    value: Any time
+    note: Delete all ReCall data, or uninstall ReCall. Choosing another phone app deletes what ReCall stored from your calls and contacts.
 ---
-
-**Effective date:** 2026-07-16<br>
-**Last updated:** 2026-10-07<br>
-**Applies to:** ReCall for Android (`io.github.omniverse_lab.recall`)<br>
-**Publisher:** OmniVerse Labs<br>
-**Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 > **The short version:** ReCall is a phone app. It places and
 > answers your calls, and shows your recent calls, your contacts

@@ -1,7 +1,12 @@
 ---
-layout: page
+layout: doc
 title: MathDeck · Support
 permalink: /apps/mathdeck/support/
+app: MathDeck
+app_slug: mathdeck
+doc: support
+contact: visualtales8@gmail.com
+search_hint: widgets
 ---
 
 ## Contact

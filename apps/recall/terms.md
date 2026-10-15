@@ -1,11 +1,14 @@
 ---
-layout: page
+layout: doc
 title: ReCall · Terms of Use
 permalink: /apps/recall/terms/
+app: ReCall
+app_slug: recall
+doc: terms
+effective: 2026-07-16
+updated: 2026-10-07
+contact: visualtales8@gmail.com
 ---
-
-**Effective date:** 2026-07-16<br>
-**Last updated:** 2026-10-07
 
 These Terms of Use ("Terms") govern your access to and use of
 the ReCall Android application (the "app") published by
