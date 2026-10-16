@@ -101,7 +101,8 @@ share and with whom once data leaves the app this way.
 
 Caller names is optional and off until you turn it on. These
 terms apply while it is on, and you accept them when you tick
-"I agree" and again when you tap **Publish** or **Save name**.
+"I agree to the Caller names terms and the privacy policy" and
+again when you tap **Publish** or **Save name**.
 
 - **Who may use it.** You must be 18 or older, and you confirm it
   before turning Caller names on.
@@ -113,8 +114,9 @@ terms apply while it is on, and you accept them when you tick
   name. A name has 2 to 40 characters: letters in any language,
   spaces, `.`, `'` and `-`.
 - **Others see it.** Other ReCall users who turned Caller names on
-  see your name when you call them or appear in their Recents,
-  labelled "Suggested name · set by its owner".
+  see your name on the call screen when you call them or they call
+  you, and in their Recents and call details, labelled "Suggested
+  name · set by its owner".
 - **Suggestions are set by their owners.** We do not check the
   names people choose. Do not rely on a suggestion to decide who is
   calling, and never act on a call because of it alone.

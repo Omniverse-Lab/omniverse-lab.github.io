@@ -26,8 +26,8 @@ counts. Everything else ReCall keeps stays on your phone.
 ReCall clears the names it saved on your phone at once, then
 deletes your listing, your account, your reports and your lookup
 counts from our server, and signs you out. Without a connection it
-shows "Deleting… we will finish when you are online" and finishes
-the next time it starts with a connection.
+shows "Deleting… we will finish when you are online" and tries
+again each time ReCall starts, until the server confirms.
 
 **Settings → Data & privacy → Delete all ReCall data** does the
 same, together with everything ReCall stored on your phone.

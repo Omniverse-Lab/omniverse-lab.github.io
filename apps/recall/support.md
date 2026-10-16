@@ -181,10 +181,10 @@ and call history are never uploaded.
 ### How do I turn Caller names on?
 
 **Settings** (the gear) **→ Caller names**. ReCall explains what it
-sends, then asks you to tick "I agree" and "I am 18 or older". You
-enter your number, type the code ReCall's SMS brings, and choose
-the name others will see. Nothing is sent before you tap **Send
-code**.
+sends, then asks you to tick "I agree to the Caller names terms
+and the privacy policy" and "I am 18 or older". You enter your
+number, type the code ReCall's SMS brings, and choose the name
+others will see. Nothing is sent before you tap **Send code**.
 
 ### Why don't I see a name for a caller?
 
@@ -196,9 +196,10 @@ that, suggestions stop until the next day.
 
 ### How do I report a wrong or offensive name?
 
-Long-press the call in **Recents** and tap **Report name**, or
-open its call details and tap **Report name**. Reports from three
-different people hide the name until we review it.
+Long-press the call in **Recents** and tap **Report name**, open
+its call details and tap **Report name**, or tap **Report name**
+on the call's ended screen. Reports from three different people
+hide the name until we review it.
 
 ### How do I turn Caller names off or delete my listing?
 

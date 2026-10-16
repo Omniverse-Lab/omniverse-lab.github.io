@@ -130,8 +130,9 @@ names**. Before anything is sent, ReCall shows what it does:
 - ReCall never sends your contacts or your call history.
 - Turning Caller names off deletes your listing and your account.
 
-You then tick "I agree" and "I am 18 or older". Leaving the screen
-is never consent, and nothing is sent until you tap **Send code**.
+You then tick "I agree to the Caller names terms and the privacy
+policy" and "I am 18 or older". Leaving the screen is never
+consent, and nothing is sent until you tap **Send code**.
 If you leave the setup after that and before you finish, ReCall
 deletes what it sent: at once, or, if ReCall was closed in the
 middle, the first time it starts a day or more later.
@@ -170,13 +171,16 @@ only, never numbers or names. Google processes all of this for
 OmniVerse Labs.
 
 **Who sees your name.** Only other ReCall users who turned Caller
-names on and listed themselves. They see it when you call them or
-appear in their Recents, labelled "Suggested name · set by its
-owner", and only for a number they have not saved as a contact: a
-saved contact name always wins, and ReCall never writes a
-suggestion into anyone's contacts. Anyone who sees your name can
-report it; reports from three different people hide it until we
-review it.
+names on and listed themselves. They see it on the call screen
+when you call them or they call you, and in their Recents and call
+details, labelled "Suggested name · set by its owner", and only
+for a number they have not saved as a contact: a saved contact
+name always wins, and ReCall never writes a suggestion into
+anyone's contacts. Anyone who sees your name can report it with
+**Report name**, which ReCall offers in Recents, in call details
+and on a call's ended screen, but not while a call is ringing or
+live. Reports from three different people hide it until we review
+it.
 
 **On your phone.** In its private database ReCall keeps each
 number it looked up, the name found and when it asked: a name for
@@ -195,8 +199,8 @@ name. Turn Caller names off first if you want it gone.
   delete.** ReCall clears the names it saved at once, then deletes
   your listing, your account, your reports and your lookup counts
   from the server, and signs you out. Without a connection it
-  shows "Deleting… we will finish when you are online" and
-  finishes the next time it starts with a connection.
+  shows "Deleting… we will finish when you are online" and tries
+  again each time ReCall starts, until the server confirms.
 - **Delete all ReCall data**, in **Settings → Data & privacy**,
   turns Caller names off the same way.
 - **Without the app**, for example after uninstalling it: see
