@@ -1,0 +1,795 @@
+// Privacy policy, terms of use and support pages (_layouts/doc.html).
+//
+// The bold element is the "Privacy at a glance" label, modelled on the
+// data-safety and nutrition labels people already read on app stores.
+// Everything around it stays quiet: a serif reading column, a sticky
+// "On this page" rail, and no web fonts, so these pages make no
+// third-party requests either.
+//
+// Plain CSS values only: GitHub Pages compiles this with libsass, which
+// rejects min()/max()/clamp() with mixed units.
+
+:root {
+  --doc-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --doc-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --doc-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --doc-label-ink: oklch(21% 0.03 225deg);
+  --doc-mark: oklch(86% 0.11 168deg / 0.6);
+  --doc-focus: oklch(42% 0.12 168deg);
+  --doc-field-line: oklch(56% 0.03 220deg);
+}
+
+// Header, content and footer share one wider measure on these pages.
+body:has(.doc) .wrapper {
+  max-width: 1120px;
+}
+
+.doc [hidden] {
+  display: none !important;
+}
+
+.doc a:focus-visible,
+.doc button:focus-visible,
+.doc summary:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--doc-focus);
+  outline-offset: 3px;
+}
+
+// Header: app, title, document switcher, dates
+
+.doc-header {
+  border-bottom: 1px solid var(--om-line);
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+}
+
+.doc-app {
+  color: var(--om-muted);
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.doc-app a,
+.doc-app a:visited {
+  color: var(--om-accent-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.doc-app a:hover {
+  text-decoration: underline;
+}
+
+.doc-title {
+  color: var(--om-ink);
+  font-size: 54px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0 0 26px;
+}
+
+.doc-switch ul {
+  background: var(--om-surface);
+  border: 1px solid var(--om-line);
+  border-radius: 999px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 4px;
+}
+
+.doc-switch li {
+  margin: 0;
+}
+
+.doc-switch a,
+.doc-switch a:visited {
+  align-items: center;
+  border-radius: 999px;
+  color: var(--om-muted);
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 650;
+  min-height: 40px;
+  padding: 0 18px;
+  text-decoration: none;
+}
+
+.doc-switch a:hover {
+  background: var(--om-bg);
+  color: var(--om-ink);
+}
+
+.doc-switch a[aria-current="page"] {
+  background: var(--om-ink);
+  color: var(--om-bg);
+}
+
+.doc-meta {
+  display: grid;
+  gap: 16px 32px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin: 0;
+}
+
+.doc-meta div {
+  min-width: 0;
+}
+
+.doc-meta dt {
+  color: var(--om-muted);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 3px;
+}
+
+.doc-meta dd {
+  color: var(--om-ink);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.45;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+
+.doc-meta code {
+  background: none;
+  border: 0;
+  color: var(--om-muted);
+  font-family: var(--doc-mono);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0;
+}
+
+// Two columns: reading text and the "On this page" rail
+
+.doc-grid {
+  align-items: start;
+  display: grid;
+  gap: 72px;
+  grid-template-columns: minmax(0, 1fr) 232px;
+}
+
+.doc-main {
+  max-width: 720px;
+  min-width: 0;
+}
+
+.doc-rail {
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  position: sticky;
+  top: 24px;
+}
+
+// The label
+
+.facts {
+  background: oklch(99.4% 0.004 210deg);
+  border: 2px solid var(--doc-label-ink);
+  border-radius: 4px;
+  color: var(--doc-label-ink);
+  margin: 0 0 44px;
+  padding: 14px 20px 16px;
+}
+
+.facts-title {
+  border-bottom: 10px solid var(--doc-label-ink);
+  color: var(--doc-label-ink);
+  font-family: var(--doc-sans);
+  font-size: 30px;
+  font-weight: 850;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.facts-list {
+  border-bottom: 5px solid var(--doc-label-ink);
+  margin: 0;
+}
+
+.fact {
+  border-top: 1px solid var(--doc-label-ink);
+  display: grid;
+  gap: 4px 24px;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  padding: 11px 0;
+}
+
+.fact:first-child {
+  border-top: 0;
+}
+
+.fact dt {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  padding-top: 2px;
+}
+
+.fact dd {
+  margin: 0;
+}
+
+.fact strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.fact span {
+  color: var(--om-muted);
+  display: block;
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 2px;
+}
+
+.facts-foot {
+  color: var(--om-muted);
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+
+// Reading text
+
+.doc-body {
+  color: var(--om-ink);
+  font-family: var(--doc-serif);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.doc-body p,
+.doc-body li {
+  max-width: 66ch;
+}
+
+.doc-body p,
+.doc-body ul,
+.doc-body ol {
+  margin-bottom: 18px;
+}
+
+.doc-body ul,
+.doc-body ol {
+  margin-left: 1.25em;
+}
+
+.doc-body li {
+  margin-bottom: 9px;
+}
+
+.doc-body li::marker {
+  color: var(--om-accent);
+}
+
+.doc-body strong {
+  font-weight: 700;
+}
+
+.doc-body hr {
+  display: none;
+}
+
+.doc-body h2,
+.doc-body h3 {
+  color: var(--om-ink);
+  font-family: var(--doc-sans);
+  letter-spacing: -0.01em;
+  scroll-margin-top: 24px;
+}
+
+.doc-body h2 {
+  border-top: 1px solid var(--om-line);
+  font-size: 28px;
+  font-weight: 760;
+  line-height: 1.2;
+  margin: 56px 0 16px;
+  padding-top: 24px;
+}
+
+.doc-body h3 {
+  font-size: 20px;
+  font-weight: 720;
+  line-height: 1.3;
+  margin: 34px 0 8px;
+}
+
+.doc-body a,
+.doc-body a:visited {
+  color: var(--om-accent-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.doc-body a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.doc-body code {
+  background: oklch(93% 0.014 215deg);
+  border: 0;
+  border-radius: 4px;
+  color: oklch(30% 0.07 225deg);
+  font-family: var(--doc-mono);
+  font-size: 0.78em;
+  padding: 2px 5px;
+}
+
+// The plain-language summary that opens a policy
+.doc-body > blockquote:first-child {
+  background: none;
+  border: 0;
+  border-left: 3px solid var(--om-accent);
+  border-radius: 0;
+  color: var(--om-ink);
+  font-family: var(--doc-sans);
+  font-size: 19px;
+  font-style: normal;
+  letter-spacing: 0;
+  line-height: 1.6;
+  margin: 0 0 8px;
+  padding: 2px 0 2px 22px;
+}
+
+.doc-body > blockquote:first-child p {
+  margin-bottom: 12px;
+}
+
+.doc-body > blockquote:first-child p:last-child {
+  margin-bottom: 0;
+}
+
+// Section headings link to themselves; "#" appears on hover or focus.
+// The glyph uses CSS alt text ("" after the slash), so it is not read out.
+
+.doc-body .heading-link,
+.doc-body .heading-link:visited,
+.doc-body .heading-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.doc-body .heading-link::after {
+  color: var(--om-muted);
+  content: "#";
+  content: "#" / "";
+  font-weight: 400;
+  margin-left: 0.35em;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.doc-body .heading-link:hover::after,
+.doc-body .heading-link:focus-visible::after {
+  opacity: 1;
+}
+
+.doc-body .heading-link[data-copied]::after {
+  color: var(--om-accent-deep);
+  content: "Link copied";
+  content: "Link copied" / "";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+@media (hover: none) {
+  .doc-body .heading-link::after {
+    opacity: 1;
+  }
+}
+
+.doc .sr-only {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// "On this page"
+
+.toc-label {
+  color: var(--om-ink);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.toc-track {
+  border-left: 1px solid var(--om-line);
+  position: relative;
+}
+
+.toc-marker {
+  background: var(--om-accent-deep);
+  border-radius: 2px;
+  height: 0;
+  left: -1px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), height 260ms cubic-bezier(0.22, 1, 0.36, 1), opacity 160ms ease;
+  width: 2px;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.toc-list a,
+.toc-list a:visited {
+  color: var(--om-muted);
+  display: block;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 6px 0 6px 14px;
+  text-decoration: none;
+}
+
+.toc-list a:hover {
+  color: var(--om-ink);
+}
+
+.toc-list a[aria-current] {
+  color: var(--om-ink);
+  font-weight: 650;
+}
+
+.rail-actions {
+  border-top: 1px solid var(--om-line);
+  display: grid;
+  font-size: 14px;
+  gap: 10px;
+  justify-items: start;
+  margin-top: 24px;
+  padding-top: 16px;
+}
+
+.rail-actions button,
+.rail-actions a,
+.rail-actions a:visited {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--om-accent-deep);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+  padding: 0;
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.toc-inline {
+  background: var(--om-surface);
+  border: 1px solid var(--om-line);
+  border-radius: 8px;
+  display: none;
+  margin: 0 0 36px;
+}
+
+.toc-inline summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  justify-content: space-between;
+  list-style: none;
+  min-height: 48px;
+  padding: 0 16px;
+}
+
+.toc-inline summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-inline summary::after {
+  color: var(--om-muted);
+  content: "+";
+  content: "+" / "";
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.toc-inline[open] summary::after {
+  content: "\2212";
+  content: "\2212" / "";
+}
+
+.toc-inline .toc-list {
+  padding: 0 16px 12px;
+}
+
+.toc-inline .toc-list a {
+  font-size: 15px;
+  padding: 8px 0;
+}
+
+// Support: search the answers
+
+.faq-search {
+  background: var(--om-surface);
+  border: 1px solid var(--om-line);
+  border-radius: 10px;
+  margin: 0 0 40px;
+  padding: 18px 20px 12px;
+}
+
+.faq-search label {
+  color: var(--om-ink);
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.faq-field {
+  align-items: center;
+  background: var(--om-bg);
+  border: 1.5px solid var(--doc-field-line);
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.faq-field:focus-within {
+  border-color: var(--doc-focus);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px oklch(52% 0.15 165deg / 0.2);
+}
+
+.faq-field svg {
+  color: var(--om-muted);
+  flex: none;
+  height: 20px;
+  width: 20px;
+}
+
+.faq-field input {
+  background: transparent;
+  border: 0;
+  color: var(--om-ink);
+  flex: 1;
+  font: inherit;
+  font-size: 18px;
+  min-width: 0;
+  outline: none;
+  padding: 12px 0;
+}
+
+.faq-field input::placeholder {
+  color: var(--om-muted);
+}
+
+.faq-count {
+  color: var(--om-muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0 0;
+  min-height: 1.45em;
+}
+
+.doc-body mark {
+  background: var(--doc-mark);
+  border-radius: 2px;
+  color: inherit;
+  padding: 0 1px;
+}
+
+.faq-empty {
+  border-top: 1px solid var(--om-line);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.faq-empty p {
+  margin-bottom: 10px;
+}
+
+.faq-empty button {
+  appearance: none;
+  background: var(--om-ink);
+  border: 0;
+  border-radius: 999px;
+  color: var(--om-bg);
+  cursor: pointer;
+  font-family: var(--doc-sans);
+  font-size: 15px;
+  font-weight: 650;
+  min-height: 44px;
+  padding: 0 20px;
+}
+
+// Smaller screens: one column, the rail becomes "On this page" above the text
+
+@media screen and (max-width: 1023px) {
+  .doc-grid {
+    display: block;
+  }
+
+  .doc-rail {
+    display: none;
+  }
+
+  .toc-inline {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .doc-title {
+    font-size: 42px;
+  }
+
+  .doc-header {
+    margin-bottom: 32px;
+  }
+
+  .fact {
+    gap: 2px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fact dt {
+    color: var(--om-muted);
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .doc-title {
+    font-size: 36px;
+  }
+
+  .doc-switch ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .doc-switch a {
+    box-sizing: border-box;
+    font-size: 14px;
+    justify-content: center;
+    line-height: 1.2;
+    padding: 0 6px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .doc-meta {
+    gap: 14px 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .doc-meta .meta-wide {
+    grid-column: 1 / -1;
+  }
+
+  .facts {
+    padding: 12px 14px 14px;
+  }
+
+  .facts-title {
+    font-size: 26px;
+  }
+
+  .doc-body {
+    font-size: 18px;
+  }
+
+  .doc-body h2 {
+    font-size: 24px;
+    margin-top: 44px;
+  }
+}
+
+@media (forced-colors: active) {
+  .doc-switch a[aria-current="page"] {
+    outline: 2px solid CanvasText;
+    outline-offset: -2px;
+  }
+
+  .toc-list a[aria-current] {
+    text-decoration: underline;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:has(.doc) {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc-marker,
+  .doc-body .heading-link::after {
+    transition: none;
+  }
+}
+
+@media print {
+  .site-header,
+  .site-footer,
+  .doc-switch,
+  .doc-rail,
+  .toc-inline,
+  .faq-search {
+    display: none !important;
+  }
+
+  .doc-body .heading-link::after {
+    content: none;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  body:has(.doc) .wrapper {
+    max-width: none;
+    padding: 0;
+  }
+
+  .page-content {
+    padding: 0;
+  }
+
+  .doc-grid {
+    display: block;
+  }
+
+  .doc-main {
+    max-width: none;
+  }
+
+  .doc-title {
+    font-size: 30pt;
+  }
+
+  .doc-body {
+    font-size: 11.5pt;
+  }
+
+  .doc-body h2 {
+    break-after: avoid;
+    font-size: 16pt;
+    margin-top: 24pt;
+  }
+
+  .facts {
+    break-inside: avoid;
+  }
+
+  .doc-body a[href^="http"]::after,
+  .doc-body a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}

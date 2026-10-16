@@ -148,6 +148,8 @@ If you own a domain (e.g. `example.com`):
 - [ ] When adding an SDK / analytics / ads to any app,
       update that app's `privacy.md` BEFORE releasing the build
       and re-submit the Data Safety form
+- [ ] When a policy changes, update `updated:` in its front matter
+      and every `facts` row the change affects
 
 ---
 

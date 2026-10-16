@@ -1,11 +1,14 @@
 ---
-layout: page
+layout: doc
 title: MathDeck · Terms of Use
 permalink: /apps/mathdeck/terms/
+app: MathDeck
+app_slug: mathdeck
+doc: terms
+effective: 2026-04-16
+updated: 2026-06-12
+contact: visualtales8@gmail.com
 ---
-
-**Effective date:** 2026-04-16
-**Last updated:** 2026-06-12
 
 These Terms of Use ("Terms") govern your access to and use of
 the MathDeck Android application (the "app") published by

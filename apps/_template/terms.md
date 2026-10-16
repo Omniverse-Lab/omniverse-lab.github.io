@@ -1,11 +1,14 @@
 ---
-layout: page
+layout: doc
 title: TEMPLATE_APP_NAME · Terms of Use
 permalink: /apps/TEMPLATE_APP_SLUG/terms/
+app: TEMPLATE_APP_NAME
+app_slug: TEMPLATE_APP_SLUG
+doc: terms
+effective: YYYY-MM-DD
+updated: YYYY-MM-DD
+contact: visualtales8@gmail.com
 ---
-
-**Effective date:** YYYY-MM-DD
-**Last updated:** YYYY-MM-DD
 
 These Terms of Use ("Terms") govern your use of the
 TEMPLATE_APP_NAME application (the "app") published by

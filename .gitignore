@@ -22,3 +22,4 @@ Thumbs.db
 
 # Local tooling artifacts
 ruvector.db
+.claude-flow/

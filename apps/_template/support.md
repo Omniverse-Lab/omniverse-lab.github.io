@@ -1,7 +1,12 @@
 ---
-layout: page
+layout: doc
 title: TEMPLATE_APP_NAME · Support
 permalink: /apps/TEMPLATE_APP_SLUG/support/
+app: TEMPLATE_APP_NAME
+app_slug: TEMPLATE_APP_SLUG
+doc: support
+contact: visualtales8@gmail.com
+search_hint: privacy
 ---
 
 ## Contact

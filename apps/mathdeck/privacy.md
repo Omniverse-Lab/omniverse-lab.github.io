@@ -1,12 +1,30 @@
 ---
-layout: page
+layout: doc
 title: MathDeck · Privacy Policy
 permalink: /apps/mathdeck/privacy/
+app: MathDeck
+app_slug: mathdeck
+doc: privacy
+effective: 2026-04-16
+updated: 2026-06-12
+applies_to: MathDeck for Android
+package: io.github.omniverse_lab.mathdeck
+publisher: OmniVerse Labs
+contact: visualtales8@gmail.com
+facts:
+  - label: Data sent to OmniVerse Labs
+    value: None
+    note: No sign-up, no profile and no account.
+  - label: Internet access
+    value: Currency rates only
+    note: An anonymous request for exchange rates when you open the Currency Converter.
+  - label: Ads, analytics, crash reports
+    value: None
+    note: No advertising, analytics or tracking tools.
+  - label: Deleting your data
+    value: Any time
+    note: Clear your history and tasks, clear the app's storage, or uninstall MathDeck.
 ---
-
-**Effective date:** 2026-04-16
-**Last updated:** 2026-06-12
-**Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 > **In plain English:** MathDeck is a calculator and a simple
 > to-do list. It does not collect, upload, or sell your personal

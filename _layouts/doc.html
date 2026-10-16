@@ -1,0 +1,128 @@
+---
+layout: default
+---
+{%- comment -%}
+  Shared layout for each app's privacy policy, terms of use and support
+  page. Front matter: app, app_slug, doc (privacy | terms | support), and
+  optionally effective, updated, applies_to, package, publisher, contact,
+  facts and facts_scope (privacy only) and search_hint (support only).
+  Quote a facts value that YAML reads as a boolean ("No", "Yes", "On",
+  "Off"), or it prints as true/false.
+  The "On this page" list is built from the <h2 id> headings that kramdown
+  generates, so it works without JavaScript.
+{%- endcomment -%}
+{%- assign app_url = "/apps/" | append: page.app_slug | append: "/" | relative_url -%}
+{%- assign docs = "privacy:Privacy policy,terms:Terms of use,support:Support" | split: "," -%}
+{%- assign heading = page.doc -%}
+{%- for entry in docs -%}
+  {%- assign pair = entry | split: ":" -%}
+  {%- if pair[0] == page.doc -%}{%- assign heading = pair[1] -%}{%- endif -%}
+{%- endfor -%}
+
+{%- capture toc_items -%}
+  {%- assign parts = content | split: '<h2 id="' -%}
+  {%- for part in parts offset: 1 -%}
+    {%- assign anchor = part | split: '"' | first -%}
+    {%- assign label = part | split: '</h2>' | first | remove_first: anchor | remove_first: '">' | strip_html | strip -%}
+    <li><a href="#{{ anchor }}">{{ label }}</a></li>
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign has_toc = false -%}
+{%- if toc_items contains "<li>" -%}{%- assign has_toc = true -%}{%- endif -%}
+
+<article class="doc doc-{{ page.doc }}"{% if page.doc == "support" %} data-faq{% endif %}>
+  <header class="doc-header">
+    <p class="doc-app"><a href="{{ app_url }}">{{ page.app }}</a> for Android</p>
+    <h1 class="doc-title">{{ heading }}</h1>
+
+    <nav class="doc-switch" aria-label="{{ page.app }} documents">
+      <ul>
+        {%- for entry in docs -%}
+          {%- assign pair = entry | split: ":" -%}
+          <li><a href="{{ app_url }}{{ pair[0] }}/"{% if pair[0] == page.doc %} aria-current="page"{% endif %}>{{ pair[1] }}</a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+
+    {%- if page.updated or page.effective or page.package or page.contact %}
+    <dl class="doc-meta">
+      {%- if page.updated %}
+      <div><dt>Last updated</dt><dd><time datetime="{{ page.updated | date: '%Y-%m-%d' }}">{{ page.updated | date: "%-d %B %Y" }}</time></dd></div>
+      {%- endif -%}
+      {%- if page.effective %}
+      <div><dt>In effect since</dt><dd><time datetime="{{ page.effective | date: '%Y-%m-%d' }}">{{ page.effective | date: "%-d %B %Y" }}</time></dd></div>
+      {%- endif -%}
+      {%- if page.package %}
+      <div class="meta-wide"><dt>Applies to</dt><dd>{{ page.applies_to | default: page.app }}<br><code>{{ page.package | replace: ".", ".<wbr>" }}</code></dd></div>
+      {%- endif -%}
+      {%- if page.publisher %}
+      <div><dt>Publisher</dt><dd>{{ page.publisher }}</dd></div>
+      {%- endif -%}
+      {%- if page.contact %}
+      <div class="meta-wide"><dt>Contact</dt><dd><a href="mailto:{{ page.contact }}">{{ page.contact }}</a></dd></div>
+      {%- endif %}
+    </dl>
+    {%- endif %}
+  </header>
+
+  <div class="doc-grid">
+    <div class="doc-main">
+      {%- if page.facts %}
+      <section class="facts" aria-labelledby="facts-title">
+        <h2 class="facts-title" id="facts-title">Privacy at a glance</h2>
+        <dl class="facts-list">
+          {%- for fact in page.facts %}
+          <div class="fact">
+            <dt>{{ fact.label }}</dt>
+            <dd><strong>{{ fact.value }}</strong>{% if fact.note %}<span>{{ fact.note }}</span>{% endif %}</dd>
+          </div>
+          {%- endfor %}
+        </dl>
+        <p class="facts-foot">{% if page.facts_scope %}Covers {{ page.facts_scope }}. {% endif %}A summary of the policy below. The full text is what applies.</p>
+      </section>
+      {%- endif -%}
+
+      {%- if page.doc == "support" %}
+      <div class="faq-search" role="search" data-faq-search hidden>
+        <label for="faq-query">Search the answers</label>
+        <div class="faq-field">
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m13 13 5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="faq-query" type="search" autocomplete="off" spellcheck="false" placeholder="Try “{{ page.search_hint | default: 'privacy' }}”">
+        </div>
+        <p class="faq-count" data-faq-count aria-live="polite"></p>
+      </div>
+      {%- endif -%}
+
+      {%- if has_toc %}
+      <details class="toc-inline">
+        <summary>On this page</summary>
+        <ol class="toc-list">{{ toc_items }}</ol>
+      </details>
+      {%- endif %}
+
+      <div class="doc-body">
+        {{ content }}
+      </div>
+    </div>
+
+    <aside class="doc-rail">
+      {%- if has_toc %}
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-label" aria-hidden="true">On this page</p>
+        <div class="toc-track">
+          <span class="toc-marker" aria-hidden="true"></span>
+          <ol class="toc-list">{{ toc_items }}</ol>
+        </div>
+      </nav>
+      {%- endif %}
+      <div class="rail-actions">
+        <button type="button" data-print hidden>Print or save as PDF</button>
+        {%- if page.contact %}
+        <a href="mailto:{{ page.contact }}">Email a question</a>
+        {%- endif %}
+      </div>
+    </aside>
+  </div>
+</article>
+
+<script src="{{ '/assets/js/docs.js' | relative_url }}" defer></script>

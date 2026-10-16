@@ -1,12 +1,30 @@
 ---
-layout: page
+layout: doc
 title: TEMPLATE_APP_NAME · Privacy Policy
 permalink: /apps/TEMPLATE_APP_SLUG/privacy/
+app: TEMPLATE_APP_NAME
+app_slug: TEMPLATE_APP_SLUG
+doc: privacy
+effective: YYYY-MM-DD
+updated: YYYY-MM-DD
+applies_to: TEMPLATE_APP_NAME for Android
+package: io.github.omniverse_lab.TEMPLATE_APP_SLUG
+publisher: OmniVerse Labs
+contact: visualtales8@gmail.com
+# Summarise THIS policy. Every row must say exactly what the text below says.
+facts:
+  - label: Data sent to OmniVerse Labs
+    value: None
+    note: No sign-up, no profile and no account.
+  - label: Ads, analytics, crash reports
+    value: None
+    note: No advertising, analytics or tracking tools.
+  - label: Where your data is kept
+    value: On your phone
+  - label: Deleting your data
+    value: Any time
+    note: Clear the app's storage, or uninstall TEMPLATE_APP_NAME.
 ---
-
-**Effective date:** YYYY-MM-DD
-**Last updated:** YYYY-MM-DD
-**Contact:** [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
 
 <!--
 Copy apps/_template/ to apps/<your-app-slug>/ and search-replace
