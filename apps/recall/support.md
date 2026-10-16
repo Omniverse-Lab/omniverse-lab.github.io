@@ -6,7 +6,7 @@ app: ReCall
 app_slug: recall
 doc: support
 contact: visualtales8@gmail.com
-search_hint: bluetooth
+search_hint: caller names
 ---
 
 ## Contact
@@ -61,9 +61,10 @@ apps screen for you.
 
 ReCall stops reading your calls and deletes everything it stored
 from them: its copy of your call log and contacts, your notes,
-labels and favorites, its activity journal and any weekly recap
-image. If ReCall isn't running when you switch, it deletes them
-the next time it starts.
+labels and favorites, its activity journal, any weekly recap image
+and the names Caller names looked up. If ReCall isn't running when
+you switch, it deletes them the next time it starts. Your Caller
+names listing stays until you turn Caller names off.
 
 Your call log and contacts belong to Android and stay where they
 are, so your other phone app shows them. ReCall keeps its
@@ -76,9 +77,13 @@ don't come back.
 In ReCall, **Settings → Data & privacy → Delete all ReCall data**
 deletes ReCall's notes, favorites and activity, its copy of
 your calls, its cached photos and recap images, and resets its
-settings and profile. Your phone's call log and contacts stay. While ReCall is
-still your phone app, it then reads your call log again to show
-your recents. Uninstalling ReCall also deletes all of its data.
+settings and profile. It also turns Caller names off, deleting your
+listing and your account. Your phone's call log and contacts stay.
+While ReCall is still your phone app, it then reads your call log
+again to show your recents. Uninstalling ReCall deletes everything
+it keeps on your phone, but not a Caller names listing: turn Caller
+names off first, or see
+[Delete your Caller names data](../delete/).
 
 ### How do I delete calls from my call history?
 
@@ -153,14 +158,61 @@ Android's setting so you can turn them back on.
 
 ### Is my call data uploaded anywhere?
 
-No. ReCall has no internet access, so it cannot send anything
-over the internet, and everything it stores stays on your phone.
-Something leaves ReCall only when you choose: a single number you
-copy, message, call back or save to your contacts, or your weekly
-recap image when you tap **Share weekly recap**. The recap holds
-only your own totals and, if you set one, your own profile name
-and photo, never a contact's name, number or photo. ReCall has no
-export. See the [Privacy Policy](../privacy/) for the full story.
+No. ReCall never uploads your call log, your call history or your
+contacts, and everything it stores stays on your phone. ReCall
+connects to the internet only for **Caller names**, which is off
+until you turn it on (see below). Something else leaves ReCall
+only when you choose: a single number you copy, message, call back
+or save to your contacts, or your weekly recap image when you tap
+**Share weekly recap**. The recap holds only your own totals and,
+if you set one, your own profile name and photo, never a contact's
+name, number or photo. ReCall has no export. See the
+[Privacy Policy](../privacy/) for the full story.
+
+### What is Caller names?
+
+An optional feature, off until you turn it on. You list your own
+phone number with a name you choose, and when someone who is not
+in your contacts calls you, ReCall can show the name that person
+listed for their own number, labelled "Suggested name · set by its
+owner". Only people who listed themselves see names. Your contacts
+and call history are never uploaded.
+
+### How do I turn Caller names on?
+
+**Settings** (the gear) **→ Caller names**. ReCall explains what it
+sends, then asks you to tick "I agree" and "I am 18 or older". You
+enter your number, type the code ReCall's SMS brings, and choose
+the name others will see. Nothing is sent before you tap **Send
+code**.
+
+### Why don't I see a name for a caller?
+
+ReCall shows a suggestion only for a number you have not saved as
+a contact, and only if its owner listed it. You must have listed
+yourself, ReCall must be your default phone app, and your phone
+must be online. ReCall looks up at most 300 numbers a day; past
+that, suggestions stop until the next day.
+
+### How do I report a wrong or offensive name?
+
+Long-press the call in **Recents** and tap **Report name**, or
+open its call details and tap **Report name**. Reports from three
+different people hide the name until we review it.
+
+### How do I turn Caller names off or delete my listing?
+
+**Settings → Caller names → Turn off and delete.** ReCall removes
+the names it saved at once, then deletes your listing and your
+account from our server. Without a connection it shows "Deleting…
+we will finish when you are online" and finishes later. **Delete
+all ReCall data** turns Caller names off too.
+
+### I uninstalled ReCall. How do I delete my listing?
+
+Uninstalling does not delete it. Follow
+[Delete your Caller names data](../delete/), or email us with the
+number you listed.
 
 ### Why are some calls missing, or shown as numbers only?
 

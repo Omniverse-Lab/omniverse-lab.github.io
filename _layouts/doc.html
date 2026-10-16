@@ -5,7 +5,8 @@ layout: default
   Shared layout for each app's privacy policy, terms of use and support
   page. Front matter: app, app_slug, doc (privacy | terms | support), and
   optionally effective, updated, applies_to, package, publisher, contact,
-  facts and facts_scope (privacy only) and search_hint (support only).
+  facts and facts_scope (privacy only), search_hint (support only) and
+  heading (a page outside the privacy/terms/support set, such as delete).
   Quote a facts value that YAML reads as a boolean ("No", "Yes", "On",
   "Off"), or it prints as true/false.
   The "On this page" list is built from the <h2 id> headings that kramdown
@@ -18,6 +19,7 @@ layout: default
   {%- assign pair = entry | split: ":" -%}
   {%- if pair[0] == page.doc -%}{%- assign heading = pair[1] -%}{%- endif -%}
 {%- endfor -%}
+{%- if page.heading -%}{%- assign heading = page.heading -%}{%- endif -%}
 
 {%- capture toc_items -%}
   {%- assign parts = content | split: '<h2 id="' -%}
