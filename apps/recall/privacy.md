@@ -152,8 +152,9 @@ middle, the first time it starts a day or more later.
   off.
 - **The numbers of callers who are not in your contacts** go to
   ReCall's server, to look up the names their owners listed.
-  ReCall asks when such a number calls you or appears in your
-  Recents, for at most 300 numbers a day and 30 a minute. The
+  ReCall asks when you get or place a call with such a number,
+  and when it appears in your Recents or in call details, for at
+  most 300 numbers a day and 30 a minute. The
   server does not keep the numbers it looks up. It counts how many
   numbers you looked up each day, to enforce the limit, and
   usually deletes that count within two days.
@@ -177,11 +178,11 @@ suggestion into anyone's contacts. Anyone who sees your name can
 report it; reports from three different people hide it until we
 review it.
 
-**On your phone.** ReCall keeps a name it looked up for 7 days,
-and the fact that a number has no listing for 1 day, in its
-private database. It keeps when you agreed and your listed number
-and name in a settings file of its own, and Firebase keeps your
-sign-in.
+**On your phone.** In its private database ReCall keeps each
+number it looked up, the name found and when it asked: a name for
+7 days, and the fact that a number has no listing for 1 day. It
+keeps when you agreed and your listed number and name in a
+settings file of its own, and Firebase keeps your sign-in.
 
 **If ReCall stops being your phone app.** ReCall deletes the names
 it looked up and stops looking up numbers, but your listing stays
@@ -257,8 +258,8 @@ apps cannot read:
 - **Your latest weekly recap image**, in ReCall's cache, once you
   have shared it. Your next share replaces it.
 - **Caller names**, if you turned it on: when you agreed, your
-  listed number and name, your Firebase sign-in, and the names it
-  looked up (above).
+  listed number and name, your Firebase sign-in, and the numbers
+  and names it looked up (above).
 
 ---
 
