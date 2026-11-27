@@ -84,7 +84,7 @@
   margin: 0;
 }
 
-.legal .toc-list a {
+.site .toc-list a {
   color: var(--ink-3);
   display: block;
   font-size: 14px;
@@ -93,11 +93,11 @@
   text-decoration: none;
 }
 
-.legal .toc-list a:hover {
+.site .toc-list a:hover {
   color: var(--ink);
 }
 
-.legal .toc-list a[aria-current] {
+.site .toc-list a[aria-current] {
   color: var(--ink);
   font-weight: 700;
 }
@@ -167,7 +167,7 @@
   padding: 8px var(--gutter) 16px;
 }
 
-.legal .toc-sheet .toc-list a {
+.site .toc-sheet .toc-list a {
   font-size: 15px;
   padding: 10px 0;
 }
@@ -241,7 +241,7 @@
   padding: 0;
 }
 
-.legal .rail-links a {
+.site .rail-links a {
   color: var(--ink-2);
   display: block;
   font-size: 15px;
@@ -250,7 +250,7 @@
   text-decoration: none;
 }
 
-.legal .rail-links a:hover {
+.site .rail-links a:hover {
   color: var(--accent);
 }
 
@@ -261,7 +261,7 @@
   margin: 0 0 10px;
 }
 
-.legal .rail-mail {
+.site .rail-mail {
   font-size: 15px;
   font-weight: 700;
   overflow-wrap: anywhere;
@@ -435,14 +435,14 @@
   margin: 40px 0 10px;
 }
 
-.legal .doc-body a {
+.site .doc-body a {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-.legal .doc-body a:hover {
+.site .doc-body a:hover {
   color: var(--accent-strong);
   text-decoration-thickness: 2px;
 }
@@ -530,9 +530,9 @@
 // Section headings link to themselves; "#" appears on hover or focus.
 // The glyph uses CSS alt text ("" after the slash), so it is not read out.
 
-.legal .doc-body .heading-link,
-.legal .doc-body .heading-link:visited,
-.legal .doc-body .heading-link:hover {
+.site .doc-body .heading-link,
+.site .doc-body .heading-link:visited,
+.site .doc-body .heading-link:hover {
   color: inherit;
   text-decoration: none;
 }
@@ -569,7 +569,7 @@
   }
 }
 
-// Data tables (built by _includes/legal/table.html)
+// Data tables (built by _includes/site/table.html)
 
 .data-table {
   background: var(--surface);
@@ -973,7 +973,7 @@
 }
 
 @media (forced-colors: active) {
-  .legal .toc-list a[aria-current] {
+  .site .toc-list a[aria-current] {
     text-decoration: underline;
   }
 

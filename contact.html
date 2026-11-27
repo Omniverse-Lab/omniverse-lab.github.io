@@ -1,0 +1,72 @@
+---
+layout: site
+title: Contact
+permalink: /contact/
+lede: Support, privacy requests, security reports and anything else. A person reads every email.
+channels:
+  - need: Help with an app
+    how: Email us with the app's name and version, your phone model and Android version, and what happened
+    when: Within two business days
+  - need: A privacy request (see, correct or delete your data)
+    how: Email us with the app's name. For ReCall's Caller names, include the phone number you listed
+    when: Within 30 days
+  - need: Deleting ReCall's Caller names data
+    how: "**Settings → Caller names → Turn off and delete** in ReCall, or [ask without the app](/apps/recall/delete/)"
+    when: At once in the app, or within 30 days by email
+  - need: A security problem
+    how: Email us privately instead of posting it publicly
+    when: Within a few business days
+  - need: App store review
+    how: Email us. Each app's documents are at the addresses on the [Apps page](/apps/)
+    when: Within two business days
+---
+{%- assign apps = site.data.apps.list -%}
+
+<section class="band" aria-labelledby="email-title">
+  <div class="shell">
+    <div class="contact-panel">
+      <div>
+        <h2 class="band-title" id="email-title">Email OmniVerse Labs</h2>
+        <p>We try to reply within two business days. Please leave out real phone numbers and contact names unless a request needs them; we do not need them to help.</p>
+      </div>
+      <a class="mail-link" href="mailto:visualtales8@gmail.com">visualtales8@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="ways-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="ways-title">What you need, and when we reply</h2>
+      <p>Every request goes to the same address. Saying which one it is helps us answer sooner.</p>
+    </div>
+    <div>
+      {% include site/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When we reply" caption="Ways to reach us" %}
+    </div>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="app-help-title">
+  <div class="shell">
+    <div class="band-head">
+      <h2 class="band-title" id="app-help-title">Help with a specific app</h2>
+      <p>Each app's support page answers the common questions first, and can be searched.</p>
+    </div>
+    <ul class="app-links">
+      {%- for app in apps %}
+      {%- assign icon_id = app.slug | append: "-contact" %}
+      {%- assign app_url = "/apps/" | append: app.slug | append: "/" | relative_url %}
+      <li>
+        <p class="app-links-head">{% include site/app-icon.html slug=app.slug id=icon_id %}<span><strong><a href="{{ app_url }}support/">{{ app.name }} support</a></strong><span>{{ app.tagline }} for {{ app.platform }}</span></span></p>
+        <ul aria-label="{{ app.name }} pages">
+          {%- for entry in app.docs %}
+          {%- unless entry.slug == "support" %}
+          <li><a href="{{ app_url }}{{ entry.path }}">{{ entry.label }}</a></li>
+          {%- endunless %}
+          {%- endfor %}
+        </ul>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

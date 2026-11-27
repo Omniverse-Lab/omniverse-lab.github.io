@@ -12,7 +12,7 @@ html {
   scroll-padding-top: calc(var(--topbar-h) + 24px);
 }
 
-body.legal {
+body.site {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--paper);
@@ -24,25 +24,25 @@ body.legal {
   min-height: 100vh;
 }
 
-.legal [hidden] {
+.site [hidden] {
   display: none !important;
 }
 
-.legal a {
+.site a {
   color: var(--accent);
 }
 
-.legal a:hover {
+.site a:hover {
   color: var(--accent-strong);
 }
 
-.legal :focus-visible {
+.site :focus-visible {
   border-radius: 4px;
   outline: 2px solid var(--focus);
   outline-offset: 3px;
 }
 
-.legal .app-icon {
+.site .app-icon {
   display: block;
   flex: none;
 }
@@ -103,7 +103,7 @@ body.legal {
   height: var(--topbar-h);
 }
 
-.legal .brand {
+.site .brand {
   color: var(--hero-ink);
   font-size: 17px;
   font-weight: 800;
@@ -117,7 +117,7 @@ body.legal {
   gap: 2px;
 }
 
-.legal .topnav a {
+.site .topnav a {
   border-radius: var(--radius-s);
   color: var(--hero-ink-2);
   font-size: 15px;
@@ -126,7 +126,7 @@ body.legal {
   text-decoration: none;
 }
 
-.legal .topnav a:hover {
+.site .topnav a:hover {
   background: rgba(255, 255, 255, 0.07);
   color: var(--hero-ink);
 }
@@ -146,7 +146,7 @@ body.legal {
   padding: 3px;
 }
 
-.legal .app-switch a {
+.site .app-switch a {
   align-items: center;
   border-radius: 999px;
   color: var(--hero-ink-2);
@@ -159,11 +159,11 @@ body.legal {
   text-decoration: none;
 }
 
-.legal .app-switch a:hover {
+.site .app-switch a:hover {
   color: var(--hero-ink);
 }
 
-.legal .app-switch a[aria-current] {
+.site .app-switch a[aria-current] {
   background: rgba(255, 255, 255, 0.14);
   color: #FFFFFF;
 }
@@ -172,6 +172,102 @@ body.legal {
   border-radius: 8px;
   height: 28px;
   width: 28px;
+}
+
+// Small screens: a menu button replaces the section links and the app switch
+
+.menu {
+  display: none;
+}
+
+.menu summary {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: var(--hero-ink);
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  font-weight: 700;
+  gap: 8px;
+  list-style: none;
+  min-height: 40px;
+  padding: 0 16px 0 12px;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu summary svg {
+  height: 20px;
+  width: 20px;
+}
+
+.menu[open] summary {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-panel {
+  background: var(--hero-bg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.6);
+  left: 0;
+  padding: 8px var(--gutter) 24px;
+  position: absolute;
+  right: 0;
+  top: var(--topbar-h);
+}
+
+.menu-panel nav {
+  display: grid;
+}
+
+.site .menu-panel nav a {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--hero-ink);
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px 0;
+  text-decoration: none;
+}
+
+.site .menu-panel nav a[aria-current] {
+  color: var(--hero-glow-2);
+}
+
+.menu-apps {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.site .menu-apps a {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: var(--hero-ink);
+  display: flex;
+  font-size: 17px;
+  font-weight: 700;
+  gap: 12px;
+  padding: 10px 12px;
+  text-decoration: none;
+}
+
+.menu-apps .app-icon {
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+}
+
+.menu-apps a > span > span {
+  color: var(--hero-ink-2);
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .read-progress {
@@ -241,12 +337,12 @@ body.legal {
   opacity: 0.5;
 }
 
-.legal .crumbs a {
+.site .crumbs a {
   color: var(--hero-ink-2);
   text-decoration: none;
 }
 
-.legal .crumbs a:hover {
+.site .crumbs a:hover {
   color: var(--hero-ink);
   text-decoration: underline;
 }
@@ -268,12 +364,12 @@ body.legal {
   width: 44px;
 }
 
-.legal .hero-app a {
+.site .hero-app a {
   color: var(--hero-ink);
   text-decoration: none;
 }
 
-.legal .hero-app a:hover {
+.site .hero-app a:hover {
   text-decoration: underline;
 }
 
@@ -310,7 +406,7 @@ body.legal {
   padding: 5px;
 }
 
-.legal .doc-tabs a {
+.site .doc-tabs a {
   align-items: center;
   border-radius: 11px;
   color: var(--hero-ink-2);
@@ -323,12 +419,12 @@ body.legal {
   white-space: nowrap;
 }
 
-.legal .doc-tabs a:hover {
+.site .doc-tabs a:hover {
   background: rgba(255, 255, 255, 0.09);
   color: var(--hero-ink);
 }
 
-.legal .doc-tabs a[aria-current="page"] {
+.site .doc-tabs a[aria-current="page"] {
   background: var(--hero-ink);
   color: var(--hero-bg);
 }
@@ -467,12 +563,12 @@ body.legal {
   padding: 0;
 }
 
-.legal .site-foot a {
+.site .site-foot a {
   color: var(--hero-ink-2);
   text-decoration: none;
 }
 
-.legal .site-foot a:hover {
+.site .site-foot a:hover {
   color: var(--hero-ink);
   text-decoration: underline;
 }
@@ -494,7 +590,7 @@ body.legal {
 
 // Back to top, once the reader is well into the page
 
-.legal .to-top {
+.site .to-top {
   align-items: center;
   background: var(--ink);
   border-radius: 999px;
@@ -517,7 +613,7 @@ body.legal {
   z-index: 40;
 }
 
-.legal .to-top.is-shown {
+.site .to-top.is-shown {
   opacity: 1;
   pointer-events: auto;
   transform: none;
@@ -561,15 +657,21 @@ body.legal {
 }
 
 @media screen and (max-width: 759px) {
-  .topnav {
+  .topnav,
+  .app-switch {
     display: none;
+  }
+
+  .menu {
+    display: block;
+    margin-left: auto;
   }
 
   .topbar-row {
     gap: 12px;
   }
 
-  .legal .app-switch a {
+  .site .app-switch a {
     padding-right: 12px;
   }
 
@@ -627,7 +729,7 @@ body.legal {
     flex-wrap: nowrap;
   }
 
-  .legal .doc-tabs a {
+  .site .doc-tabs a {
     font-size: 14.5px;
     padding: 0 14px;
   }
@@ -656,7 +758,7 @@ body.legal {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .legal .to-top {
+  .site .to-top {
     padding: 0;
     justify-content: center;
     width: 46px;
@@ -674,29 +776,29 @@ body.legal {
 }
 
 @media screen and (max-width: 400px) {
-  .legal .brand {
+  .site .brand {
     font-size: 15px;
   }
 
-  .legal .app-switch a span {
+  .site .app-switch a span {
     font-size: 13px;
   }
 
-  .legal .app-switch a {
+  .site .app-switch a {
     gap: 6px;
     padding-right: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .legal .to-top {
+  .site .to-top {
     transition: none;
   }
 }
 
 @media (forced-colors: active) {
-  .legal .doc-tabs a[aria-current="page"],
-  .legal .app-switch a[aria-current] {
+  .site .doc-tabs a[aria-current="page"],
+  .site .app-switch a[aria-current] {
     outline: 2px solid CanvasText;
     outline-offset: -2px;
   }

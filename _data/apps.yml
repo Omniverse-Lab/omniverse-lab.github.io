@@ -1,0 +1,56 @@
+# The apps shown across the site: the top bar's app switch, the footer,
+# the home and Apps pages, and each app's document tabs.
+# Each app page names its app with `app_slug` and its document with `doc`
+# (a slug from `docs` below). `path` is where the document lives under
+# /apps/<slug>/. Hero photographs: assets/img/legal/<slug>-hero-<width>.webp.
+
+art_widths: [960, 1600, 2336]
+
+list:
+  - slug: mathdeck
+    name: MathDeck
+    platform: Android
+    tagline: Calculator and tasks
+    summary: A calculator with 16+ specialised modes and a simple to-do list with per-task stopwatches, in a retro LCD look.
+    badges: [No sign-up, No ads, No tracking]
+    store_url: https://play.google.com/store/apps/details?id=io.github.omniverse_lab.mathdeck
+    store_status: On Google Play
+    theme_color: "#17181C"
+    docs:
+      - slug: overview
+        label: Overview
+        path: ""
+      - slug: privacy
+        label: Privacy policy
+        path: privacy/
+      - slug: terms
+        label: Terms of use
+        path: terms/
+      - slug: support
+        label: Support
+        path: support/
+
+  - slug: recall
+    name: ReCall
+    platform: Android
+    tagline: Private phone app
+    summary: A phone app that places and answers your calls, and keeps your call history, contacts and call summaries on your phone.
+    badges: [Default phone app, No ads, No tracking]
+    store_status: Coming soon to Google Play
+    theme_color: "#070D1A"
+    docs:
+      - slug: overview
+        label: Overview
+        path: ""
+      - slug: privacy
+        label: Privacy policy
+        path: privacy/
+      - slug: terms
+        label: Terms of use
+        path: terms/
+      - slug: support
+        label: Support
+        path: support/
+      - slug: delete
+        label: Delete data
+        path: delete/

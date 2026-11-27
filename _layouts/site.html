@@ -1,0 +1,64 @@
+---
+---
+{%- comment -%}
+  The company pages: home, apps, about, contact and 404. Same top bar,
+  footer and stylesheet as each app's pages (_layouts/doc.html).
+
+  Front matter: title (the browser tab and search results), heading (the
+  page's <h1>, defaults to title), lede (one or two sentences under it),
+  actions (a list of {label, url, style: primary | ghost}), and hero:
+  "home" to show each app as a tile beside the heading.
+  The page's own content follows the hero, as full-width <section>s.
+{%- endcomment -%}
+{%- assign page_key = page.url | slugify | default: "home" -%}
+{%- assign widths = site.data.apps.art_widths -%}
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}" class="no-js">
+<head>
+  {% include site/head.html %}
+</head>
+<body class="site page-{{ page_key }}">
+  {% include site/topbar.html skip="content" %}
+
+  <main id="content" tabindex="-1">
+    <header class="hero hero-page{% if page.hero == 'home' %} hero-home{% endif %}">
+      <div class="shell hero-content">
+        <div class="hero-copy">
+          <h1 class="hero-title">{{ page.heading | default: page.title }}</h1>
+          {%- if page.lede %}
+          <p class="hero-lede">{{ page.lede }}</p>
+          {%- endif %}
+          {%- if page.actions %}
+          <p class="hero-actions">
+            {%- for action in page.actions %}
+            <a class="btn btn-{{ action.style | default: 'ghost' }}" href="{{ action.url | relative_url }}">{{ action.label }}</a>
+            {%- endfor %}
+          </p>
+          {%- endif %}
+        </div>
+        {%- if page.hero == "home" %}
+        <ul class="hero-tiles" aria-label="Our apps">
+          {%- for app in site.data.apps.list %}
+          {%- assign art = "/assets/img/legal/" | append: app.slug | append: "-hero-" | relative_url -%}
+          {%- assign icon_id = app.slug | append: "-tile" %}
+          <li>
+            <a class="app-tile app-{{ app.slug }}" href="{{ '/apps/' | append: app.slug | append: '/' | relative_url }}">
+              <img src="{{ art }}960.webp" srcset="{{ art }}960.webp 960w, {{ art }}1600.webp 1600w" sizes="(min-width: 1024px) 40vw, 100vw" width="2336" height="1744" alt="" decoding="async"{% if forloop.first %} fetchpriority="high"{% endif %}>
+              <span class="app-tile-text">
+                {% include site/app-icon.html slug=app.slug id=icon_id %}
+                <span><strong>{{ app.name }}</strong> <span>{{ app.tagline }}</span></span>
+              </span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+        {%- endif %}
+      </div>
+    </header>
+
+    {{ content }}
+  </main>
+
+  {% include site/footer.html %}
+</body>
+</html>

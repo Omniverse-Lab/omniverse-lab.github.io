@@ -203,13 +203,13 @@ permission.
 What MathDeck keeps, where, whether it ever leaves your phone, and
 how long it stays.
 
-{% include legal/table.html rows=page.retention cols="data:Data|where:Where it is kept|leaves:Leaves your phone|until:Kept until" caption="Data MathDeck handles and how long it is kept" %}
+{% include site/table.html rows=page.retention cols="data:Data|where:Where it is kept|leaves:Leaves your phone|until:Kept until" caption="Data MathDeck handles and how long it is kept" %}
 
 ---
 
 ## Other services MathDeck works with
 
-{% include legal/table.html rows=page.providers cols="name:Service|service:What it is|use:What it does for MathDeck" caption="Services that MathDeck's data can reach" %}
+{% include site/table.html rows=page.providers cols="name:Service|service:What it is|use:What it does for MathDeck" caption="Services that MathDeck's data can reach" %}
 
 We do not sell your personal data, share it for advertising, or
 give it to anyone else.

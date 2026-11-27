@@ -46,7 +46,7 @@ When reporting an issue, it helps if you mention:
 Please leave out real phone numbers and contact names; we don't
 need them to help.
 
-{% include legal/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When it happens" caption="Ways to reach us" %}
+{% include site/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When it happens" caption="Ways to reach us" %}
 
 ## Frequently asked questions
 

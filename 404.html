@@ -1,0 +1,37 @@
+---
+layout: site
+title: Page not found
+permalink: /404.html
+lede: There is nothing at this address. It may have moved, or a letter may be missing. Every app's documents are one click away below.
+actions:
+  - label: Go to the home page
+    url: /
+    style: primary
+  - label: See all apps
+    url: /apps/
+    style: ghost
+---
+{%- assign apps = site.data.apps.list -%}
+
+<section class="band" aria-labelledby="find-title">
+  <div class="shell">
+    <div class="band-head">
+      <h2 class="band-title" id="find-title">Looking for a policy?</h2>
+      <p>Still stuck? Email <a href="mailto:visualtales8@gmail.com">visualtales8@gmail.com</a> and tell us which page you wanted.</p>
+    </div>
+    <ul class="app-links">
+      {%- for app in apps %}
+      {%- assign icon_id = app.slug | append: "-404" %}
+      {%- assign app_url = "/apps/" | append: app.slug | append: "/" | relative_url %}
+      <li>
+        <p class="app-links-head">{% include site/app-icon.html slug=app.slug id=icon_id %}<span><strong><a href="{{ app_url }}">{{ app.name }}</a></strong><span>{{ app.tagline }} for {{ app.platform }}</span></span></p>
+        <ul aria-label="{{ app.name }} pages">
+          {%- for entry in app.docs offset: 1 %}
+          <li><a href="{{ app_url }}{{ entry.path }}">{{ entry.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

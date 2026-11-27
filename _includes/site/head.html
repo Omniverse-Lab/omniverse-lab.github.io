@@ -1,0 +1,16 @@
+{%- comment -%}
+  The <head> contents shared by every page. Params: theme (the top bar's
+  colour, for the browser chrome), icon (a favicon path, optional).
+{%- endcomment -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="{{ include.theme | default: '#0B1018' }}">
+{%- seo %}
+<link rel="preload" href="{{ '/assets/fonts/figtree-extrabold.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/source-serif-regular.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+<link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+{%- if include.icon %}
+<link rel="icon" href="{{ include.icon | relative_url }}" type="image/svg+xml">
+{%- endif %}
+<script>document.documentElement.className = 'js';</script>

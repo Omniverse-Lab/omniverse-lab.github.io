@@ -1,15 +1,17 @@
 ---
 ---
 {%- comment -%}
-  The legal centre: each app's privacy policy, terms of use, support and
-  data-deletion page. A full page of its own (it does not extend minima's
-  default layout) with its own stylesheet, assets/legal.css.
+  Each app's pages: its overview, privacy policy, terms of use, support and
+  data-deletion page. Shares the top bar, footer and stylesheet with
+  _layouts/site.html through _includes/site/.
 
-  Front matter: app_slug, doc (a slug from _data/legal.yml), and optionally
+  Front matter: app_slug, doc (a slug from _data/apps.yml), and optionally
   heading, summary (one sentence under the title), effective, updated,
   applies_to, package, publisher, contact, facts + facts_scope (privacy),
   search_hint (support), meta_extra (a list of {label, value}) and
   revisions (a list of {date, summary}, newest first).
+  An overview page shows its app's "Privacy at a glance" label, read from
+  that app's privacy page, so the two never disagree.
   Quote a facts value that YAML reads as a boolean ("No", "Yes", "On",
   "Off"), or it prints as true/false.
 
@@ -17,13 +19,29 @@
   it works without JavaScript. docs.js adds the active-section marker,
   reading progress, link copying, print and the support search.
 {%- endcomment -%}
-{%- assign apps = site.data.legal.apps -%}
+{%- assign apps = site.data.apps.list -%}
 {%- assign app = apps | where: "slug", page.app_slug | first -%}
-{%- assign app_url = "/apps/" | append: page.app_slug | append: "/" | relative_url -%}
+{%- assign app_path = "/apps/" | append: page.app_slug | append: "/" -%}
+{%- assign app_url = app_path | relative_url -%}
 {%- assign current = app.docs | where: "slug", page.doc | first -%}
-{%- assign heading = page.heading | default: current.label -%}
-{%- assign widths = site.data.legal.art_widths -%}
+{%- assign is_overview = false -%}
+{%- if page.doc == "overview" -%}{%- assign is_overview = true -%}{%- endif -%}
+{%- if is_overview -%}
+  {%- assign heading = page.heading | default: app.name -%}
+{%- else -%}
+  {%- assign heading = page.heading | default: current.label -%}
+{%- endif -%}
+{%- assign widths = site.data.apps.art_widths -%}
 {%- assign art_base = "/assets/img/legal/" | append: page.app_slug | append: "-hero-" | relative_url -%}
+
+{%- assign facts = page.facts -%}
+{%- assign facts_scope = page.facts_scope -%}
+{%- assign privacy_url = app_path | append: "privacy/" -%}
+{%- if is_overview -%}
+  {%- assign privacy_page = site.pages | where: "url", privacy_url | first -%}
+  {%- assign facts = privacy_page.facts -%}
+  {%- assign facts_scope = privacy_page.facts_scope -%}
+{%- endif -%}
 
 {%- capture toc_items -%}
   {%- assign parts = content | split: '<h2 id="' -%}
@@ -38,44 +56,14 @@
 {%- if toc_items contains "<li>" -%}{%- assign has_toc = true -%}{%- endif -%}
 {%- assign words = content | strip_html | number_of_words -%}
 {%- assign minutes = words | divided_by: 230 | at_least: 1 -%}
+{%- assign icon_path = "/assets/img/legal/" | append: page.app_slug | append: "-icon.svg" -%}
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en' }}" class="no-js">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="{% if page.app_slug == 'mathdeck' %}#1B1C20{% else %}#070D1A{% endif %}">
-  {%- seo %}
-  <link rel="preload" href="{{ '/assets/fonts/figtree-extrabold.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
-  <link rel="preload" href="{{ '/assets/fonts/source-serif-regular.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/legal.css' | relative_url }}">
-  <link rel="icon" href="{{ '/assets/img/legal/' | append: page.app_slug | append: '-icon.svg' | relative_url }}" type="image/svg+xml">
-  <script>document.documentElement.className = 'js';</script>
+  {% include site/head.html theme=app.theme_color icon=icon_path %}
 </head>
-<body class="legal app-{{ page.app_slug }} doc-{{ page.doc }}">
-  <a class="skip-link" href="#document">Skip to the document</a>
-
-  <header class="topbar">
-    <div class="shell topbar-row">
-      <a class="brand" href="{{ '/' | relative_url }}">OmniVerse Labs</a>
-      <nav class="topnav" aria-label="Site">
-        <a href="{{ '/apps/' | relative_url }}">Apps</a>
-        <a href="{{ '/about/' | relative_url }}">About</a>
-        <a href="{{ '/contact/' | relative_url }}">Contact</a>
-      </nav>
-      <nav class="app-switch" aria-label="Choose an app">
-        <ul>
-          {%- for other in apps -%}
-            {%- assign same_doc = other.docs | where: "slug", page.doc | first -%}
-            {%- if same_doc -%}{%- assign target = page.doc -%}{%- else -%}{%- assign target = "privacy" -%}{%- endif -%}
-            {%- assign icon_id = other.slug | append: "-switch" -%}
-          <li><a href="{{ '/apps/' | append: other.slug | append: '/' | append: target | append: '/' | relative_url }}"{% if other.slug == page.app_slug %} aria-current="true"{% endif %}>{% include legal/app-icon.html slug=other.slug id=icon_id %}<span>{{ other.name }}</span></a></li>
-          {%- endfor -%}
-        </ul>
-      </nav>
-    </div>
-    <span class="read-progress" aria-hidden="true" data-progress></span>
-  </header>
+<body class="site app-{{ page.app_slug }} doc-{{ page.doc }}">
+  {% include site/topbar.html skip="document" progress=true %}
 
   <main class="doc" data-doc{% if page.doc == "support" %} data-faq{% endif %}>
     <header class="hero">
@@ -88,26 +76,44 @@
         <nav class="crumbs" aria-label="Breadcrumb">
           <ol>
             <li><a href="{{ '/apps/' | relative_url }}">Apps</a></li>
+            {%- if is_overview %}
+            <li><span aria-current="page">{{ app.name }}</span></li>
+            {%- else %}
             <li><a href="{{ app_url }}">{{ app.name }}</a></li>
             <li><span aria-current="page">{{ heading }}</span></li>
+            {%- endif %}
           </ol>
         </nav>
-        <p class="hero-app">{% include legal/app-icon.html slug=page.app_slug id="hero" %}<span><a href="{{ app_url }}">{{ app.name }}</a> for {{ app.platform }}</span></p>
+        {%- if is_overview %}
+        <p class="hero-app">{% include site/app-icon.html slug=page.app_slug id="hero" %}<span>{{ app.tagline }} for {{ app.platform }}</span></p>
+        {%- else %}
+        <p class="hero-app">{% include site/app-icon.html slug=page.app_slug id="hero" %}<span><a href="{{ app_url }}">{{ app.name }}</a> for {{ app.platform }}</span></p>
+        {%- endif %}
         <h1 class="hero-title">{{ heading }}</h1>
         {%- if page.summary %}
         <p class="hero-lede">{{ page.summary }}</p>
         {%- endif %}
-        <nav class="doc-tabs" aria-label="{{ app.name }} documents">
+        {%- if is_overview %}
+        <p class="hero-actions">
+          {%- if app.store_url %}
+          <a class="btn btn-primary" href="{{ app.store_url }}">Get {{ app.name }} on Google Play</a>
+          {%- else %}
+          <span class="btn btn-status">{{ app.store_status }}</span>
+          {%- endif %}
+          <a class="btn btn-ghost" href="{{ app_url }}privacy/">Read the privacy policy</a>
+        </p>
+        {%- endif %}
+        <nav class="doc-tabs" aria-label="{{ app.name }} pages">
           <ul>
             {%- for entry in app.docs %}
-            <li><a href="{{ app_url }}{{ entry.slug }}/"{% if entry.slug == page.doc %} aria-current="page"{% endif %}>{{ entry.label }}</a></li>
+            <li><a href="{{ app_url }}{{ entry.path }}"{% if entry.slug == page.doc %} aria-current="page"{% endif %}>{{ entry.label }}</a></li>
             {%- endfor %}
           </ul>
         </nav>
       </div>
     </header>
 
-    <section class="shell doc-meta" aria-label="About this document">
+    <section class="shell doc-meta" aria-label="About this {% if is_overview %}app{% else %}document{% endif %}">
       <dl>
         {%- if page.revisions %}
         <div><dt>Revision</dt><dd>{{ page.revisions.size }} <a href="#revision-history">See history</a></dd></div>
@@ -156,18 +162,22 @@
       {%- endif %}
 
       <div class="doc-main" id="document" tabindex="-1">
-        {%- if page.facts %}
+        {%- if facts %}
         <section class="facts" aria-labelledby="facts-title">
           <h2 class="facts-title" id="facts-title">Privacy at a glance</h2>
           <dl class="facts-list">
-            {%- for fact in page.facts %}
+            {%- for fact in facts %}
             <div class="fact">
               <dt>{{ fact.label }}</dt>
               <dd><strong>{{ fact.value }}</strong>{% if fact.note %}<span>{{ fact.note }}</span>{% endif %}</dd>
             </div>
             {%- endfor %}
           </dl>
-          <p class="facts-foot">{% if page.facts_scope %}Covers {{ page.facts_scope }}. {% endif %}A summary of the policy below. The full text is what applies.</p>
+          {%- if is_overview %}
+          <p class="facts-foot">{% if facts_scope %}Covers {{ facts_scope }}. {% endif %}A summary of the <a href="{{ app_url }}privacy/">privacy policy</a>, which is what applies.</p>
+          {%- else %}
+          <p class="facts-foot">{% if facts_scope %}Covers {{ facts_scope }}. {% endif %}A summary of the policy below. The full text is what applies.</p>
+          {%- endif %}
         </section>
         {%- endif -%}
 
@@ -198,9 +208,9 @@
         </div>
       </div>
 
-      <aside class="action-rail" aria-label="Document tools">
+      <aside class="action-rail" aria-label="Page tools">
         <section class="rail-card">
-          <h2 class="rail-title">This document</h2>
+          <h2 class="rail-title">This {% if is_overview %}page{% else %}document{% endif %}</h2>
           <div class="rail-buttons">
             <button type="button" class="rail-button" data-print hidden>
               <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5.5 7V2.75h9V7M5.5 14.5H3.75a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h12.5a1 1 0 0 1 1 1v5.5a1 1 0 0 1-1 1H14.5M5.5 11.5h9v5.75h-9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
@@ -218,54 +228,22 @@
           <ul class="rail-links">
             {%- for entry in app.docs %}
             {%- unless entry.slug == page.doc %}
-            <li><a href="{{ app_url }}{{ entry.slug }}/">{{ entry.label }}</a></li>
+            <li><a href="{{ app_url }}{{ entry.path }}">{{ entry.label }}</a></li>
             {%- endunless %}
             {%- endfor %}
-            <li><a href="{{ app_url }}">About {{ app.name }}</a></li>
           </ul>
         </section>
 
-        {%- if page.contact %}
         <section class="rail-card rail-contact">
           <h2 class="rail-title">Questions</h2>
           <p>Email us and a person replies, usually within two business days.</p>
-          <a class="rail-mail" href="mailto:{{ page.contact }}">{{ page.contact }}</a>
+          <a class="rail-mail" href="mailto:{{ page.contact | default: 'visualtales8@gmail.com' }}">{{ page.contact | default: 'visualtales8@gmail.com' }}</a>
         </section>
-        {%- endif %}
       </aside>
     </div>
   </main>
 
-  <footer class="site-foot">
-    <div class="shell foot-grid">
-      <div class="foot-brand">
-        <p class="foot-name">OmniVerse Labs</p>
-        <p>Android apps that keep your data on your phone.</p>
-      </div>
-      {%- for other in apps %}
-      <nav aria-labelledby="foot-{{ other.slug }}">
-        <h2 id="foot-{{ other.slug }}">{{ other.name }}</h2>
-        <ul>
-          {%- for entry in other.docs %}
-          <li><a href="{{ '/apps/' | append: other.slug | append: '/' | append: entry.slug | append: '/' | relative_url }}">{{ entry.label }}</a></li>
-          {%- endfor %}
-        </ul>
-      </nav>
-      {%- endfor %}
-      <nav aria-labelledby="foot-company">
-        <h2 id="foot-company">OmniVerse Labs</h2>
-        <ul>
-          <li><a href="{{ '/apps/' | relative_url }}">All apps</a></li>
-          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="shell foot-base">
-      <p>© {{ site.time | date: "%Y" }} OmniVerse Labs</p>
-      <p>This website sets no cookies, runs no analytics and loads nothing from other websites.</p>
-    </div>
-  </footer>
+  {% include site/footer.html %}
 
   <a class="to-top" href="#document" data-to-top hidden>
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 15.5v-11M5 9.5l5-5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>

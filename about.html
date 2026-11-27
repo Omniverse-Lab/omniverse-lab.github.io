@@ -1,0 +1,101 @@
+---
+layout: site
+title: About
+permalink: /about/
+lede: OmniVerse Labs is a small studio making practical, privacy-conscious apps for Android.
+---
+{%- assign apps = site.data.apps.list -%}
+
+<section class="band" aria-label="Our approach">
+  <div class="shell">
+    <p class="statement">We build focused tools for everyday calculation, organisation and communication, guided by one idea: useful software should be easy to understand, respectful of the person using it, and easy to trust.</p>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="make-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="make-title">What we make</h2>
+      <p>Apps with one clear job each, that work without an account and without handing over data.</p>
+    </div>
+    <ul class="principles">
+      <li>
+        <h3>Utility apps</h3>
+        <p>Tools that help people calculate, convert, track, plan and finish everyday tasks.</p>
+      </li>
+      <li>
+        <h3>Everyday essentials</h3>
+        <p>Apps for things you do every day, such as making calls, built to keep what they handle on your phone.</p>
+      </li>
+      <li>
+        <h3>Productivity companions</h3>
+        <p>Small workflows that remove friction without asking you to create an account or hand over data.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="standards-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="standards-title">Every app explains itself</h2>
+      <p>If an app needs permissions, internet access, an account or a server, its documents say so plainly, before anyone has to ask.</p>
+    </div>
+    <dl class="addresses">
+      <div>
+        <dt>An overview</dt>
+        <dd>What the app does and what it needs to work.</dd>
+      </div>
+      <div>
+        <dt>A privacy policy</dt>
+        <dd>What the app keeps, where, for how long and who else handles it, led by a one-screen summary and followed by a dated history of every change.</dd>
+      </div>
+      <div>
+        <dt>Terms of use</dt>
+        <dd>The agreement for using the app, in plain language wherever the law allows.</dd>
+      </div>
+      <div>
+        <dt>A support page</dt>
+        <dd>Searchable answers, and a person to email when they are not enough.</dd>
+      </div>
+      <div>
+        <dt>A way to delete your data</dt>
+        <dd>In the app, and on the web for anything an app keeps on a server.</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="our-apps-title">
+  <div class="shell">
+    <div class="band-head">
+      <h2 class="band-title" id="our-apps-title">Our apps</h2>
+    </div>
+    <ul class="app-links">
+      {%- for app in apps %}
+      {%- assign icon_id = app.slug | append: "-about" %}
+      {%- assign app_url = "/apps/" | append: app.slug | append: "/" | relative_url %}
+      <li>
+        <p class="app-links-head">{% include site/app-icon.html slug=app.slug id=icon_id %}<span><strong><a href="{{ app_url }}">{{ app.name }}</a></strong><span>{{ app.tagline }} for {{ app.platform }}</span></span></p>
+        <ul aria-label="{{ app.name }} pages">
+          {%- for entry in app.docs offset: 1 %}
+          <li><a href="{{ app_url }}{{ entry.path }}">{{ entry.label }}</a></li>
+          {%- endfor %}
+        </ul>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="about-contact-title">
+  <div class="shell">
+    <div class="contact-panel">
+      <div>
+        <h2 class="band-title" id="about-contact-title">Get in touch</h2>
+        <p>Questions, ideas for an app, or a privacy request: email us and a person replies.</p>
+      </div>
+      <a class="mail-link" href="mailto:visualtales8@gmail.com">visualtales8@gmail.com</a>
+    </div>
+  </div>
+</section>

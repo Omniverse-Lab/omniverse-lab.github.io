@@ -1,0 +1,130 @@
+---
+layout: site
+title: OmniVerse Labs
+permalink: /
+heading: Apps that keep your data on your phone.
+lede: OmniVerse Labs makes focused Android apps with no ads and no tracking. Every one comes with a plain-language privacy policy, terms of use and support page.
+hero: home
+actions:
+  - label: See the apps
+    url: /apps/
+    style: primary
+  - label: What each app sends us
+    url: "#privacy"
+    style: ghost
+---
+{%- assign apps = site.data.apps.list -%}
+
+<section class="band" id="privacy" aria-labelledby="privacy-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="privacy-title">What each app sends us</h2>
+      <p>Nothing, unless you turn on a feature that needs a server. Each row comes from the app's privacy policy, and the policy is what applies.</p>
+    </div>
+
+    <div class="compare" role="region" aria-labelledby="compare-caption" tabindex="0">
+      <table>
+        <caption id="compare-caption">Privacy at a glance</caption>
+        <thead>
+          <tr>
+            <td></td>
+            {%- for app in apps %}
+            {%- assign icon_id = app.slug | append: "-compare" %}
+            <th scope="col"><span>{% include site/app-icon.html slug=app.slug id=icon_id %}{{ app.name }}</span></th>
+            {%- endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Account</th>
+            <td><strong>None</strong><span>No sign-up and no profile.</span></td>
+            <td><strong>None</strong><span>Unless you turn on Caller names, which signs in with your phone number.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Data sent to OmniVerse Labs</th>
+            <td><strong>None</strong><span>Your history and tasks never reach us.</span></td>
+            <td><strong>Only with Caller names on</strong><span>Never your contacts or call history.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Internet access</th>
+            <td><strong>Currency rates only</strong><span>A request for exchange rates, with nothing about you in it.</span></td>
+            <td><strong>Only for Caller names</strong><span>Until you turn it on, ReCall does not connect to the internet.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Ads, analytics, crash reports</th>
+            <td><strong>None</strong></td>
+            <td><strong>None</strong></td>
+          </tr>
+          <tr>
+            <th scope="row">Where your data is kept</th>
+            <td><strong>On your phone</strong><span>And in your own Android backup, if it is on.</span></td>
+            <td><strong>On your phone</strong><span>A Caller names listing is kept on our server until you turn it off.</span></td>
+          </tr>
+          <tr>
+            <th scope="row">Deleting your data</th>
+            <td><strong>Any time</strong><span>In the app, or by uninstalling it.</span></td>
+            <td><strong>Any time</strong><span>In the app, or on the web for Caller names.</span></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            {%- for app in apps %}
+            <td><a href="{{ '/apps/' | append: app.slug | append: '/privacy/' | relative_url }}">{{ app.name }} privacy policy</a></td>
+            {%- endfor %}
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="apps-title">
+  <div class="shell">
+    <div class="band-head">
+      <h2 class="band-title" id="apps-title">Our apps</h2>
+      <p>Two Android apps so far, each with its own overview, privacy policy, terms of use and support page.</p>
+    </div>
+    <ul class="app-grid">
+      {%- for app in apps %}
+      {%- assign card_id = "home-" | append: app.slug %}
+      <li>{% include site/app-card.html app=app id=card_id level="h3" %}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="principles-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="principles-title">How we build</h2>
+      <p>Small, reliable software that helps people get something done, without asking for more than it needs.</p>
+    </div>
+    <ul class="principles">
+      <li>
+        <h3>Privacy first</h3>
+        <p>We avoid collecting personal data unless an app truly needs it. When an app keeps something, its privacy policy says exactly what, where and for how long.</p>
+      </li>
+      <li>
+        <h3>Plain-language policies</h3>
+        <p>Every app has a privacy policy, terms of use and support page at the same addresses, written for people, with a one-screen summary at the top and a dated history of every change.</p>
+      </li>
+      <li>
+        <h3>Focused tools</h3>
+        <p>Practical apps with one clear job, such as calculating or calling, that are useful the moment you open them.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="contact-title">
+  <div class="shell">
+    <div class="contact-panel">
+      <div>
+        <h2 class="band-title" id="contact-title">Questions, support or a privacy request?</h2>
+        <p>A person reads every email and replies, usually within two business days. For help with an app, say which app and version you use.</p>
+      </div>
+      <a class="mail-link" href="mailto:visualtales8@gmail.com">visualtales8@gmail.com</a>
+    </div>
+  </div>
+</section>

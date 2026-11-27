@@ -1,0 +1,49 @@
+---
+layout: site
+title: Apps
+permalink: /apps/
+lede: Every OmniVerse Labs app, with its privacy policy, terms of use and support page at the same addresses, for the people who use it and the stores that review it.
+---
+{%- assign apps = site.data.apps.list -%}
+
+<section class="band" aria-label="App directory">
+  <div class="shell">
+    <ul class="app-grid">
+      {%- for app in apps %}
+      {%- assign card_id = "apps-" | append: app.slug %}
+      <li>{% include site/app-card.html app=app id=card_id level="h2" %}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="band band-alt" aria-labelledby="addresses-title">
+  <div class="shell band-split">
+    <div class="band-head">
+      <h2 class="band-title" id="addresses-title">The same documents for every app</h2>
+      <p>Each app's pages live at predictable addresses, so a link in an app store listing or a review keeps working.</p>
+    </div>
+    <dl class="addresses">
+      <div>
+        <dt>Overview<br><code>/apps/app-name/</code></dt>
+        <dd>What the app does, what it needs to work, and its privacy summary.</dd>
+      </div>
+      <div>
+        <dt>Privacy policy<br><code>/apps/app-name/privacy/</code></dt>
+        <dd>What the app keeps, where, for how long, and who else handles it, with a one-screen summary at the top and a dated history of changes.</dd>
+      </div>
+      <div>
+        <dt>Terms of use<br><code>/apps/app-name/terms/</code></dt>
+        <dd>The agreement for using the app.</dd>
+      </div>
+      <div>
+        <dt>Support<br><code>/apps/app-name/support/</code></dt>
+        <dd>Answers to common questions, searchable, and how to reach a person.</dd>
+      </div>
+      <div>
+        <dt>Delete your data<br><code>/apps/app-name/delete/</code></dt>
+        <dd>For apps that keep anything on a server: how to delete it, with or without the app.</dd>
+      </div>
+    </dl>
+  </div>
+</section>

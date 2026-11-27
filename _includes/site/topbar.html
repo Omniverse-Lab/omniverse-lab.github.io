@@ -1,0 +1,53 @@
+{%- comment -%}
+  The top bar on every page: the site, its sections, and a switch between
+  the apps. On an app's page the switch keeps you on the same document
+  (privacy to privacy), falling back to the other app's overview.
+  Params: skip (the id the skip link jumps to), progress (true to draw the
+  reading-progress line that docs.js fills).
+{%- endcomment -%}
+{%- assign apps = site.data.apps.list -%}
+<a class="skip-link" href="#{{ include.skip | default: 'content' }}">Skip to the content</a>
+
+<header class="topbar">
+  <div class="shell topbar-row">
+    <a class="brand" href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>OmniVerse Labs</a>
+    <nav class="topnav" aria-label="Site">
+      <a href="{{ '/apps/' | relative_url }}"{% if page.url contains "/apps/" %} aria-current="{% if page.url == '/apps/' %}page{% else %}true{% endif %}"{% endif %}>Apps</a>
+      <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+      <a href="{{ '/contact/' | relative_url }}"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a>
+    </nav>
+    <nav class="app-switch" aria-label="Choose an app">
+      <ul>
+        {%- for other in apps -%}
+          {%- assign target = other.docs | where: "slug", page.doc | first -%}
+          {%- unless target -%}{%- assign target = other.docs | first -%}{%- endunless -%}
+          {%- assign icon_id = other.slug | append: "-switch" -%}
+        <li><a href="{{ '/apps/' | append: other.slug | append: '/' | append: target.path | relative_url }}"{% if other.slug == page.app_slug %} aria-current="true"{% endif %}>{% include site/app-icon.html slug=other.slug id=icon_id %}<span>{{ other.name }}</span></a></li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+    <details class="menu">
+      <summary aria-label="Menu">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Menu</span>
+      </summary>
+      <div class="menu-panel">
+        <nav aria-label="Site, on small screens">
+          <a href="{{ '/' | relative_url }}"{% if page.url == "/" %} aria-current="page"{% endif %}>Home</a>
+          <a href="{{ '/apps/' | relative_url }}"{% if page.url == "/apps/" %} aria-current="page"{% endif %}>Apps</a>
+          <a href="{{ '/about/' | relative_url }}"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
+          <a href="{{ '/contact/' | relative_url }}"{% if page.url == "/contact/" %} aria-current="page"{% endif %}>Contact</a>
+        </nav>
+        <ul class="menu-apps" aria-label="Our apps">
+          {%- for other in apps -%}
+            {%- assign icon_id = other.slug | append: "-menu" -%}
+          <li><a href="{{ '/apps/' | append: other.slug | append: '/' | relative_url }}"{% if other.slug == page.app_slug %} aria-current="true"{% endif %}>{% include site/app-icon.html slug=other.slug id=icon_id %}<span>{{ other.name }}<span>{{ other.tagline }}</span></span></a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    </details>
+  </div>
+  {%- if include.progress %}
+  <span class="read-progress" aria-hidden="true" data-progress></span>
+  {%- endif %}
+</header>
