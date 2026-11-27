@@ -1,0 +1,146 @@
+// Legal centre design tokens: type, colour, space.
+//
+// Two self-hosted typefaces, both under the SIL Open Font License (the
+// licence travels inside each font file): Figtree for the interface and
+// headings, Source Serif for the reading text. Self-hosting keeps the
+// promise in the footer: these pages load nothing from other websites.
+//
+// Plain CSS values only. GitHub Pages compiles this with Ruby Sass 3.7,
+// which treats min()/max() as Sass functions and rejects clamp() with
+// mixed units, so fluid sizes use calc() with vw inside media queries.
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/figtree-regular.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/figtree-semibold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/figtree-bold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Figtree";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/figtree-extrabold.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/source-serif-regular.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/source-serif-italic.woff") format("woff");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: "Source Serif";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/source-serif-semibold.woff") format("woff");
+}
+
+// Colour. A cool paper (never cream), near-black ink with a blue cast,
+// and each app's own accent: ReCall's aurora blue from its icon, and
+// MathDeck's tab blue with the sage LCD of its calculator display.
+
+:root {
+  --font-sans: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Source Serif", "Source Serif Pro", Charter, "Bitstream Charter", Cambria, Georgia, serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  --paper: #F4F6F9;
+  --surface: #FFFFFF;
+  --ink: #111620;
+  --ink-2: #464F60;
+  --ink-3: #5F6879;
+  --line: #DDE2EA;
+  --line-strong: #C3CAD6;
+  --accent: #2559C4;
+  --accent-strong: #1C479F;
+  --accent-soft: #E8EEFB;
+  --focus: #2559C4;
+
+  --hero-bg: #070D1A;
+  --hero-ink: #F3F6FB;
+  --hero-ink-2: #B4BFD3;
+  --hero-glow-1: #3D7BFF;
+  --hero-glow-2: #2EE0FF;
+
+  --label-ink: var(--ink);
+  --label-paper: var(--surface);
+  --label-note: var(--ink-2);
+
+  --shell: 1680px;
+  --gutter: calc(16px + 2.6vw);
+  --topbar-h: 64px;
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-mathdeck {
+  --accent: #3D5BC9;
+  --accent-strong: #2E48A8;
+  --accent-soft: #EAEDFA;
+  --focus: #3D5BC9;
+
+  --hero-bg: #17181C;
+  --hero-ink-2: #C3C1BA;
+  --hero-glow-1: #C8CCB8;
+  --hero-glow-2: #D4D8C4;
+
+  // The label is drawn as the app's LCD: sage glass, dark segment ink.
+  --label-ink: #2A2A1A;
+  --label-paper: #CDD1BD;
+  --label-note: #4A5547;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0C1015;
+    --surface: #131922;
+    --ink: #E8ECF3;
+    --ink-2: #B2BBCA;
+    --ink-3: #939DAF;
+    --line: #242C38;
+    --line-strong: #354052;
+    --accent: #8FB1FF;
+    --accent-strong: #B0C8FF;
+    --accent-soft: #17223A;
+    --focus: #8FB1FF;
+  }
+
+  .app-mathdeck {
+    --accent: #A3B2FF;
+    --accent-strong: #C0CAFF;
+    --accent-soft: #1D2236;
+    --focus: #A3B2FF;
+  }
+}

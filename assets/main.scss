@@ -411,5 +411,5 @@ blockquote {
   }
 }
 
-// Privacy, terms and support pages. Imported last so its print rules win.
-@import "omniverse/docs";
+// Privacy, terms, support and deletion pages have their own stylesheet,
+// assets/legal.scss, loaded by _layouts/doc.html.

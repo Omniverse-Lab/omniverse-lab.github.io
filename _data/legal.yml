@@ -1,0 +1,31 @@
+# Apps and documents shown by _layouts/doc.html.
+# Each page names its app with `app_slug` and its document with `doc`;
+# the layout reads the app's name and documents from here, and its hero
+# photograph from assets/img/legal/<slug>-hero-<width>.webp.
+
+apps:
+  - slug: mathdeck
+    name: MathDeck
+    platform: Android
+    docs:
+      - slug: privacy
+        label: Privacy policy
+      - slug: terms
+        label: Terms of use
+      - slug: support
+        label: Support
+
+  - slug: recall
+    name: ReCall
+    platform: Android
+    docs:
+      - slug: privacy
+        label: Privacy policy
+      - slug: terms
+        label: Terms of use
+      - slug: support
+        label: Support
+      - slug: delete
+        label: Delete data
+
+art_widths: [960, 1600, 2336]

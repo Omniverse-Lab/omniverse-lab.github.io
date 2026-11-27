@@ -1,0 +1,123 @@
+// Print and "Save as PDF": the document alone, in black on white, with
+// every link's address written out.
+
+@media print {
+  .topbar,
+  .skip-link,
+  .hero-art,
+  .crumbs,
+  .doc-tabs,
+  .toc-rail,
+  .toc-sheet,
+  .action-rail,
+  .faq-search,
+  .site-foot,
+  .to-top {
+    display: none !important;
+  }
+
+  :root,
+  .app-mathdeck {
+    --paper: #FFFFFF;
+    --surface: #FFFFFF;
+    --ink: #000000;
+    --ink-2: #222222;
+    --ink-3: #444444;
+    --line: #BBBBBB;
+    --accent: #000000;
+    --accent-soft: #F2F2F2;
+    --label-ink: #000000;
+    --label-paper: #FFFFFF;
+    --label-note: #333333;
+  }
+
+  body.legal {
+    background: #FFFFFF;
+    font-size: 11pt;
+  }
+
+  .shell {
+    max-width: none;
+    padding: 0;
+  }
+
+  .hero {
+    background: none;
+    color: #000000;
+    padding: 0 0 12pt;
+  }
+
+  .hero::before {
+    content: none;
+  }
+
+  .hero-app,
+  .hero-lede {
+    color: #333333;
+  }
+
+  .hero-app .app-icon {
+    box-shadow: none;
+  }
+
+  .hero-title {
+    font-size: 30pt;
+    max-width: none;
+  }
+
+  .doc-meta {
+    margin: 0 0 18pt;
+  }
+
+  .doc-meta dl {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .doc-grid {
+    display: block;
+    padding: 0;
+  }
+
+  .doc-main {
+    max-width: none;
+  }
+
+  .app-mathdeck .facts {
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-shadow: none;
+    margin: 0 0 24pt;
+  }
+
+  .facts,
+  .data-table tr,
+  .revisions li {
+    break-inside: avoid;
+  }
+
+  .doc-body {
+    font-size: 11.5pt;
+  }
+
+  .doc-body h2 {
+    break-after: avoid;
+    font-size: 16pt;
+    margin-top: 24pt;
+  }
+
+  .doc-body h3 {
+    break-after: avoid;
+  }
+
+  .doc-body .heading-link::after {
+    content: none;
+  }
+
+  .legal .doc-body a[href^="http"]::after,
+  .legal .doc-body a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+}

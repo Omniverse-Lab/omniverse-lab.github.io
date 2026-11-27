@@ -1,0 +1,703 @@
+// Page frame: base, top bar, hero, document details, footer.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--topbar-h) + 24px);
+}
+
+body.legal {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.legal [hidden] {
+  display: none !important;
+}
+
+.legal a {
+  color: var(--accent);
+}
+
+.legal a:hover {
+  color: var(--accent-strong);
+}
+
+.legal :focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.legal .app-icon {
+  display: block;
+  flex: none;
+}
+
+.shell {
+  margin: 0 auto;
+  max-width: var(--shell);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  width: 100%;
+}
+
+.skip-link {
+  background: var(--surface);
+  border-radius: 0 0 var(--radius-s) var(--radius-s);
+  color: var(--ink);
+  font-weight: 700;
+  left: var(--gutter);
+  padding: 12px 18px;
+  position: absolute;
+  top: 0;
+  transform: translateY(-120%);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+// Top bar: the site, and a switch between the two apps' documents
+
+.topbar {
+  -webkit-backdrop-filter: saturate(1.4) blur(16px);
+  backdrop-filter: saturate(1.4) blur(16px);
+  background: color-mix(in srgb, var(--hero-bg) 86%, transparent);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--hero-ink);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbar-row {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  height: var(--topbar-h);
+}
+
+.legal .brand {
+  color: var(--hero-ink);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.topnav {
+  display: flex;
+  gap: 2px;
+}
+
+.legal .topnav a {
+  border-radius: var(--radius-s);
+  color: var(--hero-ink-2);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 12px;
+  text-decoration: none;
+}
+
+.legal .topnav a:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--hero-ink);
+}
+
+.app-switch {
+  margin-left: auto;
+}
+
+.app-switch ul {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  display: flex;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+}
+
+.legal .app-switch a {
+  align-items: center;
+  border-radius: 999px;
+  color: var(--hero-ink-2);
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 8px;
+  min-height: 38px;
+  padding: 4px 14px 4px 5px;
+  text-decoration: none;
+}
+
+.legal .app-switch a:hover {
+  color: var(--hero-ink);
+}
+
+.legal .app-switch a[aria-current] {
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+}
+
+.app-switch .app-icon {
+  border-radius: 8px;
+  height: 28px;
+  width: 28px;
+}
+
+.read-progress {
+  background: linear-gradient(90deg, var(--hero-glow-1), var(--hero-glow-2));
+  bottom: -1px;
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+}
+
+// Hero: the app's own photograph behind the title, faded to the page colour
+
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-ink);
+  isolation: isolate;
+  overflow: hidden;
+  padding: 44px 0 128px;
+  position: relative;
+}
+
+.hero-art {
+  inset: 0;
+  position: absolute;
+  z-index: -2;
+}
+
+.hero-art img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 46%;
+  width: 100%;
+}
+
+.hero::before {
+  background:
+    linear-gradient(90deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 94%, transparent) 30%, color-mix(in srgb, var(--hero-bg) 40%, transparent) 62%, color-mix(in srgb, var(--hero-bg) 10%, transparent) 100%),
+    linear-gradient(0deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 0%, transparent) 34%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+}
+
+.crumbs ol {
+  color: var(--hero-ink-2);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  gap: 6px;
+  list-style: none;
+  margin: 0 0 44px;
+  padding: 0;
+}
+
+.crumbs li + li::before {
+  content: "/";
+  margin-right: 6px;
+  opacity: 0.5;
+}
+
+.legal .crumbs a {
+  color: var(--hero-ink-2);
+  text-decoration: none;
+}
+
+.legal .crumbs a:hover {
+  color: var(--hero-ink);
+  text-decoration: underline;
+}
+
+.hero-app {
+  align-items: center;
+  color: var(--hero-ink-2);
+  display: flex;
+  font-size: 17px;
+  font-weight: 600;
+  gap: 14px;
+  margin: 0 0 20px;
+}
+
+.hero-app .app-icon {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  height: 44px;
+  width: 44px;
+}
+
+.legal .hero-app a {
+  color: var(--hero-ink);
+  text-decoration: none;
+}
+
+.legal .hero-app a:hover {
+  text-decoration: underline;
+}
+
+.hero-title {
+  font-size: calc(2rem + 3.9vw);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  margin: 0 0 24px;
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+.hero-lede {
+  color: var(--hero-ink-2);
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 36px;
+  max-width: 44ch;
+  text-wrap: pretty;
+}
+
+.doc-tabs ul {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.legal .doc-tabs a {
+  align-items: center;
+  border-radius: 11px;
+  color: var(--hero-ink-2);
+  display: flex;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 18px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.legal .doc-tabs a:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: var(--hero-ink);
+}
+
+.legal .doc-tabs a[aria-current="page"] {
+  background: var(--hero-ink);
+  color: var(--hero-bg);
+}
+
+// The one moment of motion: the hero settles in once, on load.
+@media (prefers-reduced-motion: no-preference) {
+  .js .hero-art img {
+    animation: hero-art 1400ms var(--ease-out) both;
+  }
+
+  .js .hero-content > * {
+    animation: hero-rise 700ms var(--ease-out) both;
+  }
+
+  .js .hero-content > :nth-child(2) { animation-delay: 60ms; }
+  .js .hero-content > :nth-child(3) { animation-delay: 120ms; }
+  .js .hero-content > :nth-child(4) { animation-delay: 180ms; }
+  .js .hero-content > :nth-child(5) { animation-delay: 240ms; }
+}
+
+@keyframes hero-art {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+// Document details: a strip that overlaps the bottom of the hero
+
+.doc-meta {
+  margin-top: -72px;
+  position: relative;
+  z-index: 2;
+}
+
+.doc-meta dl {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: 0 1px 2px rgba(10, 16, 30, 0.06), 0 24px 48px -20px rgba(10, 16, 30, 0.28);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+  margin: 0;
+  overflow: hidden;
+}
+
+// Hairlines between cells: each cell draws its own top and left edge,
+// and the frame clips the ones on the outside.
+.doc-meta dl > div {
+  box-shadow: -1px -1px 0 var(--line);
+  min-width: 0;
+  padding: 20px 24px 22px;
+}
+
+.doc-meta dt {
+  color: var(--ink-3);
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.doc-meta dd {
+  color: var(--ink);
+  font-size: 16px;
+  font-variant-numeric: lining-nums;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.doc-meta dd a {
+  font-weight: 600;
+}
+
+.doc-meta dd > a[href^="#"] {
+  font-size: 14px;
+  margin-left: 6px;
+}
+
+.doc-meta code {
+  color: var(--ink-3);
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 400;
+  margin-top: 3px;
+}
+
+// Footer
+
+.site-foot {
+  background: var(--hero-bg);
+  color: var(--hero-ink-2);
+  font-size: 15px;
+  padding: 72px 0 36px;
+}
+
+.foot-grid {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+}
+
+.foot-name {
+  color: var(--hero-ink);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+.foot-brand p {
+  margin: 0;
+  max-width: 30ch;
+}
+
+.site-foot h2 {
+  color: var(--hero-ink);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.site-foot ul {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legal .site-foot a {
+  color: var(--hero-ink-2);
+  text-decoration: none;
+}
+
+.legal .site-foot a:hover {
+  color: var(--hero-ink);
+  text-decoration: underline;
+}
+
+.foot-base {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 13.5px;
+  gap: 8px 32px;
+  justify-content: space-between;
+  margin-top: 56px;
+  padding-top: 24px;
+}
+
+.foot-base p {
+  margin: 0;
+}
+
+// Back to top, once the reader is well into the page
+
+.legal .to-top {
+  align-items: center;
+  background: var(--ink);
+  border-radius: 999px;
+  bottom: calc(16px + 1vw);
+  box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.45);
+  color: var(--paper);
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+  gap: 8px;
+  height: 46px;
+  opacity: 0;
+  padding: 0 18px 0 14px;
+  pointer-events: none;
+  position: fixed;
+  right: calc(16px + 1vw);
+  text-decoration: none;
+  transform: translateY(10px);
+  transition: opacity 200ms ease, transform 260ms var(--ease-out);
+  z-index: 40;
+}
+
+.legal .to-top.is-shown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.to-top svg {
+  height: 18px;
+  width: 18px;
+}
+
+// Wide screens: the title grows with the window, then holds
+
+@media screen and (min-width: 1680px) {
+  .hero-title {
+    font-size: 7.6rem;
+  }
+
+  .hero {
+    padding: 56px 0 140px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .hero-title {
+    font-size: calc(2.1rem + 4.4vw);
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(90deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 88%, transparent) 45%, color-mix(in srgb, var(--hero-bg) 45%, transparent) 100%),
+      linear-gradient(0deg, var(--hero-bg) 0%, color-mix(in srgb, var(--hero-bg) 0%, transparent) 40%);
+  }
+
+  .foot-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .foot-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .topnav {
+    display: none;
+  }
+
+  .topbar-row {
+    gap: 12px;
+  }
+
+  .legal .app-switch a {
+    padding-right: 12px;
+  }
+
+  .hero {
+    padding: 28px 0 112px;
+  }
+
+  .hero-art img {
+    object-position: 78% 50%;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--hero-bg) 70%, transparent) 0%, color-mix(in srgb, var(--hero-bg) 88%, transparent) 50%, var(--hero-bg) 100%);
+  }
+
+  .crumbs ol {
+    margin-bottom: 28px;
+  }
+
+  .hero-app {
+    font-size: 16px;
+  }
+
+  .hero-app .app-icon {
+    height: 38px;
+    width: 38px;
+  }
+
+  .hero-title {
+    font-size: calc(1.9rem + 4.6vw);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .hero-lede {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  // The document tabs scroll sideways instead of wrapping
+  .doc-tabs {
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+    overflow-x: auto;
+    padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .doc-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .doc-tabs ul {
+    flex-wrap: nowrap;
+  }
+
+  .legal .doc-tabs a {
+    font-size: 14.5px;
+    padding: 0 14px;
+  }
+
+  // Two columns; full-width cells drop below, and the short ones pair up
+  .doc-meta dl {
+    border-radius: var(--radius-m);
+    grid-auto-flow: row dense;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .doc-meta dl > div {
+    padding: 14px 16px 16px;
+  }
+
+  .doc-meta .meta-wide {
+    grid-column: 1 / -1;
+  }
+
+  .doc-meta dd {
+    font-size: 15px;
+  }
+
+  .foot-grid {
+    gap: 32px 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .legal .to-top {
+    padding: 0;
+    justify-content: center;
+    width: 46px;
+  }
+
+  .to-top span {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .legal .brand {
+    font-size: 15px;
+  }
+
+  .legal .app-switch a span {
+    font-size: 13px;
+  }
+
+  .legal .app-switch a {
+    gap: 6px;
+    padding-right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .legal .to-top {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .legal .doc-tabs a[aria-current="page"],
+  .legal .app-switch a[aria-current] {
+    outline: 2px solid CanvasText;
+    outline-offset: -2px;
+  }
+}

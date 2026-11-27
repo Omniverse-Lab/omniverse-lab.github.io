@@ -1,21 +1,47 @@
-// Enhancements for the privacy, terms and support pages (_layouts/doc.html).
-// Everything here is optional: without JavaScript the pages render in full,
-// with a working "On this page" list. No storage, no network requests.
+// Enhancements for the legal centre (_layouts/doc.html): privacy, terms,
+// support and deletion pages. Everything here is optional: without
+// JavaScript the pages render in full, with a working "On this page" list.
+// No storage, no network requests.
 (function () {
   'use strict';
 
-  var doc = document.querySelector('.doc');
+  var doc = document.querySelector('[data-doc]');
   if (!doc) return;
   var body = doc.querySelector('.doc-body');
+  var main = doc.querySelector('.doc-main');
   var COPIED_MS = 1600;
-  var ACTIVE_OFFSET_PX = 120;
+  var ACTIVE_OFFSET_PX = 140;
+  var TO_TOP_AFTER_PX = 900;
 
   var status = createStatusRegion(doc);
   addHeadingLinks(body);
-  var refreshToc = trackActiveSection(doc);
-  closeInlineTocOnJump(doc);
-  enablePrint(doc);
+  var sections = trackActiveSection(doc);
+  var progress = trackProgress(main);
+  var toTop = showBackToTop();
+  closeSheetOnJump(doc);
+  enablePrint(document);
+  enableCopyPage(document);
   if (doc.hasAttribute('data-faq')) enableFaqSearch(doc, body);
+
+  // One scroll handler, run at most once a frame, drives the section
+  // marker, the reading progress line and the back-to-top button.
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    window.requestAnimationFrame(function () {
+      queued = false;
+      sections.update();
+      progress();
+      toTop();
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function () {
+    sections.refresh();
+    onScroll();
+  }, { passive: true });
+  onScroll();
 
   // One polite live region for short confirmations such as "Link copied".
   function createStatusRegion(root) {
@@ -24,6 +50,11 @@
     region.setAttribute('role', 'status');
     root.appendChild(region);
     return region;
+  }
+
+  function announce(text) {
+    status.textContent = text;
+    setTimeout(function () { status.textContent = ''; }, COPIED_MS);
   }
 
   // Each section heading becomes a link to itself (the heading's name stays
@@ -41,11 +72,8 @@
       link.addEventListener('click', function () {
         copyText(location.origin + location.pathname + '#' + heading.id, function () {
           link.setAttribute('data-copied', '');
-          status.textContent = 'Link to this section copied';
-          setTimeout(function () {
-            link.removeAttribute('data-copied');
-            status.textContent = '';
-          }, COPIED_MS);
+          announce('Link to this section copied');
+          setTimeout(function () { link.removeAttribute('data-copied'); }, COPIED_MS);
         });
       });
     });
@@ -56,20 +84,20 @@
     navigator.clipboard.writeText(text).then(onDone, function () {});
   }
 
-  // Marks the section in view in the "On this page" rail and slides the
-  // marker to it. The marker only moves when the reader scrolls.
-  // Returns a function that re-evaluates after the page's layout changes.
+  // Marks the section in view in every "On this page" list, slides the
+  // rail's marker to it, and names it in the bar shown on smaller screens.
   function trackActiveSection(root) {
-    var rail = root.querySelector('.doc-rail .toc');
-    if (!rail) return function () {};
-    var marker = rail.querySelector('.toc-marker');
-    var railLinks = toArray(rail.querySelectorAll('a[href^="#"]'));
+    var rail = root.querySelector('.toc-rail');
+    var marker = rail && rail.querySelector('.toc-marker');
+    var railLinks = rail ? toArray(rail.querySelectorAll('a[href^="#"]')) : [];
     var allLinks = toArray(root.querySelectorAll('.toc-list a[href^="#"]'));
-    var targets = railLinks.map(function (link) {
+    var currentLabel = root.querySelector('[data-toc-current]');
+    var first = root.querySelector('.toc-list');
+    var sourceLinks = first ? toArray(first.querySelectorAll('a[href^="#"]')) : [];
+    var targets = sourceLinks.map(function (link) {
       return document.getElementById(decodeURIComponent(link.hash.slice(1)));
     });
-    var current = null;
-    var queued = false;
+    var current;
 
     function isShown(target) {
       return target && target.offsetParent !== null;
@@ -91,7 +119,7 @@
     }
 
     function update() {
-      queued = false;
+      if (!targets.length) return;
       var index = activeIndex();
       var id = index >= 0 ? targets[index].id : null;
       if (id === current) return;
@@ -100,39 +128,55 @@
         if (id && link.hash === '#' + id) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
+      if (currentLabel) currentLabel.textContent = index >= 0 ? sourceLinks[index].textContent : '';
       if (!marker) return;
-      if (index < 0) {
+      var link = railLinks[index];
+      if (!link) {
         marker.style.opacity = '0';
         return;
       }
-      var link = railLinks[index];
       marker.style.opacity = '1';
       marker.style.height = link.offsetHeight + 'px';
       marker.style.transform = 'translateY(' + link.offsetTop + 'px)';
     }
 
-    function queue() {
-      if (queued) return;
-      queued = true;
-      window.requestAnimationFrame(update);
-    }
-
-    function refresh() {
-      current = null;
-      queue();
-    }
-
-    window.addEventListener('scroll', queue, { passive: true });
-    window.addEventListener('resize', refresh, { passive: true });
-    update();
-    return refresh;
+    return {
+      update: update,
+      refresh: function () {
+        current = undefined;
+        update();
+      }
+    };
   }
 
-  function closeInlineTocOnJump(root) {
-    var details = root.querySelector('.toc-inline');
-    if (!details) return;
-    details.addEventListener('click', function (event) {
-      if (event.target.closest('a')) details.open = false;
+  // The thin line under the top bar: how far through the document you are.
+  function trackProgress(text) {
+    var bar = document.querySelector('[data-progress]');
+    if (!bar || !text) return function () {};
+    return function () {
+      var rect = text.getBoundingClientRect();
+      var span = rect.height - window.innerHeight * 0.6;
+      var read = span > 0 ? (window.innerHeight * 0.4 - rect.top) / span : 1;
+      if (read < 0) read = 0;
+      if (read > 1) read = 1;
+      bar.style.transform = 'scaleX(' + read.toFixed(4) + ')';
+    };
+  }
+
+  function showBackToTop() {
+    var button = document.querySelector('[data-to-top]');
+    if (!button) return function () {};
+    button.hidden = false;
+    return function () {
+      button.classList.toggle('is-shown', window.scrollY > TO_TOP_AFTER_PX);
+    };
+  }
+
+  function closeSheetOnJump(root) {
+    var sheet = root.querySelector('.toc-sheet');
+    if (!sheet) return;
+    sheet.addEventListener('click', function (event) {
+      if (event.target.closest('a')) sheet.open = false;
     });
   }
 
@@ -143,6 +187,25 @@
     button.addEventListener('click', function () { window.print(); });
   }
 
+  function enableCopyPage(root) {
+    var button = root.querySelector('[data-copy-page]');
+    if (!button || !navigator.clipboard || !window.isSecureContext) return;
+    var label = button.querySelector('[data-copy-label]');
+    var idle = label.textContent;
+    button.hidden = false;
+    button.addEventListener('click', function () {
+      copyText(location.origin + location.pathname, function () {
+        label.textContent = 'Link copied';
+        button.setAttribute('data-done', '');
+        announce('Link to this page copied');
+        setTimeout(function () {
+          label.textContent = idle;
+          button.removeAttribute('data-done');
+        }, COPIED_MS);
+      });
+    });
+  }
+
   // Support pages: filter the questions under "Frequently asked questions"
   // as the reader types, and mark the words that matched.
   function enableFaqSearch(root, content) {
@@ -150,7 +213,7 @@
     var faqHeading = content.querySelector('h2#frequently-asked-questions');
     if (!box || !faqHeading) return;
 
-    var sections = wrapSections(content);
+    var groups = wrapSections(content);
     var faqSection = faqHeading.parentNode;
     var items = wrapQuestions(faqSection);
     if (!items.length) return;
@@ -193,7 +256,7 @@
         markWords(item.label, item.labelText, match ? words : []);
         if (!item.element.hidden) shown += 1;
       });
-      sections.forEach(function (section) {
+      groups.forEach(function (section) {
         if (section !== faqSection) section.hidden = filtering;
       });
       if (!filtering) count.textContent = '';
@@ -201,7 +264,7 @@
       else count.textContent = shown + ' of ' + items.length + (items.length === 1 ? ' question' : ' questions');
       empty.query.textContent = query;
       empty.element.hidden = !(filtering && shown === 0);
-      refreshToc();
+      sections.refresh();
     }
   }
 
@@ -308,7 +371,7 @@
     line.appendChild(document.createTextNode('”.'));
     element.appendChild(line);
 
-    var mail = root.querySelector('.rail-actions a[href^="mailto:"]') ||
+    var mail = root.querySelector('.rail-mail') ||
       root.querySelector('.doc-body a[href^="mailto:"]');
     if (mail) {
       var ask = document.createElement('p');
