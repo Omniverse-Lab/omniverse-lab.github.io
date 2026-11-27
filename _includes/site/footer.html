@@ -1,0 +1,35 @@
+{%- comment -%}
+  The footer on every page: each app's documents and the company pages.
+{%- endcomment -%}
+{%- assign apps = site.data.apps.list -%}
+<footer class="site-foot">
+  <div class="shell foot-grid">
+    <div class="foot-brand">
+      <p class="foot-name">OmniVerse Labs</p>
+      <p>Android apps that keep your data on your phone.</p>
+      <p><a href="mailto:visualtales8@gmail.com">visualtales8@gmail.com</a></p>
+    </div>
+    {%- for other in apps %}
+    <nav aria-labelledby="foot-{{ other.slug }}">
+      <h2 id="foot-{{ other.slug }}">{{ other.name }}</h2>
+      <ul>
+        {%- for entry in other.docs %}
+        <li><a href="{{ '/apps/' | append: other.slug | append: '/' | append: entry.path | relative_url }}">{{ entry.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+    {%- endfor %}
+    <nav aria-labelledby="foot-company">
+      <h2 id="foot-company">OmniVerse Labs</h2>
+      <ul>
+        <li><a href="{{ '/apps/' | relative_url }}">All apps</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="shell foot-base">
+    <p>© {{ site.time | date: "%Y" }} OmniVerse Labs</p>
+    <p>This website sets no cookies, runs no analytics and loads nothing from other websites.</p>
+  </div>
+</footer>

@@ -389,7 +389,7 @@ from ReCall's copy.
 What ReCall keeps, where, whether it ever leaves your phone, and
 how long it stays.
 
-{% include legal/table.html rows=page.retention cols="data:Data|where:Where it is kept|leaves:Leaves your phone|until:Kept until" caption="Data ReCall handles and how long it is kept" %}
+{% include site/table.html rows=page.retention cols="data:Data|where:Where it is kept|leaves:Leaves your phone|until:Kept until" caption="Data ReCall handles and how long it is kept" %}
 
 ---
 
@@ -411,7 +411,7 @@ OmniVerse Labs under Google's data processing terms for Firebase
 and Google Cloud. Without Caller names, only the font service on
 your phone is involved, and it receives nothing about you.
 
-{% include legal/table.html rows=page.providers cols="name:Provider|service:Service|use:What it does for ReCall|where:Where" caption="Services that handle data for ReCall" %}
+{% include site/table.html rows=page.providers cols="name:Provider|service:Service|use:What it does for ReCall|where:Where" caption="Services that handle data for ReCall" %}
 
 We do not sell your personal data, share it for advertising, or
 give it to anyone else, unless the law requires us to.

@@ -1,25 +1,29 @@
 ---
-layout: page
+layout: doc
 title: ReCall
 permalink: /apps/recall/
+app: ReCall
+app_slug: recall
+doc: overview
+summary: A private phone app for your calls and contacts, with summaries of your own calls worked out on your phone.
+meta_extra:
+  - label: Requires
+    value: Android 10 or later, on a phone that can make calls
+  - label: Get it
+    value: Coming soon to Google Play
+  - label: Account
+    value: None needed
+  - label: Internet
+    value: Only for Caller names, when you turn it on
 ---
 
-<section class="page-intro app-intro" aria-labelledby="recall-title">
-	<p class="eyebrow">Android phone app</p>
-	<h2 id="recall-title">ReCall</h2>
-	<p>A private phone app for your calls and contacts. Make ReCall your default phone app and it places and answers your calls, including on the lock screen, shows every call in Recents as soon as it ends, and keeps your contacts and favorites close. It also shows summaries of your own calls, worked out on your phone. Its only internet use is Caller names, which is off until you turn it on.</p>
-</section>
+Make ReCall your default phone app and it places and answers your
+calls, including on the lock screen, shows every call in Recents as
+soon as it ends, and keeps your contacts and favorites close. It also
+shows summaries of your own calls, worked out on your phone. Its only
+internet use is Caller names, which is off until you turn it on.
 
-- Platform: Android 10 or later, on a phone that can make calls
-- Version: 1.1.0 (coming soon)
-- Store listing: _coming soon_
-
-## Links
-
-- [Privacy policy](privacy/)
-- [Terms of use](terms/)
-- [Support](support/)
-- [Delete your Caller names data](delete/)
+---
 
 ## Your phone app
 

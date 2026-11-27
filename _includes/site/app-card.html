@@ -1,0 +1,30 @@
+{%- comment -%}
+  One app, as a card: its photograph, name, summary, highlights, store
+  status and documents. Params: app (an entry of site.data.apps.list),
+  id (unique on the page), level (heading element, h2 or h3; default h3).
+{%- endcomment -%}
+{%- assign app = include.app -%}
+{%- assign level = include.level | default: "h3" -%}
+{%- assign app_url = "/apps/" | append: app.slug | append: "/" | relative_url -%}
+{%- assign art = "/assets/img/legal/" | append: app.slug | append: "-hero-" | relative_url -%}
+<article class="app-card app-{{ app.slug }}" aria-labelledby="{{ include.id }}-title">
+  <div class="app-card-media" aria-hidden="true">
+    <img src="{{ art }}960.webp" srcset="{{ art }}960.webp 960w, {{ art }}1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" width="2336" height="1744" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="app-card-body">
+    <p class="app-card-meta">{% include site/app-icon.html slug=app.slug id=include.id %}<span>{{ app.tagline }} for {{ app.platform }}</span></p>
+    <{{ level }} class="app-card-title" id="{{ include.id }}-title"><a href="{{ app_url }}">{{ app.name }}</a></{{ level }}>
+    <p class="app-card-summary">{{ app.summary }}</p>
+    <ul class="badges" aria-label="{{ app.name }} highlights">
+      {%- for badge in app.badges %}
+      <li>{{ badge }}</li>
+      {%- endfor %}
+    </ul>
+    <p class="app-card-status">{% if app.store_url %}<a href="{{ app.store_url }}">{{ app.store_status }}</a>{% else %}{{ app.store_status }}{% endif %}</p>
+    <ul class="app-card-docs" aria-label="{{ app.name }} documents">
+      {%- for entry in app.docs %}
+      <li><a href="{{ app_url }}{{ entry.path }}">{{ entry.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</article>

@@ -25,29 +25,29 @@ Recommended naming:
 ```
 .
 |-- README.md              # this file
-|-- _config.yml            # Jekyll config (theme, nav)
-|-- index.md               # company homepage
-|-- apps.md                # app catalog
-|-- about.md               # about OmniVerse Labs
-|-- contact.md             # contact info
-|-- 404.md                 # custom 404
+|-- _config.yml            # Jekyll config (no theme)
+|-- _data/apps.yml         # every app: name, summary, store link, documents
+|-- index.html             # company homepage
+|-- apps.html              # app catalog
+|-- about.html             # about OmniVerse Labs
+|-- contact.html           # contact info
+|-- 404.html               # custom 404
 |
 |-- apps/
 |   |-- _template/         # copy this directory for each new app
-|   |   |-- index.md
+|   |   |-- index.md       # overview
 |   |   |-- privacy.md
 |   |   |-- terms.md
 |   |   `-- support.md
 |   |
-|   `-- mathdeck/          # the first app
-|       |-- index.md
-|       |-- privacy.md
-|       |-- terms.md
-|       `-- support.md
+|   |-- mathdeck/          # overview, privacy, terms, support
+|   `-- recall/            # the same, plus delete.md (Caller names data)
 |
-|-- _layouts/doc.html      # privacy, terms and support page layout
-|-- _sass/omniverse/       # styles for that layout (imported by assets/main.scss)
-|-- assets/                # site styles, docs.js, logos, favicons, og images
+|-- _layouts/site.html     # company pages (home, apps, about, contact, 404)
+|-- _layouts/doc.html      # each app's overview, privacy, terms, support, delete
+|-- _includes/site/        # head, top bar, footer, app icon, app card, table
+|-- _sass/site/            # styles, compiled by assets/site.scss
+|-- assets/                # site.scss, docs.js, fonts, hero photographs, icons
 `-- .github/
     `-- workflows/
         `-- pages.yml      # optional: build & deploy via Actions
@@ -59,13 +59,17 @@ Recommended naming:
 
 1. Duplicate `apps/_template/` to `apps/<new-app-slug>/`.
 2. Edit the four Markdown files, replacing the placeholders
-   (search for `TEMPLATE_`). The privacy, terms and support pages
-   use `_layouts/doc.html`: their front matter carries the dates,
-   package name and contact shown in the page header, and the
-   privacy page's `facts` list fills the "Privacy at a glance"
-   label. Keep every `facts` row true to the policy text below it.
-3. Add a link to the new app in `apps.md` and the homepage
-   showcase in `index.md` if it should be featured.
+   (search for `TEMPLATE_`). All four use `_layouts/doc.html`: their
+   front matter carries the dates, package name and contact shown in
+   the page header, and the privacy page's `facts` list fills the
+   "Privacy at a glance" label, which the overview page shows too.
+   Keep every `facts` row true to the policy text below it, and add
+   a `revisions` entry whenever the policy or terms change.
+3. Add the app to `_data/apps.yml`. The top bar, footer, home page
+   and Apps page list it from there. Add its icon to
+   `_includes/site/app-icon.html`, and its favicon and hero
+   photographs to `assets/img/legal/`. On the home page, also add a
+   column to the "What each app sends us" table in `index.html`.
 4. Commit & push. GitHub Pages rebuilds automatically on push
    to `main`.
 

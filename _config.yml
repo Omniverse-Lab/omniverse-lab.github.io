@@ -7,7 +7,8 @@ author: OmniVerse Labs
 url: "https://omniverse-lab.github.io"
 # baseurl: ""   # empty -- repo is <username>.github.io
 
-theme: minima
+# No theme: every page uses _layouts/site.html or _layouts/doc.html,
+# styled by assets/site.scss.
 
 markdown: kramdown
 highlighter: rouge
@@ -28,10 +29,4 @@ exclude:
   - vendor/
   - .github/
 
-# Top-nav links. The site title/logo already links home, so
-# we don't add index.md here to avoid a duplicate "OmniVerse Labs"
-# entry in the nav.
-header_pages:
-  - apps.md
-  - about.md
-  - contact.md
+# The top bar, footer and app pages read their links from _data/apps.yml.

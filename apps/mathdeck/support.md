@@ -35,7 +35,7 @@ When reporting an issue, it helps if you mention:
 - The MathDeck version (shown on the Settings screen)
 - What you saw and what you expected to see
 
-{% include legal/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When we reply" caption="Ways to reach us" %}
+{% include site/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When we reply" caption="Ways to reach us" %}
 
 ## Frequently asked questions
 
