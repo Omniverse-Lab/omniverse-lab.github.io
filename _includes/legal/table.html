@@ -1,0 +1,40 @@
+{%- comment -%}
+  A data table for policy pages, built from a front-matter list.
+  Params:
+    rows    – a list of hashes (one per row)
+    cols    – "key:Column heading|key:Column heading" (the first column heads each row).
+              Headings cannot contain ":" or "|", which separate the parts.
+    caption – what the table shows (read out by screen readers, shown above the table)
+  Cell values are Markdown, so **bold**, `code` and links work.
+  On narrow screens each row becomes a card, labelled from data-label. The
+  explicit roles keep it a table for screen readers once CSS changes the
+  display of its parts.
+{%- endcomment -%}
+{%- assign columns = include.cols | split: "|" -%}
+<div class="data-table" role="region" aria-label="{{ include.caption | strip_html | escape }}" tabindex="0">
+<table role="table">
+<caption>{{ include.caption }}</caption>
+<thead role="rowgroup"><tr role="row">
+{%- for column in columns -%}
+{%- assign parts = column | split: ":" -%}
+<th scope="col" role="columnheader">{{ parts[1] }}</th>
+{%- endfor -%}
+</tr></thead>
+<tbody role="rowgroup">
+{%- for row in include.rows -%}
+<tr role="row">
+{%- for column in columns -%}
+{%- assign parts = column | split: ":" -%}
+{%- assign key = parts[0] -%}
+{%- assign cell = row[key] | markdownify | strip | remove_first: "<p>" | replace: "</p>", "" | replace: "<p>", "<br><br>" -%}
+{%- if forloop.first -%}
+<th scope="row" role="rowheader">{{ cell }}</th>
+{%- else -%}
+<td role="cell" data-label="{{ parts[1] }}"><span>{{ cell }}</span></td>
+{%- endif -%}
+{%- endfor -%}
+</tr>
+{%- endfor -%}
+</tbody>
+</table>
+</div>

@@ -1,0 +1,983 @@
+// The document: three columns on wide screens ("On this page", the text,
+// document tools), the "Privacy at a glance" label, reading text, tables,
+// revision history and the support search.
+
+.doc-grid {
+  align-items: start;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 236px minmax(0, 1fr) 264px;
+  padding-bottom: 112px;
+  padding-top: 64px;
+}
+
+.doc-main {
+  justify-self: center;
+  max-width: 780px;
+  min-width: 0;
+  width: 100%;
+}
+
+.doc-main:focus {
+  outline: none;
+}
+
+// "On this page"
+
+.toc-rail,
+.action-rail {
+  max-height: calc(100vh - var(--topbar-h) - 56px);
+  overflow-y: auto;
+  position: sticky;
+  scrollbar-width: thin;
+  top: calc(var(--topbar-h) + 32px);
+}
+
+.toc-head {
+  align-items: baseline;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding-top: 14px;
+}
+
+.toc-title {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.toc-time {
+  color: var(--ink-3);
+  font-size: 13px;
+  font-variant-numeric: lining-nums;
+  margin: 0;
+}
+
+.toc-track {
+  border-left: 1px solid var(--line);
+  position: relative;
+}
+
+.toc-marker {
+  background: var(--accent);
+  border-radius: 2px;
+  height: 0;
+  left: -1px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 280ms var(--ease-out), height 280ms var(--ease-out), opacity 160ms ease;
+  width: 2px;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+.legal .toc-list a {
+  color: var(--ink-3);
+  display: block;
+  font-size: 14px;
+  line-height: 1.35;
+  padding: 7px 0 7px 16px;
+  text-decoration: none;
+}
+
+.legal .toc-list a:hover {
+  color: var(--ink);
+}
+
+.legal .toc-list a[aria-current] {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+// Smaller screens: "On this page" becomes a bar under the top bar that
+// names the section being read and opens into the full list.
+
+.toc-sheet {
+  display: none;
+}
+
+.toc-sheet summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 15px;
+  gap: 10px;
+  list-style: none;
+  min-height: 52px;
+  padding: 0 var(--gutter);
+}
+
+.toc-sheet summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-sheet summary::after {
+  border-bottom: 2px solid var(--ink-3);
+  border-right: 2px solid var(--ink-3);
+  content: "";
+  flex: none;
+  height: 8px;
+  margin-left: auto;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 200ms var(--ease-out);
+  width: 8px;
+}
+
+.toc-sheet[open] summary::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.toc-sheet-label {
+  color: var(--ink);
+  flex: none;
+  font-weight: 700;
+}
+
+.toc-sheet-current {
+  color: var(--ink-2);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.toc-sheet-current:not(:empty)::before {
+  color: var(--line-strong);
+  content: "/";
+  margin-right: 10px;
+}
+
+.toc-sheet .toc-list {
+  border-top: 1px solid var(--line);
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 8px var(--gutter) 16px;
+}
+
+.legal .toc-sheet .toc-list a {
+  font-size: 15px;
+  padding: 10px 0;
+}
+
+// Document tools
+
+.action-rail {
+  display: grid;
+  gap: 0;
+}
+
+.rail-card {
+  border-top: 1px solid var(--line);
+  padding: 16px 0 22px;
+}
+
+.rail-card:first-child {
+  border-top: 2px solid var(--ink);
+}
+
+.rail-title {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.rail-buttons {
+  display: grid;
+  gap: 8px;
+}
+
+.rail-button {
+  align-items: center;
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  text-align: left;
+  transition: border-color 150ms ease, background-color 150ms ease;
+  width: 100%;
+}
+
+.rail-button:hover {
+  border-color: var(--line-strong);
+}
+
+.rail-button[data-done] {
+  border-color: var(--accent);
+}
+
+.rail-button svg {
+  color: var(--accent);
+  flex: none;
+  height: 18px;
+  width: 18px;
+}
+
+.rail-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legal .rail-links a {
+  color: var(--ink-2);
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.legal .rail-links a:hover {
+  color: var(--accent);
+}
+
+.rail-contact p {
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.legal .rail-mail {
+  font-size: 15px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+// The label: the policy's key facts, set like a data-safety label
+
+.facts {
+  background: var(--label-paper);
+  border: 2px solid var(--label-ink);
+  border-radius: 6px;
+  color: var(--label-ink);
+  margin: 0 0 64px;
+  padding: 18px 26px 20px;
+}
+
+.facts-title {
+  border-bottom: 12px solid var(--label-ink);
+  color: var(--label-ink);
+  font-family: var(--font-sans);
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: 0;
+  padding-bottom: 12px;
+}
+
+.facts-list {
+  border-bottom: 6px solid var(--label-ink);
+  display: grid;
+  margin: 0;
+}
+
+.fact {
+  border-top: 1px solid var(--label-ink);
+  display: grid;
+  gap: 4px 28px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  padding: 13px 0 14px;
+}
+
+.fact:first-child {
+  border-top: 0;
+}
+
+.fact dt {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.35;
+  padding-top: 3px;
+}
+
+.fact dd {
+  margin: 0;
+}
+
+.fact strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.fact span {
+  color: var(--label-note);
+  display: block;
+  font-size: 14.5px;
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
+.facts-foot {
+  color: var(--label-note);
+  font-size: 13px;
+  margin: 12px 0 0;
+}
+
+// MathDeck draws the label as its own calculator display: sage LCD glass
+// in a graphite bezel.
+.app-mathdeck .facts {
+  background: linear-gradient(180deg, #D4D8C4, #C8CCB8);
+  border: 0;
+  border-radius: 12px;
+  box-shadow:
+    inset 0 2px 8px rgba(30, 34, 20, 0.22),
+    0 0 0 12px #2C2E33,
+    0 0 0 13px #45474D,
+    0 24px 48px -16px rgba(0, 0, 0, 0.5);
+  margin: 13px 13px 77px;
+  padding: 20px 26px 20px;
+}
+
+// Reading text
+
+.doc-body {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  line-height: 1.72;
+}
+
+.doc-body > :first-child,
+.doc-body > .doc-section:first-child > h2:first-child {
+  margin-top: 0;
+}
+
+// The support search wraps sections and questions in these; flow-root
+// keeps their headings' margins inside, so nothing shifts when it runs.
+.doc-section,
+.faq-item {
+  display: flow-root;
+}
+
+.doc-body p,
+.doc-body li {
+  max-width: 68ch;
+}
+
+.doc-body p,
+.doc-body ul,
+.doc-body ol {
+  margin: 0 0 20px;
+}
+
+.doc-body ul {
+  padding-left: 1.3em;
+}
+
+.doc-body li {
+  margin-bottom: 10px;
+  padding-left: 0.2em;
+}
+
+.doc-body li::marker {
+  color: var(--accent);
+}
+
+.doc-body strong {
+  font-weight: 600;
+}
+
+.doc-body hr {
+  display: none;
+}
+
+.doc-body h2,
+.doc-body h3 {
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-variant-numeric: lining-nums;
+  text-wrap: balance;
+}
+
+.doc-body h2 {
+  border-top: 1px solid var(--line);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  line-height: 1.18;
+  margin: 72px 0 20px;
+  padding-top: 32px;
+}
+
+.doc-body h3 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin: 40px 0 10px;
+}
+
+.legal .doc-body a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.legal .doc-body a:hover {
+  color: var(--accent-strong);
+  text-decoration-thickness: 2px;
+}
+
+.doc-body code {
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+  border-radius: 5px;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78em;
+  font-variant-numeric: normal;
+  padding: 2px 6px;
+}
+
+// Legal capitals (warranty and liability) set a little smaller, so the
+// paragraph keeps an even colour.
+.doc-body .legal-caps {
+  font-size: 0.9em;
+  letter-spacing: 0.01em;
+}
+
+// The plain-language summary that opens a policy
+.doc-body > blockquote:first-child {
+  background: var(--accent-soft);
+  border: 0;
+  border-radius: var(--radius-m);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-variant-numeric: lining-nums;
+  line-height: 1.6;
+  margin: 0 0 8px;
+  padding: 28px 32px;
+}
+
+.doc-body > blockquote:first-child p {
+  margin-bottom: 14px;
+  max-width: none;
+}
+
+.doc-body > blockquote:first-child p:last-child {
+  margin-bottom: 0;
+}
+
+// Other quotations are notes: a quiet aside with an accent edge
+.doc-body blockquote {
+  border-left: 3px solid var(--accent);
+  margin: 28px 0;
+  padding: 2px 0 2px 22px;
+}
+
+// Ordered lists in these pages are steps, so their numbers carry weight
+.doc-body ol:not(.revisions) {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+.doc-body ol:not(.revisions) > li {
+  counter-increment: step;
+  margin-bottom: 14px;
+  min-height: 32px;
+  padding-left: 48px;
+  position: relative;
+}
+
+.doc-body ol:not(.revisions) > li::before {
+  background: var(--accent-soft);
+  border-radius: 50%;
+  color: var(--accent);
+  content: counter(step);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-variant-numeric: lining-nums;
+  font-weight: 700;
+  height: 30px;
+  left: 0;
+  line-height: 30px;
+  position: absolute;
+  text-align: center;
+  top: 0.2em;
+  width: 30px;
+}
+
+// Section headings link to themselves; "#" appears on hover or focus.
+// The glyph uses CSS alt text ("" after the slash), so it is not read out.
+
+.legal .doc-body .heading-link,
+.legal .doc-body .heading-link:visited,
+.legal .doc-body .heading-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.doc-body .heading-link::after {
+  color: var(--ink-3);
+  content: "#";
+  content: "#" / "";
+  font-weight: 400;
+  margin-left: 0.35em;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.doc-body .heading-link:hover::after,
+.doc-body .heading-link:focus-visible::after {
+  opacity: 1;
+}
+
+.doc-body .heading-link[data-copied]::after {
+  color: var(--accent);
+  content: "Link copied";
+  content: "Link copied" / "";
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  opacity: 1;
+  vertical-align: middle;
+}
+
+@media (hover: none) {
+  .doc-body .heading-link::after {
+    opacity: 0.5;
+  }
+}
+
+// Data tables (built by _includes/legal/table.html)
+
+.data-table {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  font-family: var(--font-sans);
+  font-variant-numeric: lining-nums tabular-nums;
+  margin: 28px 0 36px;
+  overflow-x: auto;
+}
+
+.data-table table {
+  border-collapse: collapse;
+  font-size: 15px;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.data-table caption {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 16px 20px 14px;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  border-top: 1px solid var(--line);
+  padding: 13px 20px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table thead th {
+  background: color-mix(in srgb, var(--ink) 3%, var(--surface));
+  color: var(--ink-3);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.data-table tbody th {
+  color: var(--ink);
+  font-weight: 700;
+  min-width: 10em;
+}
+
+.data-table td {
+  color: var(--ink-2);
+}
+
+.data-table code {
+  font-size: 0.85em;
+}
+
+.data-table:focus-visible {
+  outline-offset: 2px;
+}
+
+// Revision history: a dated line, newest first
+
+.doc-body ol.revisions {
+  border-left: 2px solid var(--line);
+  list-style: none;
+  margin: 8px 0 0 6px;
+  padding: 0;
+}
+
+.revisions li {
+  margin: 0;
+  max-width: none;
+  padding: 0 0 26px 28px;
+  position: relative;
+}
+
+.revisions li:last-child {
+  padding-bottom: 4px;
+}
+
+.revisions li::before {
+  background: var(--paper);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  content: "";
+  height: 12px;
+  left: -7px;
+  position: absolute;
+  top: 7px;
+  width: 12px;
+}
+
+.revisions li:first-child::before {
+  background: var(--accent);
+}
+
+.revisions time {
+  color: var(--ink);
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-variant-numeric: lining-nums;
+  font-weight: 700;
+}
+
+.doc-body .revisions p {
+  color: var(--ink-2);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+
+// Support: search the answers
+
+.faq-search {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  margin: 0 0 48px;
+  padding: 20px 22px 12px;
+}
+
+.faq-search label {
+  color: var(--ink);
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.faq-field {
+  align-items: center;
+  background: var(--paper);
+  border: 1.5px solid var(--line-strong);
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 0 14px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.faq-field:focus-within {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 18%, transparent);
+}
+
+.faq-field svg {
+  color: var(--ink-3);
+  flex: none;
+  height: 20px;
+  width: 20px;
+}
+
+.faq-field input {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  flex: 1;
+  font: inherit;
+  font-size: 18px;
+  min-width: 0;
+  outline: none;
+  padding: 13px 0;
+}
+
+.faq-field input::placeholder {
+  color: var(--ink-3);
+}
+
+.faq-count {
+  color: var(--ink-3);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0 0;
+  min-height: 1.45em;
+}
+
+.doc-body mark {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: 3px;
+  color: inherit;
+  padding: 0 1px;
+}
+
+.faq-empty {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.faq-empty p {
+  margin-bottom: 10px;
+}
+
+.faq-empty button {
+  appearance: none;
+  background: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  color: var(--paper);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 44px;
+  padding: 0 22px;
+}
+
+// Wide screens spread the columns; mid widths fold the tools under the text
+
+@media screen and (min-width: 1600px) {
+  .doc-grid {
+    gap: 88px;
+    grid-template-columns: 260px minmax(0, 1fr) 280px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .doc-grid {
+    gap: 48px;
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .action-rail {
+    gap: 0 32px;
+    grid-column: 2;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-self: center;
+    max-height: none;
+    max-width: 780px;
+    overflow: visible;
+    position: static;
+    width: 100%;
+  }
+
+  .rail-card {
+    border-top: 2px solid var(--ink);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  // Linked headings land below the top bar and the "On this page" bar
+  html {
+    scroll-padding-top: calc(var(--topbar-h) + 52px + 24px);
+  }
+
+  .doc-grid {
+    display: block;
+    padding-top: 0;
+  }
+
+  .toc-rail {
+    display: none;
+  }
+
+  .toc-sheet {
+    -webkit-backdrop-filter: saturate(1.2) blur(14px);
+    backdrop-filter: saturate(1.2) blur(14px);
+    background: color-mix(in srgb, var(--paper) 90%, transparent);
+    border-bottom: 1px solid var(--line);
+    display: block;
+    margin: 32px calc(-1 * var(--gutter)) 36px;
+    position: sticky;
+    top: var(--topbar-h);
+    z-index: 20;
+  }
+
+  .doc-main {
+    max-width: 760px;
+  }
+
+  .action-rail {
+    margin: 64px auto 0;
+  }
+}
+
+@media screen and (max-width: 759px) {
+  .doc-body {
+    font-size: 18px;
+    line-height: 1.68;
+  }
+
+  .doc-body h2 {
+    font-size: 25px;
+    margin-top: 56px;
+    padding-top: 26px;
+  }
+
+  .doc-body h3 {
+    font-size: 19px;
+    margin-top: 32px;
+  }
+
+  .doc-body > blockquote:first-child {
+    font-size: 17.5px;
+    padding: 22px 22px;
+  }
+
+  .facts {
+    margin-bottom: 48px;
+    padding: 14px 16px 16px;
+  }
+
+  .app-mathdeck .facts {
+    box-shadow:
+      inset 0 2px 8px rgba(30, 34, 20, 0.22),
+      0 0 0 8px #2C2E33,
+      0 0 0 9px #45474D,
+      0 20px 40px -16px rgba(0, 0, 0, 0.5);
+    margin: 9px 9px 57px;
+    padding: 16px 16px 16px;
+  }
+
+  .facts-title {
+    border-bottom-width: 10px;
+    font-size: 28px;
+  }
+
+  .fact {
+    gap: 2px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fact dt {
+    color: var(--label-note);
+    font-size: 14px;
+  }
+
+  .fact strong {
+    font-size: 19px;
+  }
+
+  // Each table row becomes a card, labelled from its column heading
+  .data-table {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .data-table caption {
+    display: block;
+    padding: 0 0 12px;
+  }
+
+  .data-table thead {
+    clip: rect(0 0 0 0);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+  }
+
+  .data-table table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table th,
+  .data-table td {
+    display: block;
+  }
+
+  .data-table tr {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 6px 0 8px;
+  }
+
+  .data-table tbody th {
+    border-top: 0;
+    font-size: 16px;
+    padding: 10px 16px 6px;
+  }
+
+  .data-table td {
+    border-top: 0;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 7.5em minmax(0, 1fr);
+    padding: 5px 16px;
+  }
+
+  .data-table td::before {
+    color: var(--ink-3);
+    content: attr(data-label);
+    font-size: 13px;
+    font-weight: 600;
+    padding-top: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc-marker,
+  .toc-sheet summary::after,
+  .doc-body .heading-link::after,
+  .rail-button,
+  .faq-field {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .legal .toc-list a[aria-current] {
+    text-decoration: underline;
+  }
+
+  .toc-marker {
+    background: Highlight;
+  }
+}

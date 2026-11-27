@@ -7,7 +7,7 @@ permalink: /apps/recall/
 <section class="page-intro app-intro" aria-labelledby="recall-title">
 	<p class="eyebrow">Android phone app</p>
 	<h2 id="recall-title">ReCall</h2>
-	<p>A private phone app for your calls and contacts. Make ReCall your default phone app and it places and answers your calls, including on the lock screen, shows every call in Recents as soon as it ends, and keeps your contacts and favorites close. It also shows summaries of your own calls, worked out on your phone. ReCall has no internet access.</p>
+	<p>A private phone app for your calls and contacts. Make ReCall your default phone app and it places and answers your calls, including on the lock screen, shows every call in Recents as soon as it ends, and keeps your contacts and favorites close. It also shows summaries of your own calls, worked out on your phone. Its only internet use is Caller names, which is off until you turn it on.</p>
 </section>
 
 - Platform: Android 10 or later, on a phone that can make calls
@@ -19,6 +19,7 @@ permalink: /apps/recall/
 - [Privacy policy](privacy/)
 - [Terms of use](terms/)
 - [Support](support/)
+- [Delete your Caller names data](delete/)
 
 ## Your phone app
 
@@ -31,6 +32,7 @@ permalink: /apps/recall/
 - **Missed calls** — ReCall's own missed-call notifications, with **Call back** and **Message**.
 - **Blocking** — block or unblock a number from Recents or from its call details. ReCall uses Android's own blocked-numbers list.
 - **Deleting history** — delete a row in Recents, every call with one number, or your whole call history.
+- **Caller names** — optional and off by default: list your own number with a name you choose, and see the names other ReCall users listed for their own numbers when they call. Your contacts and call history never leave your phone.
 
 ## Summaries of your own calls
 
@@ -52,11 +54,11 @@ You can switch back at any time in your phone's settings (**Settings → Apps �
 
 **Requirements:** Android 10 or later, on a phone that can make calls.
 
-**No internet:** ReCall does not request Android's internet permission, so it cannot send anything over the internet. No account, no ads, no analytics, no tracking. Nothing leaves your phone unless you choose to share it; the [privacy policy](privacy/) has the details.
+**Internet only for Caller names:** until you turn Caller names on, ReCall does not connect to the internet. No ads, no analytics, no tracking. Your call log and contacts never leave your phone; the [privacy policy](privacy/) says exactly what Caller names sends.
 
 ## Permissions
 
-Android grants the call log, contacts, phone and notification permissions when you make ReCall your default phone app. It allows full-screen calls for calling apps unless you turn them off. The last two below are granted when you install ReCall.
+Android grants the call log, contacts, phone and notification permissions when you make ReCall your default phone app. It allows full-screen calls for calling apps unless you turn them off. The last three below are granted when you install ReCall.
 
 - **Call log** (`READ_CALL_LOG`, `WRITE_CALL_LOG`) — to show Recents, call details, missed calls and the summaries of your own calls; to mark missed calls as seen; and to delete calls when you ask.
 - **Contacts** (`READ_CONTACTS`) — to show callers' names and photos, your contacts list and search, and your favorites. ReCall never changes your contacts.
@@ -65,5 +67,6 @@ Android grants the call log, contacts, phone and notification permissions when y
 - **Full-screen calls** (`USE_FULL_SCREEN_INTENT`) — to show an incoming call over the lock screen. If you turn this off, incoming calls show as a notification.
 - **Phone-call service** (`FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_PHONE_CALL`) — to keep the call notification and controls while a call is ringing, active or on hold.
 - **Keep awake** (`WAKE_LOCK`) — to turn the screen off while you hold the phone to your ear.
+- **Internet** (`INTERNET`) — only for Caller names, after you turn it on.
 
-ReCall does not ask for internet access, your microphone, camera or location, SMS, nearby devices, drawing over other apps, or permission to change your contacts. Call audio, including Bluetooth, is switched through Android's calling service, and blocking uses Android's own blocked-numbers list, which the default phone app may edit; neither needs another permission.
+ReCall asks for internet access only for Caller names, and never for your microphone, camera or location, SMS, nearby devices, drawing over other apps, or permission to change your contacts. Call audio, including Bluetooth, is switched through Android's calling service, and blocking uses Android's own blocked-numbers list, which the default phone app may edit; neither needs another permission.
