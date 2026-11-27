@@ -5,8 +5,28 @@ permalink: /apps/recall/support/
 app: ReCall
 app_slug: recall
 doc: support
+summary: Answers to common questions about ReCall and Caller names, and how to reach a person when they are not enough.
 contact: visualtales8@gmail.com
 search_hint: caller names
+meta_extra:
+  - label: Reply time
+    value: Within two business days
+channels:
+  - need: Questions and problems with the app
+    how: Email [visualtales8@gmail.com](mailto:visualtales8@gmail.com) with your phone model, Android version and ReCall version
+    when: Within two business days
+  - need: A wrong or offensive Caller names listing
+    how: Tap **Report name** in Recents or call details, or email us
+    when: Three reports hide a name until we review it
+  - need: Deleting your Caller names data
+    how: "**Settings → Caller names → Turn off and delete** in ReCall, or [ask without the app](../delete/)"
+    when: At once in the app, or within 30 days by email
+  - need: A privacy request (access, correction, deletion)
+    how: Email us with the phone number you listed
+    when: Within 30 days
+  - need: A security problem
+    how: Email us privately instead of posting it publicly
+    when: Within a few business days
 ---
 
 ## Contact
@@ -25,6 +45,8 @@ When reporting an issue, it helps if you mention:
 
 Please leave out real phone numbers and contact names; we don't
 need them to help.
+
+{% include legal/table.html rows=page.channels cols="need:What you need|how:How to reach us|when:When it happens" caption="Ways to reach us" %}
 
 ## Frequently asked questions
 
@@ -237,6 +259,17 @@ The theme button in the top bar switches between light and dark.
 Your profile (name, date of birth and photo) is at the top of
 Settings. It is entirely optional and, like everything else,
 stays on your phone.
+
+### How do I ask what data you hold about me?
+
+Without Caller names, we hold nothing: ReCall keeps everything on
+your phone. With Caller names on, we hold your listing, your
+account, any reports you made and your daily lookup count. Email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com) with the
+number you listed to see, correct or delete it. We confirm the
+number is yours before we act, and reply within 30 days. The
+[Privacy Policy](../privacy/#your-choices-and-rights) lists your
+rights where you live.
 
 ## Privacy and terms
 

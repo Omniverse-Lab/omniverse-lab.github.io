@@ -6,7 +6,13 @@ app: ReCall
 app_slug: recall
 doc: delete
 heading: Delete your Caller names data
+summary: Remove your listing, your account, your reports and your lookup counts from our server, in the app or by email without it.
 updated: 2026-10-15
+meta_extra:
+  - label: In the app
+    value: As soon as you are online
+  - label: By email
+    value: Within 30 days
 contact: visualtales8@gmail.com
 ---
 

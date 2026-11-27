@@ -5,8 +5,9 @@ permalink: /apps/recall/privacy/
 app: ReCall
 app_slug: recall
 doc: privacy
+summary: ReCall keeps your calls and contacts on your phone. Caller names, which stays off until you turn it on, is the only part of ReCall that sends anything to us.
 effective: 2026-07-16
-updated: 2026-10-15
+updated: 2026-11-26
 applies_to: ReCall for Android
 package: io.github.omniverse_lab.recall
 publisher: OmniVerse Labs
@@ -34,6 +35,87 @@ facts:
   - label: Deleting your data
     value: Any time
     note: Turn Caller names off, use Delete all ReCall data, or ask on the web. Choosing another phone app deletes what ReCall stored from your calls.
+revisions:
+  - date: 2026-11-26
+    summary: Added Caller names, an optional feature from ReCall 1.2.0, and new sections on who is responsible, the service providers we use, legal bases, international transfers, security, and your rights where you live.
+  - date: 2026-10-07
+    summary: Rewritten for ReCall 1.1.0, which became a phone app. What earlier versions did is described under Earlier versions.
+  - date: 2026-07-16
+    summary: First published, for the call-statistics version of ReCall.
+retention:
+  - data: Copy of your call log, and of your contacts' names and numbers
+    where: Your phone, in ReCall's private storage
+    leaves: Never
+    until: ReCall stops being your phone app, you turn off its Call logs or Contacts permission, you use **Delete all ReCall data**, or you uninstall ReCall
+  - data: Your notes, labels and favorites
+    where: Your phone, in ReCall's private storage
+    leaves: Never
+    until: The same as the copy of your call log
+  - data: Activity journal (up to 500 recent actions, with no names or numbers)
+    where: Your phone, in ReCall's private storage
+    leaves: Never
+    until: The same as the copy of your call log
+  - data: Settings, and the profile name, date of birth and photo you add
+    where: Your phone, in ReCall's private storage
+    leaves: Only the profile name and photo, inside a weekly recap image you choose to share
+    until: You use **Delete all ReCall data**, or you uninstall ReCall
+  - data: Your latest weekly recap image
+    where: Your phone, in ReCall's cache
+    leaves: Only to the app you pick when you share it
+    until: Your next share replaces it, and it goes with the copy of your call log
+  - data: Names Caller names looked up
+    where: Your phone, in ReCall's private storage
+    leaves: Never
+    until: 7 days for a name and 1 day for a number with no listing, or at once when you turn Caller names off or ReCall stops being your phone app
+  - data: Caller names settings (when you agreed, your listed number and name, and your Firebase sign-in)
+    where: Your phone, in ReCall's private storage, left out of backups
+    leaves: Never. This is ReCall's own copy
+    until: You turn Caller names off (Delete all ReCall data does too), or you uninstall ReCall
+  - data: Your phone number and account ID
+    where: Firebase Authentication, United States
+    leaves: Yes, once you turn Caller names on
+    until: You turn Caller names off, or we act on your emailed request (within 30 days)
+  - data: Your listing (your name, account ID, the terms version you agreed to, dates, and a code made from your number)
+    where: ReCall's server, Mumbai, India
+    leaves: Yes, once you turn Caller names on
+    until: You turn Caller names off, or we act on your emailed request (within 30 days)
+  - data: Numbers of callers not in your contacts
+    where: Sent to ReCall's server for a lookup
+    leaves: Yes, while Caller names is on
+    until: Not kept. The server uses each number for the lookup only
+  - data: Your daily lookup count
+    where: ReCall's server, Mumbai, India
+    leaves: Counted on the server
+    until: Usually deleted within two days, and at once when you turn Caller names off
+  - data: Reports you make with **Report name**
+    where: ReCall's server, Mumbai, India
+    leaves: Yes, when you report a name
+    until: You or the listing's owner turn Caller names off
+  - data: Request logs (time, IP address and user agent)
+    where: Google Cloud
+    leaves: Yes, with each Caller names request
+    until: Up to 30 days
+providers:
+  - name: Google
+    service: Firebase Authentication
+    use: Texts you a sign-in code and keeps your phone number and account
+    where: United States
+  - name: Google
+    service: Cloud Functions and Cloud Firestore
+    use: Stores Caller names listings and reports, and answers lookups
+    where: Mumbai, India (Google Cloud region asia-south1)
+  - name: Google
+    service: Firebase App Check, with Google Play Integrity
+    use: Confirms that each Caller names request comes from a genuine copy of ReCall
+    where: Google Play services on your phone, and Google's servers
+  - name: Google
+    service: Google Cloud logging
+    use: Keeps standard request logs for up to 30 days
+    where: Google Cloud
+  - name: Google
+    service: Font provider in Google Play services
+    use: Supplies ReCall's typefaces. ReCall asks for a font by name and sends nothing about you
+    where: On your phone
 ---
 
 > **The short version:** ReCall is a phone app. It places and
@@ -54,6 +136,16 @@ facts:
 > lists your own phone number with a name you choose, and shows
 > you the names other ReCall users listed for their own numbers.
 > Turning it off deletes your listing and your account.
+
+---
+
+## Who is responsible
+
+OmniVerse Labs publishes ReCall and decides how the personal data
+described in this policy is used, so we are responsible for it
+(the "controller" under laws such as the GDPR). For any question
+or request about your data, email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com).
 
 ---
 
@@ -292,6 +384,15 @@ from ReCall's copy.
 
 ---
 
+## Everything ReCall handles, in one table
+
+What ReCall keeps, where, whether it ever leaves your phone, and
+how long it stays.
+
+{% include legal/table.html rows=page.retention cols="data:Data|where:Where it is kept|leaves:Leaves your phone|until:Kept until" caption="Data ReCall handles and how long it is kept" %}
+
+---
+
 ## Backups
 
 ReCall's database, its settings, its Caller names file and your
@@ -300,6 +401,77 @@ device-to-device transfer, and your profile photo is kept where
 Android never backs it up. Restoring a backup or moving to a new
 phone does not bring ReCall's data back. Once ReCall is your phone
 app there, it reads that phone's call log.
+
+---
+
+## Service providers
+
+Caller names runs on Google services, which process its data for
+OmniVerse Labs under Google's data processing terms for Firebase
+and Google Cloud. Without Caller names, only the font service on
+your phone is involved, and it receives nothing about you.
+
+{% include legal/table.html rows=page.providers cols="name:Provider|service:Service|use:What it does for ReCall|where:Where" caption="Services that handle data for ReCall" %}
+
+We do not sell your personal data, share it for advertising, or
+give it to anyone else, unless the law requires us to.
+
+---
+
+## Legal bases
+
+Where the law asks us for a reason (a "legal basis") to use your
+personal data, as the GDPR does in the European Economic Area and
+the UK, these are ours:
+
+- **Your listing, your account, and lookups for you:** your
+  consent, which you give when you turn Caller names on, and our
+  agreement with you in the
+  [Caller names terms](../terms/#caller-names). You can withdraw
+  your consent at any time by turning Caller names off.
+- **The numbers of callers looked up for you:** our legitimate
+  interest, and yours, in showing who is calling. The server uses
+  each number for that lookup only and does not keep it.
+- **Security and preventing abuse** (App Check, the daily limits,
+  reports and request logs): our legitimate interest in keeping
+  Caller names safe and working.
+
+Everything else ReCall does happens on your phone, and OmniVerse
+Labs never receives it.
+
+---
+
+## International transfers
+
+Caller names keeps your listing in India and your sign-in in the
+United States. If you live somewhere else, your Caller names data
+is transferred to those countries, whose data protection laws may
+differ from yours. Google processes it for us under its Firebase
+and Google Cloud data processing terms, which include the European
+Commission's Standard Contractual Clauses for data from the
+European Economic Area, the UK and Switzerland.
+
+---
+
+## How we protect your data
+
+- **On your phone.** ReCall keeps its data in private app storage
+  that other apps cannot read, keeps it out of backups, and
+  compacts its database after deleting, so deleted entries do not
+  linger.
+- **On the way.** Caller names talks to Google's services only
+  over encrypted (HTTPS) connections.
+- **On the server.** Your listing is found by a code made from
+  your number with a secret key. The server does not keep the
+  numbers it looks up, and its own logs record counts, never
+  numbers or names. App Check turns away requests that do not come
+  from a genuine copy of ReCall, and daily limits stop anyone from
+  looking up numbers in bulk.
+
+No system is perfectly secure. If you find a security problem,
+please email [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
+before telling anyone else, as the
+[support page](../support/#reporting-a-security-issue) explains.
 
 ---
 
@@ -323,6 +495,45 @@ off and delete** or by email. You control the rest of ReCall's
 data on your phone: delete it with **Delete all ReCall data**, by
 choosing another phone app, or by uninstalling ReCall.
 
+### Wherever you live
+
+You can ask us what Caller names data we hold about you, ask us to
+correct or delete it, and withdraw your consent by turning Caller
+names off. Email
+[visualtales8@gmail.com](mailto:visualtales8@gmail.com) with the
+phone number you listed. We confirm that the number is yours before
+we act, and reply within 30 days.
+
+### European Economic Area, United Kingdom and Switzerland
+
+You also have the right to restrict or object to how we use your
+data, and to receive your listing in a portable format. You can
+complain to your data protection authority, though we would like
+the chance to put things right first.
+
+### India
+
+Under the Digital Personal Data Protection Act, 2023, you can ask
+for a summary of your data and how it is used, have it corrected or
+erased, nominate someone to act for you, and raise a grievance with
+us by email. If we do not resolve it, you can complain to the Data
+Protection Board of India.
+
+### United States
+
+If you live in California or another state with a consumer privacy
+law, you can ask to know, correct and delete your personal data. We
+do not sell your personal data or share it for targeted
+advertising, and we treat you the same whether or not you use these
+rights.
+
+### Automated decisions
+
+ReCall makes no decision about you that has legal or similarly
+significant effects by automated means alone. The one automatic
+step: a name that three different people report is hidden until we
+review it.
+
 ---
 
 ## Earlier versions
@@ -345,12 +556,24 @@ phone app.
 
 ---
 
+## This website
+
+This website, where our policies live, is hosted on GitHub Pages.
+It sets no cookies, runs no analytics and loads nothing from other
+websites. GitHub, which hosts it, logs visitors' IP addresses to
+keep its service secure, as the
+[GitHub privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+describes.
+
+---
+
 ## Changes
 
 We publish changes to this policy in the app and at the same web
-address, and update the "Last updated" date above. If we change
-what Caller names does with your data, ReCall asks you to agree
-again before it looks up any more names.
+address, update the "Last updated" date above, and list each change
+under Revision history below. If we change what Caller names does
+with your data, ReCall asks you to agree again before it looks up
+any more names.
 
 ---
 

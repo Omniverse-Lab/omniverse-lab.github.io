@@ -5,9 +5,20 @@ permalink: /apps/recall/terms/
 app: ReCall
 app_slug: recall
 doc: terms
+summary: The agreement for using ReCall. The licence, how the phone app and its call summaries work, the Caller names terms, and what we are responsible for.
 effective: 2026-07-16
-updated: 2026-10-15
+updated: 2026-11-26
+applies_to: ReCall for Android
+package: io.github.omniverse_lab.recall
+publisher: OmniVerse Labs
 contact: visualtales8@gmail.com
+revisions:
+  - date: 2026-11-26
+    summary: Added the Caller names terms (section 4), ownership, third-party services and general terms (sections 1, 5 and 12), and renumbered the sections after them.
+  - date: 2026-10-07
+    summary: Updated for ReCall 1.1.0, which became a phone app.
+  - date: 2026-07-16
+    summary: First published.
 ---
 
 These Terms of Use ("Terms") govern your access to and use of
@@ -34,6 +45,10 @@ You may not:
 - Redistribute, sublicense, sell, rent, or lease the app or any
   part of it.
 - Use the app to build a competing product.
+
+ReCall, its name, its icon and its design belong to OmniVerse
+Labs. These Terms give you no right to use them other than to use
+the app.
 
 ---
 
@@ -137,7 +152,17 @@ again when you tap **Publish** or **Save name**.
 
 ---
 
-## 5. No Warranty
+## 5. Third-Party Services
+
+ReCall comes to you through Google Play, under the Google Play
+Terms of Service. Your calls go through Android's calling service
+and your mobile carrier, and Caller names runs on Google Firebase.
+We do not control these services. Their own terms and privacy
+policies apply to them, and we are not responsible for them.
+
+---
+
+## 6. No Warranty
 
 THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT
 WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
@@ -146,10 +171,11 @@ OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE
 UNINTERRUPTED, ERROR-FREE, OR FREE FROM DEFECTS, THAT ANY CALL
 WILL CONNECT, OR THAT THE CALL SUMMARIES WILL BE ACCURATE OR
 COMPLETE FOR YOUR SPECIFIC USE CASE.
+{: .legal-caps}
 
 ---
 
-## 6. Limitation of Liability
+## 7. Limitation of Liability
 
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OMNIVERSE
 LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
@@ -159,6 +185,7 @@ USE OF, OR INABILITY TO USE, THE APP. IN NO EVENT SHALL OUR
 TOTAL AGGREGATE LIABILITY EXCEED THE AMOUNT YOU PAID FOR THE
 APP IN THE 12 MONTHS PRECEDING THE CLAIM (WHICH, FOR A FREE
 APP, IS ZERO).
+{: .legal-caps}
 
 Some jurisdictions do not allow the exclusion or limitation of
 certain warranties or liabilities; in those jurisdictions our
@@ -166,7 +193,7 @@ liability is limited to the greatest extent permitted by law.
 
 ---
 
-## 7. Privacy
+## 8. Privacy
 
 Your use of ReCall is also governed by our
 [Privacy Policy](../privacy/). Without Caller names, ReCall sends
@@ -176,29 +203,32 @@ the Privacy Policy describes, until you turn it off.
 
 ---
 
-## 8. Changes to the App or Terms
+## 9. Changes to the App or Terms
 
 We may update the app or these Terms at any time. Material
 updates to the Terms will be reflected in the "Last updated"
-date at the top of this page and, where required, through
-notice in the app or on this website. Continued use after the
-effective date of a change constitutes acceptance of the
-revised Terms.
+date at the top of this page, listed under Revision history
+below and, where required, announced in the app or on this
+website. Continued use after the effective date of a change
+constitutes acceptance of the revised Terms.
 
 ---
 
-## 9. Termination
+## 10. Termination
 
-You may stop using ReCall at any time by uninstalling it. Uninstalling does not delete a Caller names listing; turn Caller names off first (section 4). We
-may suspend or terminate your access to the app if you breach
-these Terms or use the app in a manner that could cause harm
-to us or third parties.
+You may stop using ReCall at any time by uninstalling it.
+Uninstalling does not delete a Caller names listing; turn Caller
+names off first (section 4). We may suspend or terminate your
+access to the app if you breach these Terms or use the app in a
+manner that could cause harm to us or third parties.
 
-Sections 2, 3, 5, 6, 10, and 11 survive termination.
+The ownership paragraph in section 1, and sections 2, 3, 6, 7, 11
+and 12, survive termination. Section 4 keeps applying to a Caller
+names listing until it is deleted.
 
 ---
 
-## 10. Governing Law
+## 11. Governing Law
 
 These Terms are governed by the laws of the jurisdiction in
 which OmniVerse Labs is established, without regard to its
@@ -209,6 +239,21 @@ claim in your local courts.
 
 ---
 
-## 11. Contact
+## 12. General
+
+- **Severability.** If a court finds part of these Terms
+  unenforceable, the rest stays in effect.
+- **No waiver.** If we do not enforce a term straight away, we can
+  still enforce it later.
+- **Entire agreement.** These Terms, including the Caller names
+  terms in section 4, and the [Privacy Policy](../privacy/) are the
+  whole agreement between you and us about ReCall.
+- **Assignment.** You may not transfer your rights under these
+  Terms. We may transfer ours to whoever takes over ReCall, and
+  these Terms keep protecting you.
+
+---
+
+## 13. Contact
 
 Questions about these Terms: [visualtales8@gmail.com](mailto:visualtales8@gmail.com)
